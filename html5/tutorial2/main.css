@@ -1,9 +1,17 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Poppins:ital,wght@0,400;1,400;1,500&display=swap');
+ 
+body{
+  font-family: 'Poppins' !important;
+}
+  
   h1 {
     color: rgb(91, 91, 99);
   }
+
+
   p {
-    color: rgb(87, 78, 78);}
+    color: rgb(87, 78, 78);
+  }
 
 
     li{
@@ -12,8 +20,20 @@
       
     }
 
+    ul{
+      text-align: center;
+    }
+
     a{
       text-decoration: none!important;
-    color: brown;
-     font-family: Georgia, 'Times New Roman', Times, serif;
+     color: brown;
+     font-family:"Poppins";
+    margin: 1%;
+    }
+
+.active{
+  color: rgb(105, 73, 134);
 }
+#Navbar{background-color: rgb(220, 195, 242);}
+
+i{color: white;}
