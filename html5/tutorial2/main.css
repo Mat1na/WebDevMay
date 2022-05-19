@@ -3,4 +3,17 @@
     color: rgb(91, 91, 99);
   }
   p {
-    color: rgb(87, 78, 78);
+    color: rgb(87, 78, 78);}
+
+
+    li{
+      list-style-type: none;
+      display: inline;
+      
+    }
+
+    a{
+      text-decoration: none!important;
+    color: brown;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+}
