@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Poppins:ital,wght@0,400;1,400;1,500&display=swap');
 
 body {
-  font-family: 'Poppins' !important;
+    font-family: 'Poppins' !important;
+
 }
 
 h1 {
-  color: rgb(91, 91, 99);
+    color: rgb(91, 91, 99);
 }
 
 
 p {
-  color: rgb(87, 78, 78);
+    color: rgb(87, 78, 78);
 }
 
 
@@ -19,26 +20,42 @@ p {
 
 
 a {
-  text-decoration: none !important;
-  color: brown;
-  font-family: "Poppins";
-  margin: 1%;
+    text-decoration: none !important;
+    color: brown;
+    font-family: "Poppins";
+    margin: 1%;
 }
 
 .active {
-  color: rgb(105, 73, 134);
+    color: rgb(105, 73, 134);
 }
 
 #Navbar {
-  background-color: rgb(220, 195, 242);
-  text-align: center;
+    background-color: rgb(220, 195, 242);
+    text-align: center;
 }
 
 #Navbar>li {
-  list-style-type: none;
-  display: inline;
+    list-style-type: none;
+    display: inline;
 }
 
 i {
-  color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
+
+.table{
+    border: 1px solid black;
+    border border-collapse: collapse;
+}
+
+th, td {
+    background-color: #96D4D4;
+  }
+
+  caption{
+    border: 1px solid black;
+    
+  }
+
+  .tr1
