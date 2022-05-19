@@ -1,0 +1,50 @@
+nav{
+    background-color: rgb(204, 186, 219);
+    padding: 5px;
+    
+}
+
+
+li{
+    display: inline;
+}
+
+
+ul{
+    text-align: center;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
+#Home{
+    text-align: center;
+    background-color: rgb(124, 150, 152);
+    padding: 10px;
+    
+}
+
+article > img{
+    width: 100px;
+    float: left;
+    margin: 5px;
+}
+
+#Blog{
+    display: flex;
+    width: auto;
+}  
+
+nav {
+    background-color: rgb(204, 186, 219);
+    padding: 5px;
+}
+
+footer{
+    background-color: rgb(204, 186, 219);
+    padding: 5px;
+    text-align: center;
+}
