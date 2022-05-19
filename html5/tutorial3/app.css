@@ -48,3 +48,13 @@ footer{
     padding: 5px;
     text-align: center;
 }
+
+
+main#login-container{
+    background-color: rgb(205, 222, 216);
+    padding: 3px;
+}
+
+video{
+    width: 27% !important;
+}
