@@ -46,7 +46,7 @@ i {
 
 .table{
     border: 1px solid black;
-    border border-collapse: collapse;
+   
 }
 
 th, td {
@@ -58,4 +58,6 @@ th, td {
     
   }
 
-  .tr1
+  main#login-container {
+      background-color: blueviolet;
+  }
