@@ -22,7 +22,6 @@ p {
 a {
     text-decoration: none !important;
     color: brown;
-    font-family: "Poppins";
     margin: 1%;
 }
 
@@ -33,6 +32,7 @@ a {
 #Navbar {
     background-color: rgb(220, 195, 242);
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #Navbar>li {
@@ -66,4 +66,12 @@ th, td {
   main#gallery{
       background-color: rgb(204, 179, 148);
       padding: 10px;
+    
+  }
+
+
+  #gallery>video
+  {
+      margin: 100px;
+      width:50% ;
   }
