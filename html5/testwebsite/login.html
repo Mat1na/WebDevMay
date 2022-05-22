@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +15,42 @@
 
 
 </head>
+
 <body>
+
     <main id="login-container">
+        <!-- http://127.0.0.1:5500/save?username=admin&password=1234&email=1234@emai.com -->
+        <!-- http://127.0.0.1:5500/save?username=admin&email=admin%40admin.com&password=1234 -->
         <h1>Login page</h1>
+        <form method="post" action="/save">
+            <fieldset>
+
+            <label for="username">Username</label></br>
+            <input type="text" name="username" placeholder="name" value="admin" required /></br>
+
+            <label for="email">Email</label><br>
+            <input type="email" name="email" placeholder="email" /></br>
+
+        <input type="text" value="Aalst" readonly /></br>
+
+            <input type="hidden" value="tokenfgsdv564db46c68x" readonly required />
+
+            
+            <label for="date">Date</label><br>
+            <input type="date" name="date" /></br>
+
+            <label for="password">Password</label><br>
+            <input type="password" name="password" placeholder="password" /></br>
+
+            <!-- <input type="submit" value="sent"/> -->
+            <button>sent</button>
+        </fieldset>
+
+
+
+        </form>
     </main>
-    
+
 </body>
+
 </html>

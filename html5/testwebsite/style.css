@@ -59,5 +59,11 @@ th, td {
   }
 
   main#login-container {
-      background-color: blueviolet;
+      background-color: rgb(185, 168, 201);
+      padding: 3px;
+  }
+
+  main#gallery{
+      background-color: rgb(204, 179, 148);
+      padding: 10px;
   }
