@@ -9,12 +9,15 @@ h1 {
     color: rgb(91, 91, 99);
 }
 
+article>img {
+    width: 200px;
+    float: left;
+    margin: 10px;
+}
 
 p {
     color: rgb(87, 78, 78);
 }
-
-
 
 
 
@@ -33,6 +36,7 @@ a {
     background-color: rgb(220, 195, 242);
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding:15px;
 }
 
 #Navbar>li {
@@ -44,34 +48,43 @@ i {
     color: rgb(255, 255, 255);
 }
 
-.table{
+.table {
     border: 1px solid black;
-   
+
 }
 
-th, td {
+th,
+td {
     background-color: #96D4D4;
-  }
+}
 
-  caption{
+caption {
     border: 1px solid black;
-    
-  }
 
-  main#login-container {
-      background-color: rgb(185, 168, 201);
-      padding: 3px;
-  }
+}
 
-  main#gallery{
-      background-color: rgb(204, 179, 148);
-      padding: 10px;
-    
-  }
+main#login-container {
+    background-color: rgb(185, 168, 201);
+    padding: 3px;
+}
+
+main#gallery {
+    background-color: rgb(204, 179, 148);
+    padding: 10px;
+
+}
 
 
-  #gallery>video
-  {
-      margin: 100px;
-      width:50% ;
-  }
+#gallery>video {
+    margin: 100px;
+    width: 50%;
+}
+
+footer {
+    background-color: rgb(155, 114, 64);
+    text-align: center;
+    padding:5px;
+   }
+   footer>p{
+       color: azure;
+   }
