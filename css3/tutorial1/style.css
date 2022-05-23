@@ -1,0 +1,60 @@
+fieldset{
+
+    /* border-color: brown;
+    border-style: dashed;
+    border-width: 1px; */
+
+    /* border: 1px dashed brown; */
+    
+    /* border-top: 3px dashed brown;
+    border-bottom: 3px dashed green;
+    border-right:3px solid black;
+    border-left: 3px solid salmon; */
+
+    /* border-image: url(https://cdn.pixabay.com/photo/2017/02/16/19/47/bokeh-2072271__340.jpg )30% space ; */
+    /* border-image: url(https://cdn.pixabay.com/photo/2017/02/16/19/47/bokeh-2072271__340.jpg ) 1%fill ;
+    border-width: 10px;
+    border-style: solid; */
+
+
+}
+
+#main{
+    border: 2px solid red;
+    height: 100vh;
+}
+
+.container{
+    border: 2px solid purple!important;
+
+}
+option[value="GTX1080"]{
+    background-color: black !important;
+    color: white;
+}
+
+option[value="GTX1060"]{
+    background-color: rgb(252, 0, 0) !important;
+    color: white;
+}
+
+label[name="computer1"]{
+    color: brown;
+}
+label[name="computer2"]{
+    background-color: rgb(3, 2, 2);
+    color: rgb(180, 189, 45);
+    padding: 3px;
+}
+label[name="computer3"]{
+    color: rgb(35, 132, 44);
+}
+label[name="computer4"]{
+    color: rgb(98, 77, 167);
+}
+body{
+    background: url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
