@@ -1,0 +1,139 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    width: 100%;
+    background-color: rgb(37, 82, 45);
+    padding: 1em;
+    color: white;
+    
+}
+
+
+
+
+.boxheader{
+    width: 300px;
+    height: 100px;
+    background-color: rgb(22, 47, 27);
+    padding: 1em;
+    color: white;
+    text-align: center;
+    
+    
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+
+.menu>li{
+    list-style-type: none;
+    padding: 10px;
+    display: inline;
+    text-align: right;
+   
+}
+
+h1{
+    color: rgb(255, 255, 255);
+
+}
+
+h2{
+    color: rgb(255, 255, 255);
+}
+
+.boxcontainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.maincontainer{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+
+.boxcontainer >div{
+    
+    width: 200px;
+    height: 200px;
+    color: white;
+    margin: 10px; 
+    
+    
+}
+
+.box1{
+    background-color: brown;
+    
+    
+    
+}
+.box2{
+    background-color: rgb(75, 42, 165);
+    
+   
+}
+.box3{
+    background-color: rgb(54, 165, 42);
+    
+   
+}
+.box4{
+    background-color: rgb(42, 85, 165);
+    
+    
+}
+
+.box5{
+    background-color: rgb(165, 42, 118);
+   
+    
+}
+.box6{
+    background-color: rgb(154, 135, 41);
+ 
+    
+}
+
+
+.twitterfeed {
+    background-color: rgb(125, 125, 125);
+    color: aliceblue;
+    padding: 1em;
+    margin: 0 auto;
+    width: 66.5%;
+}
+
+
+ footer{
+    background-color: black;
+    color: azure;
+    width: 100%;
+    padding:  1em ;
+   
+    text-align: center;
+    bottom: 0;
+    
+ }
+
+ footer>ul,p{
+     flex-direction: row;
+     justify-content: space-between;
+ }
+
+ 
