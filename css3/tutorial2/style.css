@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding:0;
+}
+
+.container{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    padding: 3% 2em 0;
+    outline: 10px solid rgb(93, 2, 2);
+    border: 10px solid red;
+}
+
+.container>p{
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+    text-shadow: 8px -10px 5px red;
+    letter-spacing: 20px;
+}
+
+
+.content{
+    width: 100px;
+    background-color: rgb(175, 78, 78);
+    padding: 1em;
+    color: white;
+}
+.content> a{
+    color: white;
+}
+
+.content >a:hover{
+    color: green;
+    text-decoration: none;
+}
+
+.content >a:visited{
+    color: rgb(88, 183, 234);
+    text-decoration: none;
+}
+.menu>li{
+    list-style-type: none;
+}
+
+.menu>li:hover{
+    color: green;
+    background-color: beige;
+}
