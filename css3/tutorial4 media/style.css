@@ -1,0 +1,51 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+}
+
+.box{
+    background-color:greenyellow;
+    color:black;
+    font-size: 20pt;
+    padding: 10px;
+   
+}
+
+
+/* Range betweeb 300px and 800px */
+
+@media all and (max-width:500px) and (min-width:400px)
+{
+    .container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media all and (max-width:400px) and (min-width:100px) 
+{
+    .container{
+        grid-template-columns: repeat(1,1fr);
+       
+    }
+    .box{
+        background-color: blue;
+    }
+}
+
+@media all and (max-width:400px) and (min-width:100px) 
+{
+  
+    .box{
+        background-color: blue;
+    }
+}
+
+
+
