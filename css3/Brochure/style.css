@@ -1,139 +1,120 @@
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.header{
+.container {
+    background-color: rgb(220, 245, 226);
+    padding: 10px 40px;
+    
+
+
+}
+.navcontainer{
     width: 100%;
-    background-color: rgb(37, 82, 45);
-    padding: 1em;
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 0;
+}
+.intro{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0; 
     
 }
 
+section{
 
-
-
-.boxheader{
-    width: 300px;
-    height: 100px;
-    background-color: rgb(22, 47, 27);
-    padding: 1em;
-    color: white;
-    text-align: center;
-    
+    padding-right: 20px;
+    flex-basis:500px;
     
 }
 
-a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-
-
-.menu>li{
-    list-style-type: none;
-    padding: 10px;
-    display: inline;
-    text-align: right;
+.featured {
+    background-color: rgb(106, 158, 118);
+    width: 200px;
+    padding: 20px;
+    margin:5px;
+    flex-basis:500px;
    
-}
-
-h1{
-    color: rgb(255, 255, 255);
 
 }
 
-h2{
-    color: rgb(255, 255, 255);
+
+.navcontainer li {
+    list-style-type: none;
+    padding: 5px;
+    display: inline;
+    text-decoration: none
 }
 
-.boxcontainer{
+.navcontainer a {
+    text-decoration: none
+}
+
+.main {
+    margin: 40px;
+
+}
+
+.content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+
 }
 
-.maincontainer{
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-
-
-.boxcontainer >div{
-    
-    width: 200px;
-    height: 200px;
-    color: white;
-    margin: 10px; 
-    
+.content div {
+    padding: 10px;
+    margin: 5px;
+    flex-basis: 100px;
     
 }
 
-.box1{
+.box1 {
     background-color: brown;
-    
-    
-    
 }
-.box2{
+
+.box2 {
     background-color: rgb(75, 42, 165);
-    
-   
+
 }
-.box3{
+
+.box3 {
     background-color: rgb(54, 165, 42);
-    
-   
-}
-.box4{
-    background-color: rgb(42, 85, 165);
-    
-    
+
 }
 
-.box5{
+.box4 {
     background-color: rgb(165, 42, 118);
-   
-    
-}
-.box6{
-    background-color: rgb(154, 135, 41);
- 
-    
+
 }
 
+.box5 {
+    background-color: rgb(153, 165, 42);
+
+}
+
+.box6 {
+    background-color: rgb(21, 32, 179);
+
+}
 
 .twitterfeed {
-    background-color: rgb(125, 125, 125);
-    color: aliceblue;
-    padding: 1em;
-    margin: 0 auto;
-    width: 66.5%;
+    background-color: gray;
+    height:30px;
+    padding: 20px;
 }
 
-
- footer{
-    background-color: black;
-    color: azure;
-    width: 100%;
-    padding:  1em ;
-   
-    text-align: center;
-    bottom: 0;
-    
- }
-
- footer>ul,p{
-     flex-direction: row;
-     justify-content: space-between;
- }
-
- 
+footer {
+    background-color: rgb(41, 40, 40);
+    color: white;
+   padding: 10px;
+   text-align: center;
+   position: absolute;
+   width:100%;
+}
