@@ -1,0 +1,104 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: brown;
+    color: rgb(255, 255, 255);
+    padding: 3px;
+    text-align: center;
+
+}
+
+nav {
+    background-color: blue;
+    padding: 3px;
+    color: azure;
+    text-align: center;
+}
+
+
+nav>ul {
+    list-style-type: none;
+}
+
+nav>ul>li {
+    font-size: 20pt;
+    display: inline;
+    margin-right: 1em;
+}
+
+aside {
+    background-color: blanchedalmond;
+    padding: 3px;
+    width: 25%;
+    float: left;
+}
+
+aside>ul {
+    list-style-type: none;
+}
+
+aside>ul>li {
+    font-size: 18pt;
+}
+
+main {
+    background-color: brown;
+    width: 74%;
+    float: right;
+    margin: 5px;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    clear: both;
+    margin: 3px;
+    padding: 5px;
+}
+
+article {
+    /* height: 70px; */
+    background-color: blueviolet;
+    color: black;
+
+
+}
+
+article>p {
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 500px;
+    overflow: hidden; */
+    column-count: 3;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    gap:10px;
+}
+
+.box {
+    background-color: white;
+    color: black;
+    height: 100px;
+    margin: 1px;
+    animation:  myAnimation  alternate-reverse 5s infinite;
+}
+
+@keyframes  myAnimation{
+
+    0%{
+        transform: rotate(360deg);
+    }
+     
+    100%{
+        transform: rotate(180deg);
+    }
+   
+}
