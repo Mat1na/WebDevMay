@@ -1,0 +1,25 @@
+.carousel-item>img{
+height: 500px;
+object-fit: cover;
+object-position: center;
+}
+
+.bodyfirst{
+    background: url(https://cdn.dribbble.com/users/1040798/screenshots/15685874/media/aa9588469e19517c2b94b1addd15d11d.gif);
+
+    background-size: cover;
+}
+.footerfirst{
+    background-color:transparent !important;
+    border-color:white
+    border-width:2px;
+}
+
+.item1{
+   
+}
+
+.accordion-button::after{
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='rgb(255, 0, 0)'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+

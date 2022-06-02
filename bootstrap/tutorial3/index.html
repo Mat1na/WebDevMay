@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <title>Accordion</title>
+  </head>
+
+
+
+  <body>
+    <div class="container pt-4">
+      <p class="lead bg-dark text-light p-2">Accordion Componet</p>
+
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item ">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button bg-black text-light  "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne">
+              
+              Report
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+          
+            <div class="accordion-body">
+            
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="True"
+              aria-controls="collapseTwo">
+
+              Info
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse- show"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample" >
+         
+            <div class="accordion-body">
+              <h3>Article title</h3>
+              <img src="https://picsum.photos/200/300" class="w-50 h-100">
+            </div>
+          </div>
+        </div>
+      <hr>
+      </div>
+    
+<!-- 
+    <p class="lead bg-dark text-light p-2"> Alert component</p>
+    <div class="alert alert-success" role="alert">
+      A simple success alert—check it out!
+    </div>
+
+    <p class="lead bg-dark text-light p-2"> Badge component</p>
+    <h1>Badge text <span class="badge bg-primary">1</span></h1>
+
+    <span class="badge text-bg-primary">Messages <span class="text-warning bg-ligt text-bg-dark h5 rounded">Primary</span></span> -->
+
+
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark">Previus</button>
+        <button type="button" class="btn btn-danger">Next</button>
+        
+      </div>
+
+
+
+<div class="card">
+    <img src="https://picsum.photos/300/200" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5>Title</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsum voluptate maiores molestias architecto eos quibusdam perspiciatis dolore sapiente ad obcaecati officiis quam minima dolor fugit adipisci, eveniet, quidem voluptatem.</p>
+    </div>
+</div>
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/589840/pexels-photo-589840.jpeg?cs=srgb&dl=pexels-valiphotos-589840.jpg&fm=jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://us.123rf.com/450wm/kharchenko/kharchenko1907/kharchenko190700040/127507703-autumn-background-stairs-to-the-sky-amazing-mysterious-road-steps-leads-to-mystical-world-fairytale-.jpg?ver=6" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="bi bi-activity"></i>
+   Read details
+  </button>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header ">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bodyfirst">
+            <h1 class="display-1 text-light text-center">Hello World!</h1>
+          <div class="modal-footer footerfirst position-fixed bottom-0 w-100">
+            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#WebDev">
+    Read details
+   </button>
+  <!-- Modal -->
+<div class="modal fade" id="WebDev" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">WebDev</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body webdev-body">
+          <h1 class="display-1 text-light text-center">Hello World!</h1>
+          <div class="modal-footer footer-webdev">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+       
+      </div>
+      <div class="modal-footer footer-webdev position-fixed bottom-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br><br><br>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
