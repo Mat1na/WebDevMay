@@ -144,4 +144,34 @@ result=n1>=n2; //true
 //  less than or equal <=
 result=n1<=n4;
 
+
+var myRule=n1<=n3? "Correct":"Incorrect";
+var mySecondRule=n3<=n1; 
 console.log(result+"😆");
+
+
+
+var studentName="Joe"
+var age=17;
+var money=0;
+result=age>=18? "He is allowed drink":"He is not allowed to drink";
+
+age=18
+var ageLimit= age>=18;
+result=ageLimit? studentName +" is allowed drink": studentName +" is not allowed to drink";
+// result=ageLimit? `${studentName}  is allowed drink` : `${studentName}  is  not allowed drink`;
+
+// true and false
+result=myRule&& mySecondRule;
+
+var studentRule1=age>=18;
+
+var studentRule2=money>=1;
+
+var getResult=studentRule1 && studentRule2;
+
+result=getResult ? 
+
+studentName +" can drink": studentName +" needs money" ;
+
+console.log(result+"😆"); 
