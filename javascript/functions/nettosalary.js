@@ -1,9 +1,9 @@
 
 // //salary calculate
-// var bruto=3000;
+
 // var tax=0.21; //or 21/100 for20%
 // var neto= bruto-(bruto*tax)
-// console.log(neto)
+
 
 function nettoSalaryCalc(brutto,tax){
     var netto=brutto-(brutto*tax)
