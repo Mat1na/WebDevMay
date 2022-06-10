@@ -12,3 +12,14 @@ function nettoSalaryCalc(brutto,tax){
 }
 
 nettoSalaryCalc(3000,0.21)
+
+
+// Arrow function
+
+const nettoSalaryCalcArrow=(brutto,tax)=>{
+    var netto=brutto-(brutto*tax)
+    console.log("Your netto salary from Arrow is",netto);
+    return netto
+}
+
+nettoSalaryCalcArrow(2000,0.21)
