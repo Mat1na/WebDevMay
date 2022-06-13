@@ -5,7 +5,7 @@ function bmiCalc(weight, height){
 }
 
 bmiCalc(65,1.75)
-console.log(bmiCalc(65,1.75))
+
 
 
 // // arrow function
