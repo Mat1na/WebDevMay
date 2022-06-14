@@ -2,93 +2,105 @@
 //     name:"Joe Dalton",
 //     age:25,
 //     education:"Software Developer",
-//     projects:["a","b","c","d"],
-//     print:function(){
-//         console.log("print function");
-//         console.log(this.name);
-//         console.log(this);
+//     projects:['a','b','c','d'],
+//     print: function(){
+//         console.log("print function")
+//         console.log(this.name)
+//         console.log(this)
 //     }
 // }
-// console.log("global scop",this)
-// student.print()
+// console.log("global scope",this)
+// function ThisExample(){
+//     console.log(this,"function scope this")
+// }
 
-// var name="Joe";
+// ThisExample()
+// // student.print()
+
+
+// const name="Joe"; // global scope
 
 // function LocalScopeFunction(){
-//     const name="Dalton";
+//     const name = "Dalton"
 //     console.log(name)
 // }
-// console.log(LocalScopeFunction)
-
-// const student2={
-//     name:"Joe Dalton",
-//     age:25,
-//     education:"Software Developer",
-//     projects:["a","b","c","d"],
-//     print:()=>{
-//         console.log("print function");
-//         console.log(this.name);
-//         console.log(this);
-//     }
-// }
-// console.log("global scop",this)
-// student2.print() // does not work with arrow function
 
 
-// const Tools={
-//     bmiCalc:function(weight,height){
-//         let bmi=weight/(height*height);
-//         console.log(`BMI result is ${bmi}`)
-//     },
-//     nettoSalary:function(salary,tax){
-//         let netSalary=salary-((salary*tax)/100)
-//         console.log(`Netto salary result is ${netSalary}`)
-//     }
-// };
-// Tools.bmiCalc(75,1.75);
-// Tools.nettoSalary(1000,21);
+// LocalScopeFunction()
+// console.log(name)
 
-const computer={
-    screen:"Asus",
-    keyboard:"Logitech",
-    mouse:"Logitech",
-    cpu:"intel",
-    gpu:"NVIDIA",
-    power:false,
-    turnon:function(){
-        this.power=true;
-        console.log("Computer is turning on...")
-        console.log(`
-        screen:${this.screen}
-        keyboard:${this.keyboard}
-        mouse:${this.mouse}
-        cpu:${this.cpu}
-        gpu:${this.gpu}
-        `)
-    },
-    turnoff: function(){
-        this.power=!this.power;
-        console.log("Computer is turning off...")
-    },
-    // switcher:function(){
-    //     this.power=this.power;
-    // },
-    status: function(){
-const computerStatus=this.power?"Computer is on":"Computer is off"
-console.log(computerStatus);
+const student={
+    name:"Joe Dalton",
+    age:25,
+    education:"Software Developer",
+    projects:['a','b','c','d'],
+    print: ()=>{ // arrow function
+        console.log(this.name)
+        console.log("arrow function")
     }
 }
-// computer.turnon();
-// // computer.turnoff();
-// computer.status()
 
-// function number1(){
-//     console.log(1)
-//     return 1
-// }
-// function number2(){
-//     console.log(2)
-//     return 2
-// }
+//student.print()
 
-// console.log(number1()+number2()) /* does not work without return */
+const Tools = {
+    bmicalc:function(weight,height){
+        let bmi = weight/(height*height)
+        console.log(`BMI Result is ${bmi}`)
+    },
+    nettosalary:function(salary,tax){
+        let netSalary = salary - ((salary*tax)/100)
+        console.log(`Net Salary is ${netSalary}`)
+    }
+}
+
+// Tools.bmicalc(75,1.75)
+// Tools.nettosalary(1000,21)
+
+const PC = {
+    screen:"ASUS",
+    keyboard:"Logitech",
+    mouse:"Logitech",
+    cpu:"Intel i7",
+    gpu:"NVIDIA GTA 1060 6Gb",
+    power:false,
+    turnon:function(){
+        PC.power = true; // updated the boolean value 
+        console.log("computer is turning on...")
+        console.log(`
+        Screen: ${PC.screen}
+        Keyboard: ${PC.keyboard}
+        Mouse: ${PC.mouse}
+        CPU: ${PC.cpu}
+        GPU: ${PC.gpu}`)
+    },
+    turnoff:function(){
+        PC.power = false;  // updated the boolean value 
+        console.log("Computer is turning off...")
+    },
+    switcher:function(){
+        PC.power = !this.power; // alternative way of doing it
+         // updated the boolean value {toggle}
+        // if off turn on then off
+    },
+    status:function(){
+        //const computerStatus = PC.power ? "Computer is running":"COmputer is off"
+        console.log(PC.power ? "Computer is running":"COmputer is off")
+    }
+}
+
+
+// PC.turnon()
+// PC.status()
+// PC.turnoff()
+ PC.status()
+
+function number1(){
+    console.log(1)
+    return 1
+}
+function number2(){
+    console.log(2)
+    return 5 // provide the value
+}
+
+console.log(number1()+number2())
