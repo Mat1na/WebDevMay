@@ -1,28 +1,53 @@
+// string methods
 var result;
-const MyText="The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.";
+const MyText = 'dolor ipsum brussel sit ipsum amet';
 
-// result=MyText.length;
-// result=MyText[0];
+// length
+result = MyText.length;
+result = MyText[MyText.length-1] // MyText.length = 30 -1
 
-// console.log(result)
+// charAt()
+result = MyText.charAt(6); // return character at index 6
+
+// concat() method
+var firstname = "John "
+var lastname = "Doe"
+result = firstname.concat(lastname); // return JohnDoe
+result = "1234".concat("5678"); // return 12345678
+
+// startwidth() method and endwidth() method
+result = MyText.endsWith("intec") // true or false
+result = MyText.startsWith("lorem")
+
+// includes method
+result = MyText.includes("ipsum")
+
+// indexOf() method
+result = MyText.indexOf("brussel") // return index of word 
+
+// replace method
+//result = MyText.replace("ipsum","javascript")
+result = MyText.replaceAll("ipsum","javascript");
+
+// split method
+var names="Ersin,Hande,Alex,John,Jane";
+result = MyText.split(" ");
+result = names.split(",")
+
+// slice method 
+result = MyText.slice(0,MyText.length-4)
+
+result = MyText.toUpperCase(); // return all characters in uppercase
+result = MyText.toLocaleLowerCase(); // return all characters in lowercase
+
+var MyText2 = "             lorem                    ipsum             ";
+//result = MyText2.trim().slice(5,MyText2.length-32); // return lorem ipsum
+result = MyText2.trim().slice(0,6).concat(MyText2.trim().slice(MyText2.length-31)); // return lorem ipsum
+//console.log(MyText2)
+var MyNewText= "dolor ipsum dolor brussel BELGIUM sit dolor brussel ipsum amet 123456789"
+result = MyNewText.match(/brussel/)
+result = MyNewText.match(/brussel/g)
 
 
 
-// var firstName="John";
-// var lastName="Doe";
-// result=firstName.concat(lastName)
-// result="1234".concat("5678");
-
-//startswith() method and endswith()method
-var names="John,Jane,Mike";
-result=MyText.endsWith("jhfkfh")
-result=MyText.split(" ")
-result=names.split(",")
-result=MyText.toUpperCase()
-result=MyText.toLocaleLowerCase()
-var myText2="   lorem ipsum    "
-result=myText2.trim()
-var myNewText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam suscipit ex quo obcaecati, perspiciatis inventore earum quidem blanditiis vel sit nemo ea, reprehenderit ipsa architecto dicta dolorum laborum repudiandae tempore."
-result=myNewText.match(/dolor/)
 console.log(result)
-// console.log(myText2)
