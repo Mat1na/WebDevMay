@@ -33,7 +33,7 @@ if(isNaN(userInput)||isNaN(userInput2)){
     number2=parseInt(userInput2) ;
     sum=number+number2;
     console.log(sum);
-    results.innerText=`Your sum ${sum}`;
+    results.innerText=`Your sum is ${sum}`;
 
 }else{
     number=parseInt(userInput) ;
