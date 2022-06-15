@@ -53,16 +53,13 @@ function whoPassedTheExam(value){
         return _student.filter(value=>value.name==name)
     } 
 
-    if(students.filter(value=>value.score>=50){
+    if(_students.filter(value=>value.score>=50)){
         result.innerHTML=`${value.name} your score is ${value.score} you have passed`
 
     }
 
-  
-  
-
- }
   else{
+    result.innerHTML=`${value.name} your score is ${value.score} you have not passed`
    return "not found"
   
   }
@@ -80,11 +77,12 @@ function ClickHandler(){
 
   console.log(filter.value)
    
-  _students= whoPassedTheExam(filter.value)
+  
 
   
 }
 
+_students= whoPassedTheExam(filter.value)
 
 FindBtn.addEventListener("click", ClickHandler)
 
