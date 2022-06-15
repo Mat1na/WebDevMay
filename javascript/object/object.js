@@ -34,7 +34,7 @@ const student={
     age:25,
     education:"Software Developer",
     projects:['a','b','c','d'],
-    print: ()=>{ // arrow function
+    print:()=>{ // arrow function
         console.log(this.name)
         console.log("arrow function")
     }
@@ -94,13 +94,13 @@ const PC = {
 // PC.turnoff()
  PC.status()
 
-function number1(){
-    console.log(1)
-    return 1
-}
-function number2(){
-    console.log(2)
-    return 5 // provide the value
-}
+// function number1(){
+//     console.log(1)
+//     return 1
+// }
+// function number2(){
+//     console.log(2)
+//     return 5 // provide the value
+// }
 
-console.log(number1()+number2())
+// console.log(number1()+number2())

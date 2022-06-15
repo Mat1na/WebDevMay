@@ -1,7 +1,9 @@
 const filter = document.getElementById('filter') 
 const FindBtn = document.getElementById('find') 
 const result = document.getElementById('result') 
-
+var passed;
+var successfull;
+var FindStudentByName;
 
 var _students = [
     {
@@ -28,24 +30,79 @@ var _students = [
         course:'python',
         score:70
     }
+ 
 ]
 
 // whoPassedExam?
-function whoPassedExam(value){
-    if (_students .filter(value => value.score >50)) {
-       return _students .filter(value => value.score >50)
-       
-}else {
-    return  [{ score: 'Not successfull' }]
-}}
 
 
-function ClickHandler() {
-    console.log(filter.value)
-    let _students = whoPassedExam(filter.value)[0]
 
-    result.innerText =`${_students.name} your score is ${_students.score}`
 
+// successfull=_students.filter(value=>{
+//     return value.score>=50
+
+// })
+
+console.log(successfull)
+
+
+
+function whoPassedTheExam(value){
+
+    FindStudentByName=name=>{
+        return _student.filter(value=>value.name==name)
+    } 
+
+    if(students.filter(value=>value.score>=50){
+        result.innerHTML=`${value.name} your score is ${value.score} you have passed`
+
+    }
+
+  
+  
+
+ }
+  else{
+   return "not found"
+  
+  }
+
+  
 }
 
-console.log(whoPassedExam(_students))
+
+
+
+
+
+function ClickHandler(){
+    
+
+  console.log(filter.value)
+   
+  _students= whoPassedTheExam(filter.value)
+
+  
+}
+
+
+FindBtn.addEventListener("click", ClickHandler)
+
+// function whoPassedExam(value){
+//     if (_students .filter(value => value.score >50)) {
+//        return _students .filter(value => value.score >50)
+       
+// }else {
+//     return  [{ score: 'Not successfull' }]
+// }}
+
+
+// function ClickHandler() {
+//     console.log(filter.value)
+//     let _students = whoPassedExam(filter.value)[0]
+
+//     result.innerText =`${_students.name} your score is ${_students.score}`
+
+// }
+
+// console.log(whoPassedExam(_students))
