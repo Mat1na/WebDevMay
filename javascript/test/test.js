@@ -1,21 +1,21 @@
-//fizzBuzz
-var output = [];
-var number = 1;
+// //fizzBuzz
+// var output = [];
+// var number = 1;
 
-function fizzBuzz() {
-  if (number % 3 === 0 && number % 5 === 0) {
-    output.push("fizzbuzz");
-  } else if (number % 3 === 0) {
-    output.push("fizz");
-  } else if (number % 5 === 0) {
-    output.push("buzz");
-  } else {
-    output.push(number);
-  }
-  number++;
-  console.log(output);
-}
-// fizzBuzz();
+// function fizzBuzz() {
+//   if (number % 3 === 0 && number % 5 === 0) {
+//     output.push("fizzbuzz");
+//   } else if (number % 3 === 0) {
+//     output.push("fizz");
+//   } else if (number % 5 === 0) {
+//     output.push("buzz");
+//   } else {
+//     output.push(number);
+//   }
+//   number++;
+//   console.log(output);
+// }
+// // fizzBuzz();
 
 
 
@@ -56,16 +56,62 @@ function fizzBuzz() {
 
 
 
+
 //Who´s buying
 
 var people=["Anna","Maria","John","Mike"];
 
 
-function whoIsBuying(people){
+// function whoIsBuying(people){
 
-  var random=Math.floor(Math.random()*people.length)
-  return people[random]+" is gonna pay tody";
+//   var random=Math.floor(Math.random()*people.length)
+//   return people[random]+" is gonna pay tody";
  
-}
+// }
 
 
+function whosPaying(people) {
+    
+  /******Don't change the code above*******/
+      
+      //Write your code here.
+      
+   var peopleAmount=people.length;
+   var randomSelect=Math.floor(Math.random()*peopleAmount);
+   var randomSelectPerson=people[randomSelect];
+   
+   return randomSelectPerson+ " is going to buy lunch today!";
+      
+      
+  
+  
+  /******Don't change the code below*******/    
+  }
+// console.log(whosPaying(people));
+
+
+
+
+
+// //fizzBuzz
+// var output = [1];
+// var number = 1;
+
+
+// function fizzBuzz() {
+//   if (number % 3 === 0 && number % 5 === 0) {
+//     output.push("fizzbuzz");
+//   } else if (number % 3 === 0) {
+//     output.push("fizz");
+//   } else if (number % 5 === 0) {
+//     output.push("buzz");
+//   } else {
+//     output.push(number);
+   
+//   }
+//   number++;
+// }
+  
+//   console.log(output);
+
+// fizzBuzz();
