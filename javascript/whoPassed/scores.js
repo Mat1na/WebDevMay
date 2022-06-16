@@ -76,13 +76,13 @@ function ClickHandler(){
     
 
   console.log(filter.value)
-   
+  _students= whoPassedTheExam(filter.value)
   
 
   
 }
 
-_students= whoPassedTheExam(filter.value)
+
 
 FindBtn.addEventListener("click", ClickHandler)
 
