@@ -245,6 +245,9 @@ let users=[
       "zipcode": "1702",
     },
     "phone": "(0)478-123 137",
+    "skills":["Html","css","javascript"]
+
+    
     
     })
 
@@ -275,4 +278,97 @@ let users=[
     user.address.zipcode="15247"
     user.phone="(555)678-545 155"
     console.log(`########\nusername:${user.username.toLocaleUpperCase()}\nfullname:${user.name.toUpperCase()}\nstreet:${user.address.street}\nemail:${user.email}\ncity:${user.address.city}\n########`)
+    // console.log(user.skills.toString())
    })
+//    FilterUsersMe.map(function(user){
+//     user.name="Sara Lotte"
+//     user.username="Sara"
+//     user.email="sara@gmail.com"
+//     user.address.city="New York"
+//     user.address.street="A Street in New York"
+//     user.address.zipcode="15247"
+//     user.phone="(555)678-545 155"
+//     console.log(`########\nusername:${user.username.toLocaleUpperCase()}\nfullname:${user.name.toUpperCase()}\nstreet:${user.address.street}\nemail:${user.email}\ncity:${user.address.city}\n########`)
+//    })
+
+
+// function FilterData(myArr){
+// return myArr +=" INTEC"
+// }
+
+
+// function ChangeLetterToUpperCase(filteredData){
+// return filteredData.toUpperCase()
+// }
+
+
+
+// function PrinterService(filteredData){
+//     const getResult=FilterData(ChangeLetterToUpperCase(filteredData))
+// console.log(getResult)
+
+// }
+
+function FilterData(myArr){
+    return myArr 
+    }
+    
+    
+    function ChangeLetterToUpperCase(filteredData){
+    //     //changing username to uppercase
+    //     //iteration
+    //     // console.log(filteredData)
+
+    //     const getchangedData=filteredData.forEach(user=>{user.name=user.name.toUpperCase()
+    //     })
+        // console.log(getchangedData)
+        let temp=[]
+        filteredData.forEach(function(user){
+            user.name=user.name.toUpperCase()
+            temp.push(user)
+        })
+    return temp
+    }
+    
+    
+    
+    function PrinterService(getFilteredData){
+        const getResult=FilterData(ChangeLetterToUpperCase(getFilteredData))
+    console.log(getResult,"test")
+    
+    }
+    
+
+
+// PrinterService(users)
+
+var numbers=[55,4,89,3,7,5,0,70,15]
+let result=numbers.reduce(function(accumulator,currentValue){
+    // console.groupCollapsed("Accumulator:", accumulator)
+    // console.groupCollapsed("CurrentValue:", currentValue)
+    return accumulator+currentValue
+})
+
+result=numbers.reduceRight(function(accumulator,currentValue){
+    return accumulator+currentValue
+})
+
+
+
+var _students = {
+        id:1,
+        name:'avarel',
+        course:'javascript',
+        score:[45,15,20,50]
+    }
+
+    
+var nestedArray=[1,2,3,[4,5,6,[7,8,9,10]]]
+
+//fill 
+result=numbers.fill(5)
+
+// flat method
+result=nestedArray.flat(2)
+
+console.log(result)
