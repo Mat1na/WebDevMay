@@ -1,9 +1,4 @@
-const input = document.getElementById('input')
-const FindBtn = document.getElementById('find') 
-const demo = document.getElementById('demo') 
-var passed;
-var successfull;
-var FindStudentByName;
+
 
 var _students = [
     {
@@ -33,79 +28,35 @@ var _students = [
  
 ]
 
-// whoPassedExam?
+var myInput = document.getElementById("myInput")
+var myButton=document.getElementById("myButton")
+var myResult=document.getElementById("myResult")
 
 
-function whoPassedExam(value){
-   successfull=value.filter((value)=>value.score>=50)
-   return demo.innerHTML=`${value.name} your score is ${value.score} you have passed`
+
+// function whoPassedExam (){
+//     let InputName = myInput.value.toLowerCase()
+//     let Student =_students.filter(person=>person.name==InputName)
+//     if(Student.length==0)
+//     {myResult.innerHTML="Your name is not on the list."}
+//      else if (Student.map(person=>person.score)>=50)
+//      {myResult.innerHTML= Student.map(person=>person.name+" you pass with "+ person.score)}
+//      else
+//      {myResult.innerHTML=Student.map(person=>person.name+" you fail with "+ person.score) }
+//     }
+//     myButton.addEventListener("click", whoPassedExam) 
+
+ 
+    function whoPassed(){
+        let myInputName=myInput.value.toLowerCase()
+        let Student =_students.filter(person=>person.name==myInputName)
+
+    if(Student.length==0){
+        myResult.innerHTML="Not in the list"
+    }else if(Student.map(person=>person.score)>=50){
+        myResult.innerHTML=Student.map(person=>person.name +" you passed with "+person.score)
+    }else{
+        myResult.innerHTML=Student.map(person=>person.name +" you failed with "+person.score)
+    }
 }
-
-var result=whoPassedExam(_students)
-console.log(result)
-
-
-
-
-// successfull=_students.filter(value=>{
-//     return value.score>=50
-
-// })
-
-// console.log(successfull)
-
-
-
-// function whoPassedTheExam(value){
-
-//     // FindStudentByName=name=>{
-//     //     return value.filter(value=>value.name==name)
-//     // } 
-
-//     successfull= value.filter(value=>{value.score>=50})
-       
-
-//    result.innerHTML=`${value.name} your score is ${value.score} you have passed`
-
-//    return value 
-
-  
-// }
-
-
-
-
-
-
-// function ClickHandler(){
-    
-
-//   console.log(filter.value)
-//   _students= whoPassedTheExam(filter.value)
-  
-
-  
-// }
-
-
-
-// FindBtn.addEventListener("click", ClickHandler)
-
-// function whoPassedExam(value){
-//     if (_students .filter(value => value.score >50)) {
-//        return _students .filter(value => value.score >50)
-       
-// }else {
-//     return  [{ score: 'Not successfull' }]
-// }}
-
-
-// function ClickHandler() {
-//     console.log(filter.value)
-//     let _students = whoPassedExam(filter.value)[0]
-
-//     result.innerText =`${_students.name} your score is ${_students.score}`
-
-// }
-
-// console.log(whoPassedExam(_students))
+myButton.addEventListener("click",whoPassed)
