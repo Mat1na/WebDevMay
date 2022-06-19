@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+
+
+
+body{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400 ;
+    
+}
+
+
+main {
+    margin-top:10rem;
+   
+    display: grid;
+  
+    
+    text-align: center;
+  }
+
+  h1{
+    font-weight:100 ;
+  }
+
+
+  .value{
+    font-size: 10rem;
+
+  }
+
+  .decrease:hover{
+    background-color: red;
+    border-color: red;
+   
+  }
+  .increase:hover{
+    background-color: green;
+    border-color: green;
+   
+  }
