@@ -30,8 +30,6 @@ if(diceRoll1==diceRoll2){
 else{
     results.innerHTML="Roll Again" 
 }
-
-
 }
 
 
