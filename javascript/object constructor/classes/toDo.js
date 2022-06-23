@@ -29,11 +29,7 @@ class ToDoApp {
   deleteToDoById(value) {
     //  let temp = [];
 
-    //   const indexOfObject = this.toDos.findIndex(value.todo_title=>{
-    //     return this.toDos.todo_title.toLowerCase() == value.toLowerCase()
-    //   })
-    //   console.log(indexOfObject)
-    //   this.toDos.splice(indexOfObject,1)
+   
     const indexOfObject = this.toDos.findIndex(function (object) {
       return object.todo_title.toLowerCase() == value.toLowerCase();
     });
