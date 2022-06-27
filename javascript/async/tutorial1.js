@@ -99,23 +99,27 @@ Keeper1('Hello Friend')
 .then(PrintIt)
 .catch(err=>console.log(err))
 
-console.log(Keeper1("Hello Friend"))
+console.log(Keeper1('Hello Friend'))
 
-let promiseMe=new Promise((resolve,reject)=>{
+let promiseMe = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-        resolve("I will be back")
+        resolve('Hello Friend, I promise you that i will be back in 3 seconds ')
     },3000)
-    let promiseMe2=new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve("2nd promise")
-        })
 })
 
-let getPromiseResult=promise.all([promiseMe,promiseMe2])
-
-
-console.log(promiseMe)
-promiseMe
-.then(answer=>{
-    console.log(answer)
+let promiseMe2 = new Promise((resolve,reject)=>{
+    resolve('Hello friend this is second promise')
 })
+
+let getPromiseResult =  Promise.all([promiseMe,promiseMe2])
+console.log(getPromiseResult)
+
+getPromiseResult
+.then(response=>{
+    console.log(response)
+})
+// console.log(promiseMe)
+// promiseMe
+// .then(answer=>{
+//     console.log(answer)
+// })
