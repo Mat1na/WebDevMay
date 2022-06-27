@@ -100,3 +100,22 @@ Keeper1('Hello Friend')
 .catch(err=>console.log(err))
 
 console.log(Keeper1("Hello Friend"))
+
+let promiseMe=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("I will be back")
+    },3000)
+    let promiseMe2=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("2nd promise")
+        })
+})
+
+let getPromiseResult=promise.all([promiseMe,promiseMe2])
+
+
+console.log(promiseMe)
+promiseMe
+.then(answer=>{
+    console.log(answer)
+})
