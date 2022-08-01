@@ -30,8 +30,8 @@ for (var key in student){
     }
 }
 
-function UpdateObjectData(obj,key,newValue)
-// for for
-for (var key of Object.entries(student)){
-    console.log(key)
-}
+// function UpdateObjectData(obj,key,newValue){
+// // for for
+// for (var key of Object.entries(student)){
+//     console.log(key)
+// }}
