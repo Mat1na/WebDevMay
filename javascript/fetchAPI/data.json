@@ -1,0 +1,134 @@
+{
+  "api": [
+    {
+      "username": "root",
+      "password": "root123",
+      "id": 1
+    },
+    {
+      "username": "Joe Dalton",
+      "id": 2,
+      "password": "123Dalton"
+    },
+    {
+      "username": "Amber_Jaskolski",
+      "password": "EcyN82bJAxwJBxe",
+      "id": 3
+    },
+    {
+      "username": "Providenci35",
+      "password": "q2UXxxRlqD_GkWW",
+      "id": 4
+    },
+    {
+      "username": "Reva.Champlin84",
+      "password": "a9XuZk5e4UcDRD3",
+      "id": 5
+    },
+    {
+      "username": "Lorenz_Witting",
+      "password": "oHrzxr9IPIL0YjK",
+      "id": 6
+    },
+    {
+      "username": "Leila42",
+      "password": "wl8Uh5orryhRE7K",
+      "id": 7
+    },
+    {
+      "username": "Patrick_Auer85",
+      "password": "zqMcql6e9uqlSf9",
+      "id": 8
+    },
+    {
+      "username": "Toy44",
+      "password": "u8pNJYZ71_VgnQb",
+      "id": 9
+    },
+    {
+      "username": "Alphonso_Sawayn7",
+      "password": "Bwa0zaRJ43BFTb6",
+      "id": 10
+    },
+    {
+      "username": "Jayde_Beier",
+      "password": "z2SjLN_F8ci8e9c",
+      "id": 11
+    },
+    {
+      "username": "Ana.Gottlieb",
+      "password": "u3Cr3CzDtzPJ4tX",
+      "id": 12
+    },
+    {
+      "username": "Ronny80",
+      "password": "5gShWzlPBv8mSgg",
+      "id": 13
+    },
+    {
+      "username": "Mya34",
+      "password": "CYyuVLe8X_CiXbc",
+      "id": 14
+    },
+    {
+      "username": "Terrence17",
+      "password": "CV301DEo8Pd861Q",
+      "id": 15
+    },
+    {
+      "username": "Mariah_Kertzmann",
+      "password": "Xv_EG6Jk6JsTcup",
+      "id": 16
+    },
+    {
+      "username": "Ayla_Greenholt52",
+      "password": "kvW8BlXiZKbZ9cF",
+      "id": 17
+    },
+    {
+      "username": "Samson37",
+      "password": "AMo8duSO0Ggxxj1",
+      "id": 18
+    },
+    {
+      "username": "Richie_Pouros",
+      "password": "PPQ997UwOshJDc5",
+      "id": 19
+    },
+    {
+      "username": "Alexandria21",
+      "password": "iTMU5kWTFriM_i4",
+      "id": 20
+    },
+    {
+      "username": "Cesar67",
+      "password": "lvKUIHenNexA3mS",
+      "id": 21
+    },
+    {
+      "username": "Ryder.Gibson",
+      "password": "HZ47I0WeHZhVwW4",
+      "id": 22
+    }
+  ],
+  "products": [
+    {
+      "productType": "computer",
+      "productName": "Lenovo",
+      "price": "1000$",
+      "id": 1
+    },
+    {
+      "productType": "computer",
+      "productName": "Assus",
+      "price": "1000$",
+      "id": 2
+    },
+    {
+      "productType": "computer",
+      "productName": "HP",
+      "price": "550$",
+      "id": 3
+    }
+  ]
+}
