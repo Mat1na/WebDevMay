@@ -64,85 +64,156 @@ const g = t => document.createElement(t);
 */
 
 // const table = g('table')
-// table.className="table"
+// table.className = "table"
 
 // const thead = g('thead')
 // const trOfThead = g('tr')
 
 
 // const thIndex = g('th')
-// thIndex.innerText="#"
-// thIndex.setAttribute('scope','col')
+// thIndex.innerText = "#"
+// thIndex.setAttribute('scope', 'col')
 
 // // trOfThead.append(thIndex) // appened th into tr
 
 // const thFirst = g('th')
-// thFirst.innerText="First"
-// thFirst.setAttribute('scope','col')
+// thFirst.innerText = "First"
+// thFirst.setAttribute('scope', 'col')
 
 // const thLast = g('th')
-// thLast.setAttribute('scope','col')
+// thLast.setAttribute('scope', 'col')
 
 // const thHandle = g('th')
-// thHandle.setAttribute('scope','col')
+// thHandle.setAttribute('scope', 'col')
 
-// trOfThead.append(thIndex,thFirst,thLast,thHandle)
+// trOfThead.append(thIndex, thFirst, thLast, thHandle)
 // thead.append(trOfThead)
 // table.append(thead)
-// console.log(table, thead)
 
+// const tbody = g('tbody') // tbody 
 
+// const trOfTbody = g('tr') // tr of tbody
 
-{/* <div class="card" style="width: 18rem;">
+// const thOfTbody = g('th') // child of tr of tbody
+// thOfTbody.scope = 'row'
+// thOfTbody.innerText = '1'
+
+// const tdFirst = g('td') // child of tr of tbody
+// tdFirst.innerText = "joe"
+
+// const tdLast = g('td') // child of tr of tbody
+// tdLast.innerText = "dalton"
+
+// const tdHandle = g('td') // child of tr of tbody
+// tdHandle.innerText = "@joe"
+// trOfTbody.append(thOfTbody, tdFirst, tdLast, tdHandle)
+// tbody.append(trOfTbody)
+// table.append(tbody)
+// document.body.append(table)
+
+/*
+<div class="card" style="width: 18rem;">
 <img src="https://picsum.photos/200" class="card-img-top" alt="...">
-<div class="card-body">
-<h5 class="card-title">Card title</h5>
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div> */}
+ <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+</div> 
+    */
 
+// // Card Container
+// const CardContainer = g('div')
+// CardContainer.setAttribute('style','width: 18rem;')
 
-const container= g("div") // parentContainer
-container.className="card";
-container.style="width: 18rem"
-
-
-const img= g('img')
-img.src = 'https://picsum.photos/200'
-img.className="card-img-top"
-img.setAttribute('alt','Random Image')
-
-container.append(img)
-
-const cardBody=g("div") // sub-Parent Container
-
-cardBody.className="card-body"
-
-const title=g("h5")
-title.className="card-title"
-title.innerText="Card title"
-
-const par=g("p")
-par.className="card-text"
-par.innerText="Some quick example text to build on the card title and make up the bulk of the card's content."
-
-const link=g("a")
-link.className="btn btn-primary"
-link.innerText="Go somewhere"
-link.href="#"
+// // Card Image
+// const CardImage = g('img')
+// CardImage.setAttribute('src','https://picsum.photos/200')
+// //CardImage.classList.add('card-img-top')
+// CardImage.className="card-img-top"
+// CardImage.setAttribute('alt','Random')
 
 
 
-cardBody.append(title)
-cardBody.append(par)
-cardBody.append(link)
+// const CardBody = g('div')
+// CardBody.classList.add('card-body')
 
-container.append(cardBody)
+// const h5=g('h5')
+// h5.classList.add('card-title')
+// const CardTitleText = document.createTextNode('Card title')
+// h5.append(CardTitleText)
+
+// const desc = g('p')
+// desc.classList.add('card-text')
+// const CardText = document.createTextNode('Some quick example text to build on the card title and make up the bulk of the card\'s content.')
+// desc.append(CardText)
+
+// const CardBtn = g('a')
+// CardBtn.classList.add('btn')
+// CardBtn.classList.add('btn-primary')
+// CardBtn.innerText="Card Button"
+// CardBody.append(h5)
+// CardBody.append(desc)
+// CardBody.append(CardBtn)
+// CardContainer.append(CardImage)
+// CardContainer.append(CardBody)
+
+// const cloneOfCardContainer = CardContainer.cloneNode(true)
+// cloneOfCardContainer.children[1].children[0].innerText="New Card Title"
+
+
+// // change button style of clone one
+// cloneOfCardContainer.children[1].lastChild.classList.remove('btn-primary')
+// cloneOfCardContainer.children[1].lastChild.classList.add('btn-danger')
+// document.body.append(CardContainer)
+// document.body.append(cloneOfCardContainer)
+
+
+function MakeCardComponent(image, cardTitle, description, btnColor, btnText) {
+    // Card Container
+    const CardContainer = g('div')
+    CardContainer.setAttribute('style', 'width: 18rem;')
+
+    // Card Image
+    const CardImage = g('img')
+    CardImage.setAttribute('src', `${image}`)
+    //CardImage.classList.add('card-img-top')
+    CardImage.className = "card-img-top"
+    CardImage.setAttribute('alt', 'Random')
 
 
 
+    const CardBody = g('div')
+    CardBody.classList.add('card-body')
+
+    const h5 = g('h5')
+    h5.classList.add('card-title')
+    const CardTitleText = document.createTextNode(cardTitle)
+    h5.append(CardTitleText)
+
+    const desc = g('p')
+    desc.classList.add('card-text')
+    const CardText = document.createTextNode(description)
+    desc.append(CardText)
+
+    const CardBtn = g('a')
+    CardBtn.classList.add('btn')
+    CardBtn.classList.add(btnColor != undefined ? btnColor : 'btn-primary')
+    CardBtn.innerText = btnText
+    CardBody.append(h5)
+    CardBody.append(desc)
+    CardBody.append(CardBtn)
+    CardContainer.append(CardImage)
+    CardContainer.append(CardBody)
+    console.log(btnColor)
+    return document.body.append(CardContainer)
+}
 
 
+MakeCardComponent('https://evolutionsports.nl/wp-content/uploads/2020/10/Martial-Art-stijlen-die-als-inspiraatsie-diende-voor-Avatar-The-Last-Airbender.jpeg','This is a test','lorem ipsum lorem ipsum','btn-success','Click me')
 
-console.log(container,cardBody)
+MakeCardComponent('https://evolutionsports.nl/wp-content/uploads/2020/10/Martial-Art-stijlen-die-als-inspiraatsie-diende-voor-Avatar-The-Last-Airbender.jpeg','Tasdasdasdasd','lorem ipsum lorem ipsum')
+
+document.querySelector('.RemoveBtn').addEventListener('click',()=>{
+    document.body.removeChild(document.body.children[2])
+})
