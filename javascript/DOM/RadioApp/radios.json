@@ -1,0 +1,340 @@
+{
+    "radios": [
+        {
+            "id": 1,
+            "name": "Power Radio",
+            "url": "https://streamingv2.shoutcast.com/bruce-classic-rock",
+            "logo": "https://www.belgie.fm/i/l/bruce.gif"
+        },
+        {
+            "id": 2,
+            "name": "Family Radio",
+            "url": "https://www.clubfmserver.be/family.mp3",
+            "logo": "https://www.belgie.fm/i/l/familyradio.gif"
+        },
+        {
+            "id": 3,
+            "name": "FG DJ Radio",
+            "url": "https://stream.rcs.revma.com/5wesqhfap98uv",
+            "logo": "https://www.belgie.fm/i/l/fgdjradio.gif"
+        },
+        {
+            "id": 4,
+            "name": "Gigant FM",
+            "url": "https://mcp-1.mm-stream.nl:7204/stream",
+            "logo": "https://www.belgie.fm/i/l/gigantfm.gif"
+        },
+        {
+            "id": 5,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/joe_fm/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joefm.gif"
+        },
+        {
+            "id": 6,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/joe_easy/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joeeasy.gif"
+        },
+        {
+            "id": 7,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/joe_60s_70s/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joe6070s.gif"
+        },
+        {
+            "id": 8,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/joe_80s_90s/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joe8090s.gif"
+        },
+        {
+            "id": 9,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/joe_lage_landen/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joelagelanden.gif"
+        },
+        {
+            "id": 10,
+            "name": "JOE FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/top2000/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/joetop2000.gif"
+        },
+        {
+            "id": 11,
+            "name": "Ketnet",
+            "url": "http://icecast.vrtcdn.be/ketnetradio-high.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/ketnet.gif"
+        },
+        {
+            "id": 12,
+            "name": "Klara",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/KLARA_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/klara.gif"
+        },
+        {
+            "id": 13,
+            "name": "Klara",
+            "url": "http://icecast.vrtcdn.be/klaracontinuo-high.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/klaracontinuo.gif"
+        },
+        {
+            "id": 14,
+            "name": "MNM",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/MNM_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/mnm.gif"
+        },
+        {
+            "id": 15,
+            "name": "MNM",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/MNM_HITS_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/mnmhits.gif"
+        },
+        {
+            "id": 16,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWHATAFEELING.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgie.gif"
+        },
+        {
+            "id": 17,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAF6070.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgieplus.gif"
+        },
+        {
+            "id": 18,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAF80.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgie80.gif"
+        },
+        {
+            "id": 19,
+            "name": "Nostalgie",
+            "url": "http://nostalgiewafbelpop.ice.infomaniak.ch/nostalgiewafbelpop-128.mp3",
+            "logo": "https://www.belgie.fm/i/l/nostalgiedisco.gif"
+        },
+        {
+            "id": 20,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAF90.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgiefrtalig.gif"
+        },
+        {
+            "id": 21,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAFNEWWAVE.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgienewwave.gif"
+        },
+        {
+            "id": 22,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAFNL.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgienltalig.gif"
+        },
+        {
+            "id": 23,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAFRELAX.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgierelax.gif"
+        },
+        {
+            "id": 24,
+            "name": "Nostalgie",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NOSTALGIEWAFROCKS.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nostalgierock.gif"
+        },
+        {
+            "id": 25,
+            "name": "RockFM Online",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/NRJBELGIE.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/nrj.gif"
+        },
+        {
+            "id": 26,
+            "name": "C-Dance",
+            "url": "https://streams.movemedia.eu/parkfm",
+            "logo": "https://www.belgie.fm/i/l/parkfm.gif"
+        },
+        {
+            "id": 27,
+            "name": "VBRO",
+            "url": "http://radios.rtbf.be/pure-128.mp3",
+            "logo": "https://www.belgie.fm/i/l/pure.gif"
+        },
+        {
+            "id": 28,
+            "name": "Q-Music",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qmusic_be/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/q-music.gif"
+        },
+        {
+            "id": 29,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/foute_radio_be/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/q-musicfouteuur.gif"
+        },
+        {
+            "id": 30,
+            "name": "Q-Downtown - Pop/Hits",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qbe_downtown/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/qmusicdowntown.gif"
+        },
+        {
+            "id": 31,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qbe_dance/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/qmusicdance.gif"
+        },
+        {
+            "id": 32,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qbe_nederlandstalig/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/qmusicnederlandstalig.gif"
+        },
+        {
+            "id": 33,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qbe_nonstop/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/qmusicnonstop.gif"
+        },
+        {
+            "id": 34,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/QRUN.mp3?pname=rp_external&dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/qmusicruntoyou.gif"
+        },
+        {
+            "id": 35,
+            "name": "Q music Het Foute Uur Non Stop",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/Q_TOP_1000.mp3?pname=rp_external&dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/qmusictop1000.gif"
+        },
+        {
+            "id": 36,
+            "name": "Antwerpen FM",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/qbe_fav40/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/qmusictop40.gif"
+        },
+        {
+            "id": 37,
+            "name": "Radio 1",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO1_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/radio1be.gif"
+        },
+        {
+            "id": 38,
+            "name": "Radio 2",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_2_ANTWERP_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/radio2be.gif"
+        },
+        {
+            "id": 39,
+            "name": "Jongstenieuws",
+            "url": "https://progressive-audio.vrtcdn.be/content/fixed/11_11niws-snip_hi.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/jongstenieuws.gif"
+        },
+        {
+            "id": 40,
+            "name": "RGR2: The Music station",
+            "url": "https://stream1.rgrfm.be",
+            "logo": "https://www.belgie.fm/i/l/rgr2.gif"
+        },
+        {
+            "id": 41,
+            "name": "RGR FM",
+            "url": "https://stream2.rgrfm.be/",
+            "logo": "https://www.belgie.fm/i/l/rgrfm.gif"
+        },
+        {
+            "id": 42,
+            "name": "Rol radio",
+            "url": "http://live.goldenoldies.eu/",
+            "logo": "https://www.belgie.fm/i/l/rolradio.gif"
+        },
+        {
+            "id": 43,
+            "name": "Rol radio",
+            "url": "https://www.clubfmserver.be/roxx.mp3",
+            "logo": "https://www.belgie.fm/i/l/roxx.gif"
+        },
+        {
+            "id": 44,
+            "name": "Studio Brussel",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/STUDIO_BRUSSEL_128.mp3?dist=belgiefm",
+            "logo": "https://www.belgie.fm/i/l/stubru.gif"
+        },
+        {
+            "id": 45,
+            "name": "Top Bam",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPBAM.mp3",
+            "logo": "https://www.belgie.fm/i/l/topbam.gif"
+        },
+        {
+            "id": 46,
+            "name": "Top Radio",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOP_RADIO.mp3",
+            "logo": "https://www.belgie.fm/i/l/topradio.gif"
+        },
+        {
+            "id": 47,
+            "name": "Top Retro Classics EDM Dance",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPRETRO.mp3",
+            "logo": "https://www.belgie.fm/i/l/topretro.gif"
+        },
+        {
+            "id": 48,
+            "name": "TOP Schaamteloos",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPSCHAAMTELOZE.mp3",
+            "logo": "https://www.belgie.fm/i/l/topschaamteloos.gif"
+        },
+        {
+            "id": 49,
+            "name": "Top Techno",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPSPINNING.mp3",
+            "logo": "https://www.belgie.fm/i/l/toptechno.gif"
+        },
+        {
+            "id": 50,
+            "name": "Versuz Radio by TOP",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPVERSUZ.MP3",
+            "logo": "https://www.belgie.fm/i/l/topversuz.gif"
+        },
+        {
+            "id": 51,
+            "name": "Zen FM",
+            "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/TOPZEN.mp3",
+            "logo": "https://www.belgie.fm/i/l/zenfm.gif"
+        },
+        {
+            "id": 52,
+            "name": "VBRO",
+            "url": "https://radiohuis.com/VBRO",
+            "logo": "https://www.belgie.fm/i/l/vbro.gif"
+        },
+        {
+            "id": 53,
+            "name": "VBRO",
+            "url": "https://radiohuis.com/EVERGREEN",
+            "logo": "https://www.belgie.fm/i/l/vbro_evergreen.gif"
+        },
+        {
+            "id": 54,
+            "name": "Hit FM - Alle hits altijd",
+            "url": "https://streams.radio.dpgmedia.cloud/redirect/willy_be/mp3?source=belgiefm&player=rp_external&gdpr=1&gdpr_consent=",
+            "logo": "https://www.belgie.fm/i/l/willy.gif"
+        },
+        {
+            "id": 55,
+            "name": "100 % Retro  Classics Oldies",
+            "url": "https://server.yesterdayland.online/radio/8000/listen?1652950488",
+            "logo": "https://www.belgie.fm/i/l/100retro.gif"
+        },
+        {
+            "id": 56,
+            "name": "ZZRock",
+            "url": "https://axtran.radioca.st/stream",
+            "logo": "https://www.belgie.fm/i/l/zzrock.gif"
+        }
+    ]
+}
