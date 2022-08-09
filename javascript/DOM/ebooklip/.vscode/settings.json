@@ -15,6 +15,38 @@
       "bookDate": "",
       "bookPrice": "",
       "id": 2
+    },
+    {
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": "",
+      "id": 3
+    },
+    {
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": "",
+      "id": 4
+    },
+    {
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": "",
+      "id": 5
+    },
+    {
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": "",
+      "id": 6
     }
   ]
 }

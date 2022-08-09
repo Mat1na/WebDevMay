@@ -69,6 +69,9 @@ document.body.appendChild(tr);
 
 
 
+
+
+
 addBookBtn.addEventListener("click", (e) => {
   let books = {
     bookName: bookName.value,
@@ -95,6 +98,7 @@ addBookBtn.addEventListener("click", (e) => {
     })
  
     e.preventDefault();
+})
 })
 
 
