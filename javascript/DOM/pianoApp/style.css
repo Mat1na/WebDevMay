@@ -1,0 +1,65 @@
+html {
+    font-size: 10px;
+    background: url(img/kit1.jpg) left top no-repeat;
+    background-size: 852px;
+  }
+  
+  body,html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .keys {
+    padding-left: 310px;
+    padding-top: 98px;
+    display: flex;
+    width: 432px;
+    max-height: 250px;;
+    flex-wrap: wrap;
+    cursor: pointer;
+  }
+  
+  .key {
+    box-sizing: border-box;
+    border: .4rem solid transparent;
+    width: 91px;
+    border-radius: .5rem;
+    margin: 10px;
+    font-size: 1.5rem;
+    height: 91px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    /* background: rgba(255, 255, 0, 0.555); */
+    text-shadow: 0 0 .5rem black;
+    transition: all .07s ease;
+  }
+  
+  .key:nth-child(4n-3){
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .key:nth-child(4n){
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .playing {
+    transform: scale(1.1);
+    border-color: rgb(255, 41, 51);
+    box-shadow: 0 0 1rem rgb(255, 41, 51);
+  }
+  
+  kbd {
+    display: block;
+    font-size: 4rem;
+  }
+  
+  .sound {
+    /* font-size: 1.2rem; */
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #ffc600;
+  }
+  
