@@ -1,0 +1,36 @@
+.app-logo{
+    width: 200px;
+}
+
+.player > audio,.audiojs{
+    margin:auto !important
+}
+
+.radioList{
+    max-height: 70vh;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d50707 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #d50707;
+    border-radius: 0px;
+    border: 1px solid #ff0000;
+  }

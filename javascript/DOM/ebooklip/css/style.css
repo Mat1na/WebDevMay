@@ -1,0 +1,29 @@
+.wrapper {
+    height: 100vh;
+    background-image: url('https://cdn.wallpapersafari.com/24/53/qoSOWN.jpg');
+    background-position: cover;
+    background-size: 100%;
+}
+
+.bg-secondary {
+    background-color: rgba(240, 255, 255, 0.178) !important;
+}
+
+.list-group-item.active {
+    background-color: #007bff21 !important;
+}
+
+.table-dark {
+    background-color: #00000073 !important;
+    height: 100%
+}
+
+.booklist {
+    height: 100% !important;
+}
+
+legend {
+    font-weight: 500;
+    background-color: #b52929;
+    border-radius: 5px;
+}
