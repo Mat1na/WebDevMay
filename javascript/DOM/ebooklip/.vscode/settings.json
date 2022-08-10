@@ -9,44 +9,20 @@
       "bookPrice": "10"
     },
     {
-      "bookName": "",
-      "bookAuthor": "",
-      "bookCategory": "Choose category...",
-      "bookDate": "",
-      "bookPrice": "",
-      "id": 2
+      "id": 2,
+      "bookName": "sdqads",
+      "bookAuthor": "sdasd",
+      "bookCategory": "Psychology",
+      "bookDate": "2022-09-09",
+      "bookPrice": "5"
     },
     {
+      "id": 3,
       "bookName": "",
       "bookAuthor": "",
       "bookCategory": "Choose category...",
       "bookDate": "",
-      "bookPrice": "",
-      "id": 3
-    },
-    {
-      "bookName": "",
-      "bookAuthor": "",
-      "bookCategory": "Choose category...",
-      "bookDate": "",
-      "bookPrice": "",
-      "id": 4
-    },
-    {
-      "bookName": "",
-      "bookAuthor": "",
-      "bookCategory": "Choose category...",
-      "bookDate": "",
-      "bookPrice": "",
-      "id": 5
-    },
-    {
-      "bookName": "",
-      "bookAuthor": "",
-      "bookCategory": "Choose category...",
-      "bookDate": "",
-      "bookPrice": "",
-      "id": 6
+      "bookPrice": ""
     }
   ]
 }
