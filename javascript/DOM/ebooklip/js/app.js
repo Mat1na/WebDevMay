@@ -135,21 +135,21 @@ addBookBtn.addEventListener("click", (e) => {
 
 
 
-// let trashButton=document.querySelector(".deletebtn")
+let trashButton=document.querySelector(".deletebtn")
 
 
-// deleteAllBtn.addEventListener("click", (e) => {
+trashButton.addEventListener("click", (e) => {
 
-//   fetch(`http://localhost:5000/books`, {
-//     method: "DELETE",
-//   })
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data)
+  fetch(`http://localhost:5000/books/8`, {
+    method: "DELETE",
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
 
 
 
-//     })
-//   e.preventDefault();
+    })
+  e.preventDefault();
 
-// })
+})

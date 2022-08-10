@@ -23,6 +23,46 @@
       "bookCategory": "Choose category...",
       "bookDate": "",
       "bookPrice": ""
+    },
+    {
+      "id": 4,
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": ""
+    },
+    {
+      "id": 5,
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": ""
+    },
+    {
+      "id": 6,
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": ""
+    },
+    {
+      "id": 7,
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": ""
+    },
+    {
+      "id": 8,
+      "bookName": "",
+      "bookAuthor": "",
+      "bookCategory": "Choose category...",
+      "bookDate": "",
+      "bookPrice": ""
     }
   ]
 }
