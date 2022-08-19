@@ -22,8 +22,8 @@ function App() {
   }
   return (
     <Container className="bg-dark text-light  p-4" fluid={true}>
-        <ToDoList/>
-      {/* <Row className="justify-content-center">
+        {/* <ToDoList/> */}
+      <Row className="justify-content-center">
         <Col md={3}>
           <h1>Fetch data</h1>
           <Button onClick={fetchingData}>Get Users Data</Button>
@@ -41,7 +41,7 @@ function App() {
             <p>{user.name}</p>
           </div>
         ))}
-      </Row> */}
+      </Row>
     </Container>
   );
 }
