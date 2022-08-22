@@ -37,6 +37,7 @@ function App() {
     <Container>
       <Row className="justify-content-center">
         <Col md={6} className=" text-dark text-center p-5">
+          <img src="/images/opengraph.png" width={150} height={150} />
           <h1 className="text-center"> Price Finder </h1>
           <InputGroup className="mb-3">
             <Form.Control
@@ -57,14 +58,23 @@ function App() {
           <Badge>Cryptocurrency Name:</Badge>
           <p>{curentCoin}</p>
 
+        </Col>
+      </Row>
+      <Row className="justify-content-center">
+        <Col md={12} className="bg-light text-dark text-center p-3">
+          
           {listOfCoins.quote !== undefined ? (
             <div>
               <Badge>Cryptocurrency Price:</Badge>
               <p>{listOfCoins.quote.EUR.price}</p>
+              
             </div>
           ) : (
             ""
-          )}
+          )
+          }
+          
+         
         </Col>
       </Row>
     </Container>
