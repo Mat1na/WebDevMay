@@ -29,7 +29,8 @@ function App() {
 
   const handleInput = (e) => {
     console.log("handle input", e.target.value);
-    setCurrentCoin(e.target.value);
+    setCurrentCoin(e.target.value.charAt(0).toUpperCase()+ e.target.value.slice(1));
+   
   };
 
   return (
