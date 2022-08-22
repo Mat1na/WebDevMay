@@ -29,8 +29,9 @@ function App() {
 
   const handleInput = (e) => {
     console.log("handle input", e.target.value);
-    setCurrentCoin(e.target.value.charAt(0).toUpperCase()+ e.target.value.slice(1));
-   
+    const capitalisedInput =
+      e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+    setCurrentCoin(capitalisedInput);
   };
 
   return (
@@ -57,24 +58,18 @@ function App() {
 
           <Badge>Cryptocurrency Name:</Badge>
           <p>{curentCoin}</p>
-
         </Col>
       </Row>
       <Row className="justify-content-center">
         <Col md={12} className="bg-light text-dark text-center p-3">
-          
           {listOfCoins.quote !== undefined ? (
             <div>
               <Badge>Cryptocurrency Price:</Badge>
               <p>{listOfCoins.quote.EUR.price}</p>
-              
             </div>
           ) : (
             ""
-          )
-          }
-          
-         
+          )}
         </Col>
       </Row>
     </Container>
