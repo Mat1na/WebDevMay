@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useRef } from 'react'
 import {Button} from 'react-bootstrap'
 
 function Blog() {
@@ -8,15 +8,21 @@ function Blog() {
         let posts= await res.json()
         setPosts(posts)
     }
+
+    const buttonRef=useRef()
+    const inputRef=useRef()
     useEffect(()=>{
-        getAllPosts();
+        getAllPosts()
+        console.log(buttonRef.current)
+        console.log(inputRef.current.value)
       }, []);
 
 
   return (
     <div>
     <h1>Blog</h1>
-    {/* <Button onClick={getAllPosts}>Get and Print Posts</Button> */} //we don t need the buuton with useEffect
+    <Button onClick={getAllPosts} ref={buttonRef}>Get and Print Posts</Button> 
+    <input type="text" ref={inputRef} defaultValue="search something"/>
     {
         posts.map((post)=>(
             <a href={`/blog/${post.id}`} key={post.id} className="d-block">{post.title}</a>
