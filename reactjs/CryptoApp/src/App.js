@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid"
 function App() {
 
   const [listOfCoins, setListOfCoins] = useState({})
-  const [curentCoin, setCurrentCoin] = useState([])
+  const [currentCoin, setCurrentCoin] = useState('')
 
   const fetchCryptoData = async () => {
 
@@ -24,19 +24,25 @@ function App() {
   
   const handleInput = (e) => {
     console.log("handle input", e.target.value,e.target)
-    setListOfCoins(e.target.value)
+    setCurrentCoin(e.target.value)
   }
 
 
-  // const handleClick = () =>listOfCoins.map(coin){
-  //   console.log("click click testing => ")
-  //   setCurrentCoin([...listOfCoins, curentCoin])
+  // const handleClick = () =>listOfCoins.map((coin)=> {
+  // //   console.log("click click testing => ")
+  // //   setCurrentCoin([...listOfCoins, currentCoin])
+  // // })
+
+  // const getPriceOfCurrency = () => {
+  //   console.log("test",setCurrentCoin)
+  //   listOfCoins.map((coin)=> {
+  //     console.log("click click testing => ")
+  //     setCurrentCoin([...listOfCoins, currentCoin])
+  //   })
+  
   // }
 
-  const getPriceOfCurrency = (param) => {
-    console.log("test",param)
-    setCurrentCoin(param)
-  }
+  
   return (
     <Container className="bg-dark text-light " fluid={true}>
       <Row className="justify-content-center">
@@ -49,11 +55,11 @@ function App() {
               aria-label="priceFinder"
               aria-describedby="basic-addon1"
             />
-            <Button onClick={ listOfCoins} >Search Price</Button>
+            <Button onClick={fetchCryptoData} >Search Price</Button>
             
             <Col md={12} className="bg-light text-dark text-center p-3">
               <h1>Currency price details</h1>
-              <p className="text-dark text-center"><Badge>Cryptocurrency Price:</Badge>{curentCoin.quote.price}</p>
+              <p className="text-dark text-center"><Badge>Cryptocurrency Price:</Badge>{}</p>
 
 
             </Col>
@@ -61,11 +67,8 @@ function App() {
           </InputGroup>
           <hr />
           <ul>
-          {console.log(listOfCoins)}
-          {/* {listOfCoins.map((curentCoin) => (
-            <div key={uuidv4()} >{curentCoin}
-            <p>{curentCoin.price}</p></div>
-          ))} */}
+          {console.log(listOfCoins,currentCoin.id)}
+        
         </ul>
 
         </Col>
