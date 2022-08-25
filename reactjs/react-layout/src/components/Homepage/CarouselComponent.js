@@ -7,7 +7,7 @@ function CarouselComponent() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="https://c4.wallpaperflare.com/wallpaper/304/854/435/disney-donald-duck-goofy-mickey-mouse-wallpaper-preview.jpg"
+                    src="https://hdwallpaperim.com/wp-content/uploads/2017/08/23/472571-film_reel-movies-748x403.jpg"
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -17,8 +17,8 @@ function CarouselComponent() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100 h-100"
-                    src="https://cdn1.parksmedia.wdprapps.disney.com/media/blog/wp-content/uploads/2022/07/u8y4t7o2yut9piut35ger-1024x576.jpg"
+                    className="d-block w-100 "
+                    src="https://4kwallpapers.com/images/wallpapers/mortal-kombat-2021-movies-poster-4096x1895-4902.jpg"
                     alt="Second slide"
                 />
 
