@@ -15,3 +15,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
     object-position: center !important;
     height: 100%;
 }
+figure{
+    margin:0!important
+}
+.movies{
+    display:grid!important;
+    grid-gap:3em 2em!important;
+    grid-template-columns:repeat(auto-fill,minmax(12em,1fr))!important;
+    list-style:none!important;
+    margin:0!important;
+    padding:0!important
+}
+.movie__figure{
+    position:relative!important
+}
+.movie__poster{
+    box-shadow:0 0 1em rgba(0,0,0,.5)!important;
+    margin-bottom:.5em!important
+}
+.movie__vote{
+    align-items:center!important;
+    background-color:#f68d01!important;
+    border-radius:50%!important;
+    box-shadow:0 0 1em rgba(0,0,0,.25)!important;
+    display:flex!important;
+    height:2.25em!important;
+    justify-content:center!important;
+    padding:.5em!important;
+    position:absolute!important;
+    color:#000;
+    right:0!important;
+    text-align:center!important;
+    top:75%!important;
+    transform:translateX(50%)!important;
+    width:2.25em!important
+}
+.movie__title{
+    font-size:1.199rem!important;
+    font-weight:400!important;
+    margin:0!important;
+    text-align:center;
+    color:#fff
+}
+.movie:hover{
+    padding:10px
+}

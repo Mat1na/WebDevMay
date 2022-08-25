@@ -28,6 +28,8 @@ function Home() {
       movies!=undefined?
       movies.map((movie)=><MovieCard movie={movie} />):""
     }
+    
+    
       </CardGroup>
     </Container>
   )
