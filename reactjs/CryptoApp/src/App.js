@@ -13,24 +13,23 @@ function App() {
   const [listOfCoins, setListOfCoins] = useState({});
   const [curentCoin, setCurrentCoin] = useState("");
 
-  const [listOfCoins, setListOfCoins] = useState({})
-  const [curentCoin, setCurrentCoin] = useState([])
 
-    const res = await fetch(
+
+    const fetching= await fetch(
       "https://arkakapi.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR"
     );
 
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
 
-    targetUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR'
+    // targetUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR'
 
 
 
-    const res =  await fetch(proxyUrl + targetUrl)
+    // const res =  await fetch(proxyUrl + targetUrl)
 
     const data = await res.json()
     setListOfCoins(data)
-  }
+
   
   const handleInput = (e) => {
     console.log("handle input", e.target.value,e.target)
