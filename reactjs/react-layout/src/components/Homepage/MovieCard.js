@@ -19,7 +19,7 @@ function MovieCard({ movie }) {
     <ul className="movies">
       <li key="1">
         <div className="movie">
-          <figure className="movie__figure"><img src="https://image.tmdb.org/t/p/w500/8cXbitsS6dWQ5gfMTZdorpAAzEH.jpg" class="movie__poster"/>
+          <figure className="movie__figure"><img src="https://image.tmdb.org/t/p/w500${}" class="movie__poster"/>
             <figcaption><span className="movie__vote">4.5</span></figcaption>
             <h2 className="movie__title">Godzilla vs. Kong</h2>
           </figure>
