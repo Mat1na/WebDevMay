@@ -16,12 +16,12 @@ function MovieCard({ movie }) {
     //   </Card.Footer>
     // </Card>
 
-    <ul className="movies">
+    <ul className="movies bg-dark pt-5">
       <li key="1">
         <div className="movie">
           <figure className="movie__figure"><img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} class="movie__poster w-100"/>
-            <figcaption><span className="movie__vote">4.5</span></figcaption>
-            <h2 className="movie__title">Godzilla vs. Kong</h2>
+            <figcaption><span className="movie__vote">{movie.vote_average}</span></figcaption>
+            <h2 className="movie__title ">{movie.title}</h2>
           </figure>
         </div>
       </li>

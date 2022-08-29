@@ -22,7 +22,7 @@ function Home() {
       {
         console.log(movies)
       }
-      <CardGroup className=" justify-content-center p-5 ">
+      <CardGroup className='bg-dark' fluid={true}>
      
     {
       movies!=undefined?
