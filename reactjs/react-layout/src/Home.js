@@ -21,7 +21,7 @@ function Home() {
     <Container fluid={true} className="p-0 ">
       <CarouselComponent />
       {console.log(movies)}
-      <CardGroup className="bg-dark justify-content-space-between movies" fluid={true}>
+      <CardGroup className="bg-dark justify-content-space-between movies p-3" fluid={true}>
         {movies != undefined
           ? movies.map((movie) => <MovieCard movie={movie} />)
           : ""}

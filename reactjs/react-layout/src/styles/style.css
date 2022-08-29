@@ -20,7 +20,7 @@ figure{
     margin:0!important
 }
 img{
-    height:auto!important;
+    /* height:auto!important; */
     max-width:100%!important;
     vertical-align:middle!important
 }
@@ -64,13 +64,7 @@ img{
     text-align:center;
     color:#fff
 }
-.app{
-    width:90%!important;
-    margin:0 auto
-}
-.input-group-append{
-    padding:.3em .2em .6em!important
-}
+
 
 @media screen and (max-width:575px){
     .table-xs-responsive td,.table-xs-responsive th{
@@ -100,20 +94,22 @@ img{
         box-sizing:border-box
     }
 }
-.jumbotron{
+/* .jumbotron{
     background-image:url(https://i.pinimg.com/originals/e0/46/79/e04679c79c994d61363d9b1ba888e246.jpg);
     background-size:cover;
     height:100%
-}
+} */
 .movie:hover{
     padding:10px
 }
 
 /* movie image in jumbotron element */
-.movie-img{
+/* .movie-img{
     background-size: 100% !important;
-    background-position: center !important;
-}
+    background-position: center  !important;
+    
+ 
+} */
 /* movie title in jumbotron element */
 .movie-title{
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
