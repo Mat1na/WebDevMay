@@ -21,7 +21,7 @@ figure{
 .movies{
     display:grid!important;
     grid-gap:3em 2em!important;
-    grid-template-columns:repeat(auto-fill,minmax(12em,1fr))!important;
+    grid-template-columns:repeat(auto-fill,minmax(16em,0fr))!important;
     list-style:none!important;
     margin:0!important;
     padding:0!important
@@ -44,7 +44,7 @@ figure{
     padding:.5em!important;
     position:absolute!important;
     color:#000;
-    right:0!important;
+   
     text-align:center!important;
     top:75%!important;
     transform:translateX(50%)!important;

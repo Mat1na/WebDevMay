@@ -22,7 +22,7 @@ function Home() {
       {
         console.log(movies)
       }
-      <CardGroup className=" justify-content-center">
+      <CardGroup className=" justify-content-center p-5 ">
      
     {
       movies!=undefined?
