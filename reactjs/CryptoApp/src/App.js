@@ -13,27 +13,39 @@ function App() {
   const [listOfCoins, setListOfCoins] = useState({});
   const [curentCoin, setCurrentCoin] = useState("");
 
-  const fetchCryptoData = async (e) => {
-    // const proxyUrl = "https://arkakapi.herokuapp.com/",
-    //   targetUrl =
-    //     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR";
 
-    const res = await fetch(
+
+    const fetching= await fetch(
       "https://arkakapi.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR"
     );
 
-    const data = await res.json();
-    const filteredData = data.data.filter((obj) => obj.name == curentCoin);
-    setListOfCoins(filteredData);
-  };
+    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
 
+    // targetUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=46cb6a30-7b16-428c-833a-0f1a4642c3dc&sort=market_cap&start=1&limit=10&cryptocurrency_type=tokens&convert=EUR'
+
+
+
+    // const res =  await fetch(proxyUrl + targetUrl)
+
+    const data = await res.json()
+    setListOfCoins(data)
+
+  
   const handleInput = (e) => {
-    console.log("handle input", e.target.value);
-    const capitalisedInput =
-      e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-    setCurrentCoin(capitalisedInput);
-  };
+    console.log("handle input", e.target.value,e.target)
+    setListOfCoins(e.target.value)
+  }
 
+
+  // const handleClick = () =>listOfCoins.map(coin){
+  //   console.log("click click testing => ")
+  //   setCurrentCoin([...listOfCoins, curentCoin])
+  // }
+
+  const getPriceOfCurrency = (param) => {
+    console.log("test",param)
+    setCurrentCoin(param)
+  }
   return (
     <Container>
       <Row className="justify-content-center">
@@ -46,32 +58,28 @@ function App() {
               placeholder="Enter your Cryptocurrency"
               aria-describedby="basic-addon1"
             />
-            {console.log(listOfCoins, curentCoin)}
-            <Button onClick={fetchCryptoData}>Search Price</Button>
+            <Button onClick={ listOfCoins} >Search Price</Button>
+            
+            <Col md={12} className="bg-light text-dark text-center p-3">
+              <h1>Currency price details</h1>
+              <p className="text-dark text-center"><Badge>Cryptocurrency Price:</Badge>{curentCoin.quote.price}</p>
+
+
+            </Col>
+
           </InputGroup>
           <hr />
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        <Col md={12} className="bg-light text-dark text-center p-3">
-          <h1>Currency price details</h1>
+          <ul>
+          {console.log(listOfCoins)}
+          {/* {listOfCoins.map((curentCoin) => (
+            <div key={uuidv4()} >{curentCoin}
+            <p>{curentCoin.price}</p></div>
+          ))} */}
+        </ul>
 
-          <Badge>Cryptocurrency Name:</Badge>
-          <p>{curentCoin}</p>
         </Col>
       </Row>
-      <Row className="justify-content-center">
-        <Col md={12} className="bg-light text-dark text-center p-3">
-          {listOfCoins.quote !== undefined ? (
-            <div>
-              <Badge>Cryptocurrency Price:</Badge>
-              <p>{listOfCoins.quote.EUR.price}</p>
-            </div>
-          ) : (
-            ""
-          )}
-        </Col>
-      </Row>
+
     </Container>
   );
 }
