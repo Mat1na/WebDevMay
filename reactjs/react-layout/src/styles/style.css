@@ -1,13 +1,13 @@
-.bg-instagram{
-    background: #f09433; 
-background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+.bg-instagram {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
 }
 
 .carousel-item {
-    height:50vh;
+    height: 50vh;
 }
 
 .carousel-item > img{
@@ -15,16 +15,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
     object-position: center !important;
     height: 100%;
 }
+
 figure{
-    margin: 5px!important
+    margin:0!important
 }
+img{
+    height:auto!important;
+    max-width:100%!important;
+    vertical-align:middle!important
+}
+
 .movies{
     display:grid!important;
-    grid-gap:3em 2em!important;
-    grid-template-columns:repeat(auto-fill,minmax(18em,0fr))!important;
+    grid-gap:0.2em 1.5em!important;
+    grid-template-columns:repeat(auto-fill,minmax(15em,1fr))!important;
     list-style:none!important;
     margin:0!important;
-   
+ 
 }
 .movie__figure{
     position:relative!important
@@ -44,7 +51,7 @@ figure{
     padding:.5em!important;
     position:absolute!important;
     color:#000;
-   
+    /* right:0!important; */
     text-align:center!important;
     top:75%!important;
     transform:translateX(50%)!important;
@@ -53,10 +60,65 @@ figure{
 .movie__title{
     font-size:1.199rem!important;
     font-weight:400!important;
-   
+    margin:0!important;
     text-align:center;
     color:#fff
 }
+.app{
+    width:90%!important;
+    margin:0 auto
+}
+.input-group-append{
+    padding:.3em .2em .6em!important
+}
+
+@media screen and (max-width:575px){
+    .table-xs-responsive td,.table-xs-responsive th{
+        width:100%!important;
+        display:block!important;
+        box-sizing:border-box
+    }
+}
+@media screen and (max-width:767px){
+    .table.table-sm-responsive td,.table.table-sm-responsive th{
+        width:100%!important;
+        display:block!important;
+        box-sizing:border-box
+    }
+}
+@media screen and (max-width:992px){
+    .table.table-sm-responsive td,.table.table-sm-responsive th{
+        width:100%!important;
+        display:block!important;
+        box-sizing:border-box
+    }
+}
+@media screen and (max-width:1200px){
+    .table.table-sm-responsive td,.table.table-sm-responsive th{
+        width:100%!important;
+        display:block!important;
+        box-sizing:border-box
+    }
+}
+.jumbotron{
+    background-image:url(https://i.pinimg.com/originals/e0/46/79/e04679c79c994d61363d9b1ba888e246.jpg);
+    background-size:cover;
+    height:100%
+}
 .movie:hover{
     padding:10px
+}
+
+/* movie image in jumbotron element */
+.movie-img{
+    background-size: 100% !important;
+    background-position: center !important;
+}
+/* movie title in jumbotron element */
+.movie-title{
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+}
+
+.bg-none{
+    background-color: transparent !important;
 }
