@@ -1,22 +1,34 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Form,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-function Header() {
+
+
+
+
+
+function Header({searchResultHandler}) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="#home">Blueberry</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto ">
             <Link to={"/"} className="nav-link text-decoration-none">
               Homepage
             </Link>
-            
+
             <NavDropdown title="Categories" id="collasible-nav-dropdown">
               <Link
-                to={"/adventure"}
+                to={'/search'} onClick={searchResultHandler}
                 className="dropdown-item text-decoration-none"
               >
                 Adventure
@@ -27,7 +39,42 @@ function Header() {
               >
                 Comedy
               </Link>
+              <Link
+                to={"/action"}
+                className="dropdown-item text-decoration-none"
+              >
+                Action
+              </Link>
+              <Link
+                to={"/thriller"}
+                className="dropdown-item text-decoration-none"
+              >
+                Thriller
+              </Link>
+              <Link
+                to={"/fantasy"}
+                className="dropdown-item text-decoration-none"
+              >
+                Fantasy
+              </Link>
+              <Link
+                to={"/animation"}
+                className="dropdown-item text-decoration-none"
+              >
+                Animation
+              </Link>
             </NavDropdown>
+          </Nav>
+          <Nav className="d-flex flex-row">
+            <Form className="d-flex flex-row">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-light">Search</Button>
+            </Form>
           </Nav>
           <Nav className="d-flex flex-row">
             <Link to={"/#social"}>

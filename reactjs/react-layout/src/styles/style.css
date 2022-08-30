@@ -62,7 +62,8 @@ img{
     font-weight:400!important;
     margin:0!important;
     text-align:center;
-    color:#fff
+    color:#fff;
+    padding-bottom: 2em;
 }
 
 
@@ -111,10 +112,15 @@ img{
  
 } */
 /* movie title in jumbotron element */
-.movie-title{
+/* .movie-title{
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
-}
+} */
 
 .bg-none{
     background-color: transparent !important;
+}
+
+
+.movie-title{
+    border-bottom:1px solid white;
 }

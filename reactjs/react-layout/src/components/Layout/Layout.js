@@ -1,18 +1,16 @@
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import Footer from './Footer'
+import Header from './Header'
 
-function Layout({ children }) {
+function Layout({ children,searchResultHandler }) {
   return (
-    <div>
-      <BrowserRouter>
-        <Header />
-        {children}
-        <Footer />
-      </BrowserRouter>
-    </div>
-  );
+    <BrowserRouter>
+      <Header searchResultHandler={searchResultHandler} />
+      {children}
+      <Footer />
+    </BrowserRouter>
+  )
 }
 
-export default Layout;
+export default Layout
