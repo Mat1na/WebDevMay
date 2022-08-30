@@ -14,11 +14,11 @@ import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 
 
-function Header({searchResultHandler}) {
+function Header({searchResultHandler,inputHandler }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Blueberry</Navbar.Brand>
+        <Navbar.Brand href="#home">MovieFinder</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
@@ -68,6 +68,7 @@ function Header({searchResultHandler}) {
           <Nav className="d-flex flex-row">
             <Form className="d-flex flex-row">
               <Form.Control
+               onChange={inputHandler}
                 type="search"
                 placeholder="Search"
                 className="me-2"

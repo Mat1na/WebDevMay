@@ -67,7 +67,7 @@ img{
 }
 
 
-@media screen and (max-width:575px){
+/* @media screen and (max-width:575px){
     .table-xs-responsive td,.table-xs-responsive th{
         width:100%!important;
         display:block!important;
@@ -94,7 +94,7 @@ img{
         display:block!important;
         box-sizing:border-box
     }
-}
+} */
 /* .jumbotron{
     background-image:url(https://i.pinimg.com/originals/e0/46/79/e04679c79c994d61363d9b1ba888e246.jpg);
     background-size:cover;

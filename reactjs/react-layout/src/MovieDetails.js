@@ -43,9 +43,9 @@ function MovieDetail() {
           <h1 className="text-start ">Overview</h1>
           <p>{movieDetail.overview}</p>
             <Col md={4} className=" p-3 d-flex justify-content-center details">
-              <ListGroup className="mx-0">
+              <ListGroup >
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning px-5" text="dark">
+                  <Badge bg="warning  w-100" text="dark">
                     Imdb Score:{" "}
                     <p className=" d-inline">
                       {Math.floor(movieDetail.vote_average)}
@@ -53,7 +53,7 @@ function MovieDetail() {
                   </Badge>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning px-5" text="dark">
+                  <Badge bg="warning  w-100" text="dark">
                     Movie Language:{" "}
                     <p className=" d-inline">
                       {movieDetail.original_language !== undefined
@@ -63,7 +63,7 @@ function MovieDetail() {
                   </Badge>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning px-5" text="dark">
+                  <Badge bg="warning w-100" text="dark">
                     Category:{" "}
                     <p className="">
                       {movieDetail.genres !== undefined
@@ -71,7 +71,7 @@ function MovieDetail() {
                             <>
                               <p className="d-inline" key={cat.id}>
                                 {cat.name}
-                                {"| "}
+                                {" || "}
                               </p>
                             </>
                           ))
@@ -80,7 +80,7 @@ function MovieDetail() {
                   </Badge>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning px-5" text="dark">
+                  <Badge bg="warning w-100" text="dark">
                     Production:{" "}
                     <p className=" ">
                       {movieDetail.production_companies !== undefined
