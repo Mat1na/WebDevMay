@@ -38,24 +38,24 @@ function MovieDetail() {
             alt=""
           />
         </Col>
-        <Col md={8} className="">
+        <Col md={8} className="p-4 m-0 bg-dark text-white movie-img justify-content-center align-items-center">
           <Row className="p-0  m-0 bg-dark text-white movie-img align-items-center">
           <h1 className="text-start ">Overview</h1>
           <p>{movieDetail.overview}</p>
-            <Col md={4} className=" p-3 d-flex justify-content-center details">
+            <Col md={4} className=" p-3 justify-content-center details">
               <ListGroup >
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
                   <Badge bg="warning  w-100" text="dark">
                     Imdb Score:{" "}
-                    <p className=" d-inline">
+                    <p className=" d-inline text-wrap">
                       {Math.floor(movieDetail.vote_average)}
                     </p>
                   </Badge>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning  w-100" text="dark">
+                  <Badge bg="warning  w-100 text-wrap " text="dark">
                     Movie Language:{" "}
-                    <p className=" d-inline">
+                    <p className=" d-inline text-wrap ">
                       {movieDetail.original_language !== undefined
                         ? movieDetail.original_language.toUpperCase()
                         : ""}
@@ -65,11 +65,11 @@ function MovieDetail() {
                 <ListGroup.Item className="bg-none text-light border-0 px-0">
                   <Badge bg="warning w-100" text="dark">
                     Category:{" "}
-                    <p className="">
+                    <p className="text-wrap">
                       {movieDetail.genres !== undefined
                         ? movieDetail.genres.map((cat, index) => (
                             <>
-                              <p className="d-inline" key={cat.id}>
+                              <p className="d-inline text-wrap" key={cat.id}>
                                 {cat.name}
                                 {" || "}
                               </p>
@@ -87,7 +87,7 @@ function MovieDetail() {
                         ? movieDetail.production_companies.map((prod) => (
                             <>
                               <hr />
-                              <p className="d-inline" key={prod.id}>
+                              <p className="d-inline text-wrap" key={prod.id}>
                                 <a href={movieDetail.homepage}>{prod.name} </a>
                               </p>
                             </>

@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  Button,
-  Container,
+    Container,
   Nav,
   Navbar,
   NavDropdown,
@@ -74,7 +73,7 @@ function Header({searchResultHandler,inputHandler }) {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-light">Search</Button>
+              
             </Form>
           </Nav>
           <Nav className="d-flex flex-row">
