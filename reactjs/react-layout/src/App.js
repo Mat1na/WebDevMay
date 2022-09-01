@@ -31,20 +31,15 @@ function App() {
    
   
   }
-  useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&query=${inputValue}`)
-        .then(response => response.json())
-        .then(data => {
-            setResult(data.results)
+  
+ 
 
-        })
-        .catch(err => console.log(err))
-},[page,inputValue])
-
-  // https://api.themoviedb.org/3/genre/movie/list?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US
-
+  
   const searchResult = () => {
     console.log("This is search handler");
+    setResult();
+    
+  
     setResult([
       {
         id: 1,
@@ -52,6 +47,31 @@ function App() {
       },
     ]);
   };
+
+
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&query=${inputValue}`)
+        .then(response => response.json())
+        .then(data => {
+            setResult(data.results)
+
+        })
+        
+        fetch(`https://api.themoviedb.org/3/${result}/movie/list?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US`)
+        .then(response => response.json())
+        .then(data => {
+            setResult(data.genres.name)
+
+        })
+       
+
+
+
+},[page,inputValue,result])
+
+  // https://api.themoviedb.org/3/genre/movie/list?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US
+
  
 
   return (
@@ -60,6 +80,7 @@ function App() {
       <Route path='/' element={<Home inputValue={inputValue} result={result} nextPage={nextPage} prevPage={prevPage} page={page} />} />
         <Route path="/search" element={<SearchResults result={result} />} />
         <Route path="/:movie_id" element={<MovieDetails />} />
+        <Route path="/genre" element={<SearchResults result={result}/>} />
         
       </Routes>
     </Layout>

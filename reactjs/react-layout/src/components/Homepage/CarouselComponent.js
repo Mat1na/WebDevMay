@@ -4,15 +4,15 @@ import { Carousel } from "react-bootstrap";
 function CarouselComponent() {
   return (
     <Carousel fade className="bg-dark">
-      <Carousel.Item>
+      <Carousel.Item >
         <img
           className="d-block w-100"
           src="https://hdwallpaperim.com/wp-content/uploads/2017/08/23/472571-film_reel-movies-748x403.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
-          {/* <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+        <Carousel.Caption >
+          <h3>MovieBlender</h3>
+                    <p>Find all movies here</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
