@@ -1,23 +1,20 @@
 import React from "react";
-import {
-    Container,
-  Nav,
-  Navbar,
-  NavDropdown,
-  Form,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Nav, Navbar, NavDropdown, Form } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
+function Header({ searchResultHandler, inputHandler }) {
+  const x = useNavigate();
+  const RedirectToHome = (e) => {
+    if (e.key === "Enter") {
+      return x("/");
+    }
+  };
 
-
-
-
-function Header({searchResultHandler,inputHandler }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">MovieFinder</Navbar.Brand>
+        <Navbar.Brand href="/">MovieBlender</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
@@ -27,7 +24,8 @@ function Header({searchResultHandler,inputHandler }) {
 
             <NavDropdown title="Categories" id="collasible-nav-dropdown">
               <Link
-                to={'/search'} onClick={searchResultHandler}
+                to={"/search"}
+                onClick={searchResultHandler}
                 className="dropdown-item text-decoration-none"
               >
                 Adventure
@@ -67,13 +65,13 @@ function Header({searchResultHandler,inputHandler }) {
           <Nav className="d-flex flex-row">
             <Form className="d-flex flex-row">
               <Form.Control
-               onChange={inputHandler}
+                onChange={inputHandler}
                 type="search"
+                onKeyDown={RedirectToHome}
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
               />
-              
             </Form>
           </Nav>
           <Nav className="d-flex flex-row">

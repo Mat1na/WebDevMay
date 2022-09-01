@@ -17,8 +17,8 @@ function App() {
       setInputValue("a");
     }
     
-
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=1&query=${inputValue}`)
+    let inputVal = e.target.value
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=1&query=${inputVal}`)
     .then (res=>res.json())
     .then (data=>{
       setResult(data.results)

@@ -3,7 +3,7 @@ import { Button, ButtonGroup, CardGroup, Container } from "react-bootstrap";
 import CarouselComponent from "./components/Homepage/CarouselComponent";
 import MovieCard from "./components/Homepage/MovieCard";
 
-function Home({ inputValue, result }) {
+function Home({ inputValue, result}) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -26,6 +26,7 @@ function Home({ inputValue, result }) {
 
   useEffect(() => {
     fetchMovies();
+ 
   }, [page]);
 
   return (
