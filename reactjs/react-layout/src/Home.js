@@ -3,18 +3,8 @@ import { Button, ButtonGroup, CardGroup, Container } from "react-bootstrap";
 import CarouselComponent from "./components/Homepage/CarouselComponent";
 import MovieCard from "./components/Homepage/MovieCard";
 
-function Home({ inputValue, result}) {
+function Home({ inputValue, result,page,nextPage,prevPage}) {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
-
-  const nextPage = () => setPage(page + 1);
-  const prevPage = () => {
-    if (page <= 1) {
-      return;
-    } else {
-      setPage(page - 1);
-    }
-  };
 
   const fetchMovies = async () => {
     let res = await fetch(
@@ -63,12 +53,15 @@ function Home({ inputValue, result}) {
       <div className="pagination bg-dark d-flex justify-content-center">
         <ButtonGroup aria-label="" className="pb-3">
           <Button
-            variant=" rounded-0 btn btn-outline-light m-1 px-5 "
+            variant="  btn btn-outline-light m-1 px-5 "
             onClick={prevPage}
           >
             Prev
           </Button>
-          <Button variant="outline-light rounded-0 m-1 px-5" onClick={nextPage}>
+          <Button variant="outline-light  m-1 px-5" onClick={()=>{
+            nextPage()
+
+          }}>
             Next
           </Button>
         </ButtonGroup>

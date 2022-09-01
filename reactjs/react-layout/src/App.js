@@ -7,6 +7,17 @@ import MovieDetails from "./MovieDetails";
 import SearchResults from "./SearchResults";
 
 function App() {
+  
+  const [page, setPage] = useState(1);
+
+  const nextPage = () => setPage(page + 1);
+  const prevPage = () => {
+    if (page <= 1) {
+      return;
+    } else {
+      setPage(page - 1);
+    }
+  };
   const [result, setResult] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -17,13 +28,18 @@ function App() {
       setInputValue("a");
     }
     
-    let inputVal = e.target.value
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=1&query=${inputVal}`)
-    .then (res=>res.json())
-    .then (data=>{
-      setResult(data.results)
-    })
-  };
+   
+  
+  }
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&query=${inputValue}`)
+        .then(response => response.json())
+        .then(data => {
+            setResult(data.results)
+
+        })
+        .catch(err => console.log(err))
+},[page,inputValue])
 
   // https://api.themoviedb.org/3/genre/movie/list?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US
 
@@ -41,7 +57,7 @@ function App() {
   return (
     <Layout searchResultHandler={searchResult} inputHandler={inputHandler}>
       <Routes>
-      <Route path='/' element={<Home inputValue={inputValue} result={result} />} />
+      <Route path='/' element={<Home inputValue={inputValue} result={result} nextPage={nextPage} prevPage={prevPage} page={page} />} />
         <Route path="/search" element={<SearchResults result={result} />} />
         <Route path="/:movie_id" element={<MovieDetails />} />
         
