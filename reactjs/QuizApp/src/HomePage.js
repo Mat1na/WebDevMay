@@ -12,19 +12,19 @@ function HomePage() {
 
 const [allCategories, setAllCategories] = useState([]);
 
-useEffect(()=>{
+// useEffect(()=>{
 
-    getCategories()
-},[])
+//     getCategories()
+// },[])
 
-const getCategories=async()=>{
-    let res=await fetch("ttps://opentdb.com/api.php?amount=50&category=18/category")
-    let data=await res.json()
+// const getCategories=async()=>{
+//     let res=await fetch("https://opentdb.com/api.php?amount=10&category=18/results")
+//     let data=await res.json()
   
-    setAllCategories(data)
+//     setAllCategories(data.results)
 
-}
-console.log(allCategories)
+// }
+// console.log(allCategories)
 
 
 
