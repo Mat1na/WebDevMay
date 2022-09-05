@@ -4,17 +4,28 @@ import { Container } from "react-bootstrap";
 
 function Quiz() {
   const [allData, setAllData] = useState([]);
+  // const [nextQuestion, setNextQuestion]=useState(0)
 
-  const getQusetions = async () => {
+  const getQuestions = async () => {
     let res = await fetch("https://opentdb.com/api.php?amount=10");
+
 
     let data = await res.json();
     setAllData(data.results);
   };
 
+// const btnHandler=()=>{
+// setNextQuestion(nextQuestion+1)
+// }
+
+
   useEffect(() => {
-    getQusetions();
+
+    getQuestions();
   }, []);
+
+
+ 
 
   return (
     <div className="bg m-5 d-flex justify-content-center align-items-center">
@@ -23,7 +34,7 @@ function Quiz() {
           {console.log(allData)}
 
           {
-          getNextQuestion=()=>{
+          
            
           Object.keys(allData.length) !== 0 ? (
             <>
@@ -79,10 +90,10 @@ function Quiz() {
             </>
           ) : (
             ""
-          )}}
+          )}
 
           <Col md={12}>
-            <Button type="submit" className="w-100 mb-3" onClick={getNextQuestion()}>
+            <Button type="submit" className="w-100 mb-3"  >
               Next
             </Button>
           </Col>
