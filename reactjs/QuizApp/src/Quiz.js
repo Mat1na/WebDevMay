@@ -1,5 +1,6 @@
-import React, { useEffect, useState,useRef } from "react";
-import { Form, Col, Button, Row,Container } from "react-bootstrap";
+import React, { useEffect, useState, useRef } from "react";
+import { Form, Col, Button, Row, Card } from "react-bootstrap";
+import Results from "./Results";
 
 
 function Quiz() {
@@ -7,7 +8,7 @@ function Quiz() {
   const [allAswers, setAllAnswers] = useState([]);
   const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const formRef=useRef()
+  const formRef = useRef();
 
   useEffect(() => {
     async function fetchAllData() {
@@ -21,19 +22,30 @@ function Quiz() {
     fetchAllData();
   }, [nextQuestion]);
 
-
   function nextBtn(e) {
-    console.log(formRef.current.elements['user_answer'].value)
-    if(formRef.current.elements['user_answer'].value !==""){
-        if (allData[nextQuestion].correct_answer === formRef.current.elements['user_answer'].value) {
-            setScore(score + 1)
-        }
-        setNextQuestion(nextQuestion + 1)
+   // console.log(nextQuestion)
+    
+    ///console.log(allData.length-1 !== nextQuestion)
+    if((allData.length-1 !== nextQuestion)){
+      setNextQuestion(nextQuestion+1)
+      console.log(nextQuestion)
     }else{
-        alert('You need to pick an option')
+      setNextQuestion(nextQuestion)
+      console.log(nextQuestion)
     }
-  };
-
+  //  console.log(formRef.current.elements["user_answer"].value);
+    if (formRef.current.elements["user_answer"].value !== "") {
+      if (
+        allData[nextQuestion].correct_answer ===
+        formRef.current.elements["user_answer"].value
+      ) {
+        setScore(score + 1);
+      }
+      setNextQuestion(nextQuestion + 1);
+    } else {
+      alert("You need to pick an option");
+    }
+  }
 
   function shuffle(array) {
     let currentIndex = array.length,
@@ -56,23 +68,22 @@ function Quiz() {
   }
 
   return (
-    <div className="bg  d-flex justify-content-center align-items-center">
-      <Container className="d-flex justify-content-center align-items-center ">
-        <Row className=" form m-5 p-3 d-flex  align-items-center">
-          {console.log(allData)}
-
-          {allData.length > 0 && allData != undefined ? (
-            <>
+    <div className="bg m-5  d-flex justify-content-center align-items-center">
+    
+        <Row className=" form m-5 d-flex justify-content-center  align-items-center ">
+        <Card style={{ backgroundColor:"white", width: "20rem" }}>
+      <Card.Body >
+        {
+            allData[nextQuestion] !== undefined && allData.length > 0 ? (
               <>
-                <h3 className=" m-3 p-3">{allData[nextQuestion].question}</h3>
+                <h3 className="   ">{allData[nextQuestion].question}</h3>
                 <Form ref={formRef}>
                   <div className="mb-3">
                     {shuffle(allAswers).map((option) => (
                       <Form.Check
-                        
                         label={option}
                         name="user_answer"
-                        type={"radio"}
+                        type="radio"
                         value={option}
                         id="question"
                       />
@@ -87,17 +98,19 @@ function Quiz() {
                     value={allData[nextQuestion].correct_answer}
                   >
                     Next
-                    {console.log(allAswers)}
+                   
                     {console.log(`Your score is ${score}`)}
                   </Button>
                 </Col>
               </>
-            </>
-          ) : (
-            "Loading..."
-          )}
+            ) : (
+              <Results score={score}/>
+            )
+          }
+           </Card.Body>
+    </Card>
         </Row>
-      </Container>
+      
     </div>
   );
 }

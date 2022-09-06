@@ -23,6 +23,13 @@
   text-align: center;
 
 }
+.titleHome{
+
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  
+  }
 
 .title{
  text-decoration: none;
@@ -62,12 +69,12 @@
 
 } */
 
-.form {
-    width: 50%;
+/* .form {
+    width: 100%;
     background-color: white;
     border-radius: 0.375rem;
 
-}
+} */
 
 .btnHome {
     width: 50%;
