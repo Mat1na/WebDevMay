@@ -76,7 +76,7 @@ function Quiz() {
         {
             allData[nextQuestion] !== undefined && allData.length > 0 ? (
               <>
-                <h3 className="   ">{allData[nextQuestion].question}</h3>
+                <h3 >{allData[nextQuestion].question}</h3>
                 <Form ref={formRef}>
                   <div className="mb-3">
                     {shuffle(allAswers).map((option) => (
