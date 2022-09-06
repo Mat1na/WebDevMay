@@ -14,7 +14,7 @@
 .app{
     background: rgb(253, 29, 29);
     background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
- min-height: 90.3vh;
+ min-height: 93.2vh;
 }
 
 .header{

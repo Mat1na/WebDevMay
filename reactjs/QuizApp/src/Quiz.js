@@ -1,102 +1,101 @@
-import React, { useEffect, useState } from "react";
-import { Form, Col, Button, Row } from "react-bootstrap";
-import { Container } from "react-bootstrap";
+import React, { useEffect, useState,useRef } from "react";
+import { Form, Col, Button, Row,Container } from "react-bootstrap";
+
 
 function Quiz() {
   const [allData, setAllData] = useState([]);
-  // const [nextQuestion, setNextQuestion]=useState(0)
-
-  const getQuestions = async () => {
-    let res = await fetch("https://opentdb.com/api.php?amount=10");
-
-
-    let data = await res.json();
-    setAllData(data.results);
-  };
-
-// const btnHandler=()=>{
-// setNextQuestion(nextQuestion+1)
-// }
-
+  const [allAswers, setAllAnswers] = useState([]);
+  const [nextQuestion, setNextQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const formRef=useRef()
 
   useEffect(() => {
+    async function fetchAllData() {
+      let res = await fetch("https://opentdb.com/api.php?amount=10");
+      let data = await res.json();
+      setAllData(data.results);
+      let correctAnswer = data.results[nextQuestion].correct_answer;
+      let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
+      setAllAnswers([correctAnswer, ...incorrectAnswers]);
+    }
+    fetchAllData();
+  }, [nextQuestion]);
 
-    getQuestions();
-  }, []);
+
+  function nextBtn(e) {
+    console.log(formRef.current.elements['user_answer'].value)
+    if(formRef.current.elements['user_answer'].value !==""){
+        if (allData[nextQuestion].correct_answer === formRef.current.elements['user_answer'].value) {
+            setScore(score + 1)
+        }
+        setNextQuestion(nextQuestion + 1)
+    }else{
+        alert('You need to pick an option')
+    }
+  };
 
 
- 
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
 
   return (
-    <div className="bg m-5 d-flex justify-content-center align-items-center">
-      <Container className="d-flex justify-content-center align-items-center p-5 m-5 ">
-        <Row className=" form m-5 p-3">
+    <div className="bg  d-flex justify-content-center align-items-center">
+      <Container className="d-flex justify-content-center align-items-center ">
+        <Row className=" form m-5 p-3 d-flex  align-items-center">
           {console.log(allData)}
 
-          {
-          
-           
-          Object.keys(allData.length) !== 0 ? (
+          {allData.length > 0 && allData != undefined ? (
             <>
-              {allData.map((question, index) => {
-                return (
-                  
-                  <>
-                  
-                    <p key={index}>{allData[index].question}</p>
-                    <Form>
-                      <div className="mb-3">
-                        <Form.Check
-                          type="radio"
-                          id="1"
-                          label={allData[index].correct_answer}
-                          value="correctanswer"
-                          name="question"
-                        />
-                        <Form.Check
-                          type="radio"
-                          id="2"
-                          label={allData[index].incorrect_answers[0]}
-                          value="incorrectanswer"
-                          name="question"
-                        />
-                        {allData[index].incorrect_answers.length > 2 ? (
-                          <Form.Check
-                            type="radio"
-                            id="3"
-                            label={allData[index].incorrect_answers[1]}
-                            value="incorrectanswer"
-                            name="question"
-                          />
-                        ) : (
-                          ""
-                        )}
-                        {allData[index].incorrect_answers.length > 2 ? (
-                          <Form.Check
-                            type="radio"
-                            id="4"
-                            label={allData[index].incorrect_answers[2]}
-                            value="incorrectanswer"
-                            name="question"
-                          />
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </Form>
-                  </>
-                );
-              })}
+              <>
+                <h3 className=" m-3 p-3">{allData[nextQuestion].question}</h3>
+                <Form ref={formRef}>
+                  <div className="mb-3">
+                    {shuffle(allAswers).map((option) => (
+                      <Form.Check
+                        
+                        label={option}
+                        name="user_answer"
+                        type={"radio"}
+                        value={option}
+                        id="question"
+                      />
+                    ))}
+                  </div>
+                </Form>
+                <Col md={12}>
+                  <Button
+                    type="submit"
+                    className="w-100 mb-3"
+                    onClick={nextBtn}
+                    value={allData[nextQuestion].correct_answer}
+                  >
+                    Next
+                    {console.log(allAswers)}
+                    {console.log(`Your score is ${score}`)}
+                  </Button>
+                </Col>
+              </>
             </>
           ) : (
-            ""
+            "Loading..."
           )}
-
-          <Col md={12}>
-            <Button type="submit" className="w-100 mb-3"  >
-              Next
-            </Button>
-          </Col>
         </Row>
       </Container>
     </div>

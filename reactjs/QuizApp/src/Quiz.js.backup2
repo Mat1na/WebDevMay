@@ -1,0 +1,43 @@
+import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap'
+
+function Quiz() {
+    const [questions, setQuestions] = useState([])
+    const [currentQuestion,setCurrentQuestion] = useState(0)
+    const [score,setScore] = useState(0)
+
+    useEffect(()=>{
+        async function FetchQuestions(){
+            let res = await fetch('https://opentdb.com/api.php?amount=10')
+            let data = await res.json();
+            setQuestions(data.results)
+        }
+        FetchQuestions()
+    },[])
+
+    const NextQuestion = (e)=>{
+        console.log(e.target.value)
+        if(questions[currentQuestion].correct_answer === e.target.value){
+            alert('it is corret answer')
+        }
+        setCurrentQuestion(currentQuestion+1)
+       
+    }
+
+  return (
+    <div>
+        {
+            questions.length >0?
+            (
+                <div>
+                    <h1>{questions[currentQuestion].question}</h1>
+                    <Button onClick={NextQuestion} value={questions[currentQuestion].correct_answer}>Next Question</Button>
+                </div>
+            ):
+            'Loading...'
+        }
+    </div>
+  )
+}
+
+export default Quiz
