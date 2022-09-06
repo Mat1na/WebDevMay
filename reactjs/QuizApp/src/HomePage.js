@@ -4,13 +4,15 @@ import { Form, Col, Button, Row } from "react-bootstrap";
 
 
 
+
 function HomePage() {
 
 
 const [allCategories, setAllCategories] = useState([]);
+const [data, setData] = useState({})
 
 useEffect(()=>{
-   
+  
  
 },[])
 
