@@ -6,7 +6,7 @@ import Results from "./results";
 
 // https://opentdb.com/api_category.php
 
-function Quiz() {
+function Quiz({difficulty}) {
   const [fetchedData, setFetchedData] = useState([]);
   const [allAswers, setAllAnswers] = useState([]);
   const [nextQuestion, setNextQuestion] = useState(0);
@@ -15,7 +15,7 @@ function Quiz() {
 
   useEffect(() => {
     async function fetchAllData() {
-      let res = await fetch(`https://opentdb.com/api.php?amount=10`);
+      let res = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`);
       let data = await res.json();
       setFetchedData(data.results);
       let correctAnswer = data.results[nextQuestion].correct_answer;
@@ -23,6 +23,7 @@ function Quiz() {
       setAllAnswers([correctAnswer, ...incorrectAnswers]);
     }
     fetchAllData();
+   
   }, [nextQuestion]);
 
   function nextBtn(e) {
@@ -104,7 +105,7 @@ function Quiz() {
                     value={fetchedData[nextQuestion].correct_answer}
                   >
                     Next
-                   
+                   { console.log(difficulty)}
                     {console.log(`Your score is ${score}`)}
                   </Button>
                 </Col>

@@ -11,6 +11,7 @@ function HomePage() {
 const [allCategories, setAllCategories] = useState([]);
 const [fetchedData, setFetchedData] = useState([]);
 const [selectedCat, setSelectedCat]= useState([]);
+const [difficulty,setDifficulty]= useState([]);
 
 useEffect(()=>{
     async function fetchAllCategories() {
@@ -20,7 +21,14 @@ useEffect(()=>{
         // let cat=fetchedData.map((cat)=>cat.category)
        
       }
+      async function fetchAllData() {
+        let res = await fetch(`https://opentdb.com/api.php?amount=10`);
+        let data = await res.json();
+        setFetchedData(data.results);
+      
+      }
       fetchAllCategories();
+      fetchAllData()
       
 },[])
 
@@ -66,10 +74,12 @@ useEffect(()=>{
 
                 <Form.Group as={Col} md={12} controlId="formGridState">
                     <Form.Label>Choose category</Form.Label>
-                    <Form.Select defaultValue="Choose...">
-                    
-                        <option>...</option>
-                        <option>...</option>
+                    <Form.Select defaultValue="Choose..."onChange={(e)=>setDifficulty(e.target.value)}>
+                  {console.log(difficulty)}
+                 
+                    {fetchedData.map((level)=>
+                    <option>{level.difficulty}</option>
+                    )}
                     </Form.Select>
                 </Form.Group>
                 <Button  md={12} href="/Quiz" className='p-2 m-3 btnHome ' >Start Quiz </Button>

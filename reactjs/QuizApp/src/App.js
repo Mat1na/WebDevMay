@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 
-
+import difficulty from "./HomePage"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
@@ -33,7 +33,7 @@ function App() {
    <Header/>
    <Routes>
      <Route path='/' exact element={<HomePage />}/>
-     <Route path='/quiz' element={<Quiz  />}/>
+     <Route path='/quiz' element={<Quiz difficulty={difficulty} />}/>
     
  </Routes>
   
