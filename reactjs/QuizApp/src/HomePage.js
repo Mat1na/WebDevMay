@@ -9,12 +9,22 @@ function HomePage() {
 
 
 const [allCategories, setAllCategories] = useState([]);
-const [data, setData] = useState({})
+const [fetchedData, setFetchedData] = useState([]);
+const [selectedCat, setSelectedCat]= useState([]);
 
 useEffect(()=>{
-  
- 
+    async function fetchAllCategories() {
+        let res = await fetch("https://opentdb.com/api_category.php");
+        let data = await res.json();
+        setAllCategories(data.trivia_categories);
+        // let cat=fetchedData.map((cat)=>cat.category)
+       
+      }
+      fetchAllCategories();
+      
 },[])
+
+
 
 
 // function startBtn(){
@@ -41,10 +51,14 @@ useEffect(()=>{
                 <h1 className='text-center titleHome'>Wanna Play?</h1>
                 <Form.Group as={Col} md={12} controlId="formGridState">
                     <Form.Label>Choose difficulty </Form.Label>
-                    <Form.Select defaultValue="Choose...">
+                    <Form.Select defaultValue="Choose..." onChange={(e)=>setSelectedCat(e.target.value)}>
+                  {console.log(allCategories)}
+                  {console.log(selectedCat)}
+                    {allCategories.map((cat)=>
+                    <option key={cat.id}>{cat.name}</option>
+                    )}
+                        
                        
-                        <option>...</option>
-                        <option>...</option>
                     </Form.Select>
                 </Form.Group>
 
@@ -53,6 +67,7 @@ useEffect(()=>{
                 <Form.Group as={Col} md={12} controlId="formGridState">
                     <Form.Label>Choose category</Form.Label>
                     <Form.Select defaultValue="Choose...">
+                    
                         <option>...</option>
                         <option>...</option>
                     </Form.Select>

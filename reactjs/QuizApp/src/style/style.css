@@ -14,7 +14,9 @@
 .app{
     background: rgb(253, 29, 29);
     background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
- min-height: 93.2vh;
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
 }
 
 .header{
@@ -43,18 +45,20 @@
 }
 
 
-.divider{
+/* .divider{
     color: rgb(255, 255, 255);
     margin: 10px;
     
-}
+} */
+
+
 .footer{
     text-align: center;
-    background: rgb(253, 29, 29);
-    background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
+    /* background: rgb(253, 29, 29);
+    background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%); */
     color: rgb(255, 255, 255);
     padding: 20px;
-
+    margin-top: auto;
    
    
 }

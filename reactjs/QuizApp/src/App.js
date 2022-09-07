@@ -33,12 +33,12 @@ function App() {
    <Header/>
    <Routes>
      <Route path='/' exact element={<HomePage />}/>
-     <Route path='/quiz' element={<Quiz />}/>
+     <Route path='/quiz' element={<Quiz  />}/>
     
  </Routes>
-   </div>
+  
    <Footer/>
-
+   </div>
    
    </BrowserRouter>
   

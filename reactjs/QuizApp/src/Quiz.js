@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Form, Col, Button, Row, Card } from "react-bootstrap";
-import Results from "./Results";
+import Results from "./results";
 
+// https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&encode=base64
+
+// https://opentdb.com/api_category.php
 
 function Quiz() {
-  const [allData, setAllData] = useState([]);
+  const [fetchedData, setFetchedData] = useState([]);
   const [allAswers, setAllAnswers] = useState([]);
   const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -12,9 +15,9 @@ function Quiz() {
 
   useEffect(() => {
     async function fetchAllData() {
-      let res = await fetch("https://opentdb.com/api.php?amount=10");
+      let res = await fetch(`https://opentdb.com/api.php?amount=10`);
       let data = await res.json();
-      setAllData(data.results);
+      setFetchedData(data.results);
       let correctAnswer = data.results[nextQuestion].correct_answer;
       let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
       setAllAnswers([correctAnswer, ...incorrectAnswers]);
@@ -25,8 +28,8 @@ function Quiz() {
   function nextBtn(e) {
    // console.log(nextQuestion)
     
-    ///console.log(allData.length-1 !== nextQuestion)
-    if((allData.length-1 !== nextQuestion)){
+    ///console.log(fetchedData.length-1 !== nextQuestion)
+    if((fetchedData.length-1 !== nextQuestion)){
       setNextQuestion(nextQuestion+1)
       console.log(nextQuestion)
     }else{
@@ -36,7 +39,7 @@ function Quiz() {
   //  console.log(formRef.current.elements["user_answer"].value);
     if (formRef.current.elements["user_answer"].value !== "") {
       if (
-        allData[nextQuestion].correct_answer ===
+        fetchedData[nextQuestion].correct_answer ===
         formRef.current.elements["user_answer"].value
       ) {
         setScore(score + 1);
@@ -73,10 +76,13 @@ function Quiz() {
         <Row className=" form m-5 d-flex justify-content-center  align-items-center ">
         <Card style={{ backgroundColor:"white", width: "20rem" }}>
       <Card.Body >
+      {
+              fetchedData.length > 0 ?  (
+                  <>
         {
-            allData[nextQuestion] !== undefined && allData.length > 0 ? (
+            fetchedData[nextQuestion] !== undefined && fetchedData.length > 0 ? (
               <>
-                <h3 >{allData[nextQuestion].question}</h3>
+                <h3 >{fetchedData[nextQuestion].question}</h3>
                 <Form ref={formRef}>
                   <div className="mb-3">
                     {shuffle(allAswers).map((option) => (
@@ -95,7 +101,7 @@ function Quiz() {
                     type="submit"
                     className="w-100 mb-3"
                     onClick={nextBtn}
-                    value={allData[nextQuestion].correct_answer}
+                    value={fetchedData[nextQuestion].correct_answer}
                   >
                     Next
                    
@@ -106,7 +112,8 @@ function Quiz() {
             ) : (
               <Results score={score}/>
             )
-          }
+          }</>):( 'Loading...')
+        }
            </Card.Body>
     </Card>
         </Row>

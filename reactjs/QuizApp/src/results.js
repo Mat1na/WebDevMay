@@ -6,8 +6,8 @@ function Results({score}) {
 
     {
      score>=5?
-      (<h1 className='text-center'>Hooray,Your score is {score}!</h1>):(<h1 className='text-center text-reset'>Your score is {score}.
-      Don´t give up <a href='/' className='text-decoration-none '>try again</a>.</h1>)}
+      (<h2 className='text-center'>Hooray,Your score is {score}!</h2>):(<h2 className='text-center '>Your score is {score}.
+      Don´t give up <a href='/' className='text-decoration-none  '>try again.</a></h2>)}
       </>
   )
 }
