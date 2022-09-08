@@ -1,94 +1,79 @@
-import React,{ useEffect, useState } from "react";
-import { Form, Col, Button, Row } from "react-bootstrap";
+import React, { useEffect, useState, useRef } from "react";
+import { Form, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
+function HomePage({ setDifficulty, setSelectedCat }) {
+  const [allCategories, setAllCategories] = useState([]);
+  const formRef = useRef();
 
-
-
-
-function HomePage() {
-
-
-const [allCategories, setAllCategories] = useState([]);
-const [fetchedData, setFetchedData] = useState([]);
-const [selectedCat, setSelectedCat]= useState([]);
-const [difficulty,setDifficulty]= useState([]);
-
-useEffect(()=>{
+  useEffect(() => {
     async function fetchAllCategories() {
-        let res = await fetch("https://opentdb.com/api_category.php");
-        let data = await res.json();
-        setAllCategories(data.trivia_categories);
-        // let cat=fetchedData.map((cat)=>cat.category)
-       
-      }
-      async function fetchAllData() {
-        let res = await fetch(`https://opentdb.com/api.php?amount=10`);
-        let data = await res.json();
-        setFetchedData(data.results);
-      
-      }
-      fetchAllCategories();
-      fetchAllData()
-      
-},[])
+      let res = await fetch("https://opentdb.com/api_category.php");
+      let data = await res.json();
+      setAllCategories(data.trivia_categories);
+      // let cat=fetchedData.map((cat)=>cat.category)
+    }
+
+    fetchAllCategories();
+  }, []);
 
 
-
-
-// function startBtn(){
-//     if (formRef.current.elements["user_answer"].value !== "") {
-//         if (
-//           allData[nextQuestion].correct_answer ===
-//           formRef.current.elements["user_answer"].value
-//         ) {
-       
-//         }
-      
-//       } else {
-//         alert("You need to pick an option");
-//       }
-// }
-
-
-
-
-
-    return (
-        <div className='d-flex justify-content-center align-items-center m-5'>
-            <Row className='w-50 d-flex justify-content-center m-5'>
-                <h1 className='text-center titleHome'>Wanna Play?</h1>
-                <Form.Group as={Col} md={12} controlId="formGridState">
-                    <Form.Label>Choose difficulty </Form.Label>
-                    <Form.Select defaultValue="Choose..." onChange={(e)=>setSelectedCat(e.target.value)}>
-                  {console.log(allCategories)}
-                  {console.log(selectedCat)}
-                    {allCategories.map((cat)=>
-                    <option key={cat.id}>{cat.name}</option>
-                    )}
-                        
-                       
-                    </Form.Select>
-                </Form.Group>
-
-
-
-                <Form.Group as={Col} md={12} controlId="formGridState">
-                    <Form.Label>Choose category</Form.Label>
-                    <Form.Select defaultValue="Choose..."onChange={(e)=>setDifficulty(e.target.value)}>
-                  {console.log(difficulty)}
-                 
-                    {fetchedData.map((level)=>
-                    <option>{level.difficulty}</option>
-                    )}
-                    </Form.Select>
-                </Form.Group>
-                <Button  md={12} href="/Quiz" className='p-2 m-3 btnHome ' >Start Quiz </Button>
-            </Row>
-         
-
-
-        </div>
-    )
+function startBtn() {  
+  if (formRef.current.elements.value == "Choose an option") {
+    alert("You need to pick an option");
+     }
 }
 
-export default HomePage
+
+  return (
+    <div className="d-flex justify-content-center align-items-center m-5">
+      <Row className="w-50 d-flex justify-content-center m-5">
+        <h1 className="text-center titleHome">Wanna Play?</h1>
+        <Form ref={formRef}>
+          <Form.Group as={Col} md={12} controlId="formGridState">
+            <Form.Label>Choose Category </Form.Label>
+            <Form.Select
+              defaultValue={"default"}
+              onChange={(e) => setSelectedCat(e.target.value)}
+            >
+              <option value={"default"} disabled>
+                Choose an option
+              </option>
+              {console.log(allCategories)}
+
+              {allCategories.map((cat) => (
+                <option key={cat.id} value={cat.id} >
+                  {cat.name}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} md={12} controlId="formGridState">
+            <Form.Label>Choose Difficulty</Form.Label>
+            <Form.Select
+              defaultValue={"default"} 
+              onChange={(e) => setDifficulty(e.target.value)}
+            >
+              {/* {fetchedData.map((level)=>
+                    <option>{level.difficulty}</option>
+                    )} */}
+              <option value={"default"} disabled>
+                Choose an option
+              </option>
+              <option value="easy" >Easy</option>
+              <option value="medium" >Medium</option>
+              <option value="hard" >Hard</option>
+            </Form.Select>
+          </Form.Group>
+        </Form>
+
+       <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary" onClick={startBtn}>
+          Start Quiz
+        </Link>
+      </Row>
+    </div>
+  );
+}
+
+export default HomePage;
