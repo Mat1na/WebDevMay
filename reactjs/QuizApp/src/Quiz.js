@@ -70,9 +70,11 @@ function Quiz({ difficulty, selectedCat }) {
         b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
          formRef.current.elements["user_answer"].value
       ) {
+        {console.log(formRef.current.elements["user_answer"].value)}
 
         setScore(score + 1);
       }
+      
       setNextQuestion(nextQuestion + 1);
     } else {
       alert("You need to pick an option");
@@ -91,6 +93,7 @@ function Quiz({ difficulty, selectedCat }) {
                   <>
                     <h3>{b64_to_utf8(fetchedData[nextQuestion].question)}</h3>
                     <Form ref={formRef}>
+                      
                       <div className="mb-3">
                         {shuffle(allAswers).map((option) => (
                           <Form.Check
@@ -99,6 +102,8 @@ function Quiz({ difficulty, selectedCat }) {
                             type="radio"
                             value={b64_to_utf8(option)}
                             id="question"
+                            // className={b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
+                            //   formRef.current.elements["user_answer"].value?"right":}
                           />
                         ))}
                       </div>
@@ -107,13 +112,12 @@ function Quiz({ difficulty, selectedCat }) {
                     <Col md={12}>
                       <Button
                         type="submit"
-                        className="w-100 mb-3 btn"
+                        className="w-100 mb-3 btnQuiz btn  btn-outline-light "
                         onClick={nextBtn}
                         value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >
                         Next
-                        {console.log(selectedCat)}
-                        {console.log(difficulty)}
+                        
                         {console.log(`Your score is ${score}`)}
                       </Button>
                     </Col>

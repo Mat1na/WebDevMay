@@ -73,9 +73,9 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
        {/* <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary">Start Quiz</Link> */}
        {
         (typeof selectedCat) !=='string' || (typeof difficulty) !=='string'?
-        <h4 className='text-center p-4 '>Choose your options first !!!</h4>
+        <p className='text-center p-4 '>Choose your options first !!!</p>
         :
-        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary">Start Quiz</Link>
+        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-light btn-outline-light">Start Quiz</Link>
        }
       </Row>
     </div>

@@ -64,8 +64,13 @@
 }
 .btn{
     background: rgb(253, 29, 29);
-    background: linear-gradient(90deg, rgba(198, 61, 61, 0.482) 50%, rgba(219, 215, 210, 0.479) 100%);
+    background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
+    
     border: none;
+}
+
+.right{
+    background: linear-gradient(90deg, rgba(55, 253, 29, 0.482) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
 }
 
 /* 
