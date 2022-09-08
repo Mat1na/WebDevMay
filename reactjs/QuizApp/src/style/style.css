@@ -72,6 +72,9 @@
 .right{
     background: linear-gradient(90deg, rgba(55, 253, 29, 0.482) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
 }
+.wrong{
+    background: linear-gradient(90deg, rgba(253, 29, 29, 0.482) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
+}
 
 /* 
 .bg {

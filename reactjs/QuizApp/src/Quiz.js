@@ -11,8 +11,12 @@ function Quiz({ difficulty, selectedCat }) {
   const [allAswers, setAllAnswers] = useState([]);
   const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [correct, setcorrect] = useState([]);
+  const [user, setUser] = useState([]);
+  const [allQuestions, setAllQuestions] = useState([]);
+  
   const formRef = useRef();
-
+// decode function
   function b64_to_utf8(str) {
     return decodeURIComponent(escape(window.atob(str)));
   }
@@ -54,15 +58,18 @@ function Quiz({ difficulty, selectedCat }) {
   }, [nextQuestion]);
 
   function nextBtn() {
-    // console.log(nextQuestion)
+   
 
+   setUser(user=>[...user,formRef.current.elements["user_answer"].value])
+    setcorrect(correct=>[...correct,b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
+    setAllQuestions(allQuestions=>[...allQuestions,b64_to_utf8(fetchedData[nextQuestion].question)])
     ///console.log(fetchedData.length-1 !== nextQuestion)
     if (fetchedData.length - 1 !== nextQuestion) {
       setNextQuestion(nextQuestion + 1);
-      console.log(nextQuestion);
+     
     } else {
       setNextQuestion(nextQuestion);
-      console.log(nextQuestion);
+    
     }
     //  console.log(formRef.current.elements["user_answer"].value);
     if (formRef.current.elements["user_answer"].value !== "") {
@@ -70,8 +77,7 @@ function Quiz({ difficulty, selectedCat }) {
         b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
          formRef.current.elements["user_answer"].value
       ) {
-        {console.log(formRef.current.elements["user_answer"].value)}
-
+          
         setScore(score + 1);
       }
       
@@ -84,7 +90,7 @@ function Quiz({ difficulty, selectedCat }) {
   return (
     <div className="bg m-5  d-flex justify-content-center align-items-center">
       <Row className=" form m-5 d-flex justify-content-center  align-items-center ">
-        <Card style={{ backgroundColor: "white", width: "20rem" }}>
+        <Card style={{ backgroundColor: "white", width: "auto" }}>
           <Card.Body>
             {fetchedData.length > 0 ? (
               <>
@@ -102,13 +108,14 @@ function Quiz({ difficulty, selectedCat }) {
                             type="radio"
                             value={b64_to_utf8(option)}
                             id="question"
+                            className="form"
                             // className={b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
                             //   formRef.current.elements["user_answer"].value?"right":}
                           />
                         ))}
                       </div>
                     </Form>
-                    {console.log(difficulty)}
+                    
                     <Col md={12}>
                       <Button
                         type="submit"
@@ -117,13 +124,15 @@ function Quiz({ difficulty, selectedCat }) {
                         value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >
                         Next
+                        {console.log(typeof(allQuestions))}
                         
                         {console.log(`Your score is ${score}`)}
                       </Button>
                     </Col>
                   </>
                 ) : (
-                  <Results score={score} />
+                  <Results score={score} user={user} correct={correct} allQuestions={allQuestions}/>
+                  
                 )}
               </>
             ) : (
