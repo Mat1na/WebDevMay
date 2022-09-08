@@ -22,6 +22,8 @@ function App() {
               <HomePage
                 setDifficulty={setDifficulty}
                 setSelectedCat={setSelectedCat}
+                selectedCat={selectedCat}
+                difficulty={difficulty}
               />
             }
           />

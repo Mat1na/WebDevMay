@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function HomePage({ setDifficulty, setSelectedCat }) {
+function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
   const [allCategories, setAllCategories] = useState([]);
   const formRef = useRef();
 
@@ -18,11 +18,13 @@ function HomePage({ setDifficulty, setSelectedCat }) {
   }, []);
 
 
-function startBtn() {  
-  if (formRef.current.elements.value == "Choose an option") {
-    alert("You need to pick an option");
-     }
-}
+// function startBtn() {  
+//   console.log(typeof selectedCat,typeof difficulty,"optionsssss")
+
+//   if((typeof selectedCat) !=='string' || (typeof difficulty) !=='string' ){
+//       alert('You need to pick options')
+//   }
+// }
 
 
   return (
@@ -68,9 +70,13 @@ function startBtn() {
           </Form.Group>
         </Form>
 
-       <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary" onClick={startBtn}>
-          Start Quiz
-        </Link>
+       {/* <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary">Start Quiz</Link> */}
+       {
+        (typeof selectedCat) !=='string' || (typeof difficulty) !=='string'?
+        <h4 className='text-center p-4 '>Choose your options first !!!</h4>
+        :
+        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-primary">Start Quiz</Link>
+       }
       </Row>
     </div>
   );

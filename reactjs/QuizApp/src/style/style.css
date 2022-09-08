@@ -62,6 +62,11 @@
    
    
 }
+.btn{
+    background: rgb(253, 29, 29);
+    background: linear-gradient(90deg, rgba(198, 61, 61, 0.482) 50%, rgba(219, 215, 210, 0.479) 100%);
+    border: none;
+}
 
 /* 
 .bg {

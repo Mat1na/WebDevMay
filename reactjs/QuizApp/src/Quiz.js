@@ -6,13 +6,16 @@ import Results from "./results";
 
 // https://opentdb.com/api_category.php
 
-function Quiz({ difficulty, selectedCat}) {
+function Quiz({ difficulty, selectedCat }) {
   const [fetchedData, setFetchedData] = useState([]);
   const [allAswers, setAllAnswers] = useState([]);
   const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const formRef = useRef();
-  
+
+  function b64_to_utf8(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+  }
 
   //Shuffle function
   function shuffle(array) {
@@ -38,9 +41,9 @@ function Quiz({ difficulty, selectedCat}) {
   useEffect(() => {
     async function fetchAllData() {
       let res = await fetch(
-        `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}`
+        `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
       );
-      
+
       let data = await res.json();
       setFetchedData(data.results);
       let correctAnswer = data.results[nextQuestion].correct_answer;
@@ -50,7 +53,7 @@ function Quiz({ difficulty, selectedCat}) {
     fetchAllData();
   }, [nextQuestion]);
 
-  function nextBtn(e) {
+  function nextBtn() {
     // console.log(nextQuestion)
 
     ///console.log(fetchedData.length-1 !== nextQuestion)
@@ -62,11 +65,14 @@ function Quiz({ difficulty, selectedCat}) {
       console.log(nextQuestion);
     }
     //  console.log(formRef.current.elements["user_answer"].value);
-  if (formRef.current.elements["user_answer"].value !== "") {
-      if (fetchedData[nextQuestion].correct_answer === formRef.current.elements["user_answer"].value )
-         {
-                   setScore(score + 1);
-         }
+    if (formRef.current.elements["user_answer"].value !== "") {
+      if (
+        b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
+         formRef.current.elements["user_answer"].value
+      ) {
+
+        setScore(score + 1);
+      }
       setNextQuestion(nextQuestion + 1);
     } else {
       alert("You need to pick an option");
@@ -83,15 +89,15 @@ function Quiz({ difficulty, selectedCat}) {
                 {fetchedData[nextQuestion] !== undefined &&
                 fetchedData.length > 0 ? (
                   <>
-                    <h3>{fetchedData[nextQuestion].question}</h3>
+                    <h3>{b64_to_utf8(fetchedData[nextQuestion].question)}</h3>
                     <Form ref={formRef}>
                       <div className="mb-3">
                         {shuffle(allAswers).map((option) => (
                           <Form.Check
-                            label={option}
+                            label={b64_to_utf8(option)}
                             name="user_answer"
                             type="radio"
-                            value={option}
+                            value={b64_to_utf8(option)}
                             id="question"
                           />
                         ))}
@@ -101,9 +107,9 @@ function Quiz({ difficulty, selectedCat}) {
                     <Col md={12}>
                       <Button
                         type="submit"
-                        className="w-100 mb-3"
+                        className="w-100 mb-3 btn"
                         onClick={nextBtn}
-                        value={fetchedData[nextQuestion].correct_answer}
+                        value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >
                         Next
                         {console.log(selectedCat)}
