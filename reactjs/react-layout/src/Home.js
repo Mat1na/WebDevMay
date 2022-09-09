@@ -3,7 +3,7 @@ import { Button, ButtonGroup, CardGroup, Container } from "react-bootstrap";
 import CarouselComponent from "./components/Homepage/CarouselComponent";
 import MovieCard from "./components/Homepage/MovieCard";
 
-function Home({ inputValue, result,page,nextPage,prevPage}) {
+function Home({ inputValue, result, page, nextPage, prevPage }) {
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
@@ -16,57 +16,55 @@ function Home({ inputValue, result,page,nextPage,prevPage}) {
 
   useEffect(() => {
     fetchMovies();
- 
+
   }, [page]);
 
   return (
-    <Container fluid={true} className="p-0 ">
-      <CarouselComponent />
-      {console.log(movies)}
-      {
-          console.log(inputValue,"this is input value")
-        }
-      
-      <CardGroup
-        className="bg-dark justify-content-space-between movies p-3"
-        fluid={true}>
-       {
-          inputValue!=='' && result !==undefined?
-          result.map((movie, index) => (
-              <MovieCard movie={movie} key={index} test={'this is a test props data'} />
-            ))
-            :
-          (
-            movies !== undefined ?
-            movies.map((movie, index) => (
-              <MovieCard movie={movie} key={index} test={'this is a test props data'} />
-            ))
-            :
-            ''
-          )
-        }
-        {/* {movies != undefined
+    <>
+     <div>
+        <CarouselComponent />
+        <Container fluid={true} className=" bg-dark home  pt-5">
+        <CardGroup
+          className="bg-dark justify-content-space-between movies pt-5 home2"
+          fluid={true}>
+          {
+            inputValue !== '' && result !== undefined ?
+              result.map((movie, index) => (
+                <MovieCard movie={movie} key={index} test={'this is a test props data'} />
+              ))
+              :
+              (
+                movies !== undefined ?
+                  movies.map((movie, index) => (
+                    <MovieCard movie={movie} key={index} test={'this is a test props data'} />
+                  ))
+                  :
+                  ''
+              )
+          }
+          {/* {movies != undefined
           ? movies.map((movie) => <MovieCard movie={movie} />)
           : ""} */}
-      </CardGroup>
+        </CardGroup>
 
-      <div className="pagination bg-dark d-flex justify-content-center">
-        <ButtonGroup aria-label="" className="pb-3">
-          <Button
-            variant="  btn btn-outline-light m-1 px-5 "
-            onClick={prevPage}
-          >
-            Prev
-          </Button>
-          <Button variant="outline-light  m-1 px-5" onClick={()=>{
-            nextPage()
+        <div className="pagination bg-dark d-flex justify-content-center">
+          <ButtonGroup aria-label="" className="pb-3">
+            <Button
+              variant="  btn btn-outline-light m-1 px-5 "
+              onClick={prevPage}
+            >
+              Prev
+            </Button>
+            <Button variant="outline-light  m-1 px-5" onClick={() => {
+              nextPage()
 
-          }}>
-            Next
-          </Button>
-        </ButtonGroup>
-      </div>
-    </Container>
+            }}>
+              Next
+            </Button>
+          </ButtonGroup>
+        </div>
+      </Container></div>
+    </>
   );
 }
 

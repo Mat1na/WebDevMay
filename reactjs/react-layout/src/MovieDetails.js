@@ -29,76 +29,85 @@ function MovieDetail() {
   }, [movie_id]);
 
   return (
-    <Container className="bg-dark p-0 m-0  " fluid={true}>
-      <Row className="p-4 m-0 bg-dark text-white movie-img justify-content-center align-items-center">
-      <h1 className="text-center movie-title pb-3">{movieDetail.title}</h1>
-        <Col md={4} className="p-3 d-flex justify-content-center details">
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
-            alt=""
-          />
+    <Container className="bg-dark p-0 m-0 containerD " fluid={true}>
+
+      <Row className="pt-5 m-0 bg-dark text-white  justify-content-center align-items-center ">
+        <div className="p-5 bg-dark text-white rounded-0 hero" style={{ 'background': `url(https://image.tmdb.org/t/p/original${movieDetail.poster_path})` }}>
+        </div>
+        <h1 className="text-center movie-title pb-3">{movieDetail.title}</h1>
+
+        <Col md={4}>
+          <Col md={12} className="p-3 d-flex justify-content-center details ">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
+              alt=""
+              className="poster"
+            />
+          </Col>
+          <Col md={12} className=" pt-5 justify-content-center details">
+            <ListGroup >
+              <ListGroup.Item className="bg-none text-light border-0 px-0">
+                <Badge bg="warning  w-100" text="dark">
+                  Imdb Score:{" "}
+                  <p className=" d-inline text-wrap">
+                    {Math.floor(movieDetail.vote_average)}
+                  </p>
+                </Badge>
+              </ListGroup.Item>
+              <ListGroup.Item className="bg-none text-light border-0 px-0">
+                <Badge bg="warning  w-100 text-wrap " text="dark">
+                  Movie Language:{" "}
+                  <p className=" d-inline text-wrap ">
+                    {movieDetail.original_language !== undefined
+                      ? movieDetail.original_language.toUpperCase()
+                      : ""}
+                  </p>
+                </Badge>
+              </ListGroup.Item>
+              <ListGroup.Item className="bg-none text-light border-0 px-0">
+                <Badge bg="warning w-100" text="dark">
+                  Category:{" "}
+                  <p className="text-wrap">
+                    {movieDetail.genres !== undefined
+                      ? movieDetail.genres.map((cat, index) => (
+                        <>
+                          <p className="d-inline text-wrap" key={cat.id}>
+                            {cat.name}
+                            {" || "}
+                          </p>
+                        </>
+                      ))
+                      : ""}
+                  </p>
+                </Badge>
+              </ListGroup.Item>
+              <ListGroup.Item className="bg-none text-light border-0 px-0">
+                <Badge bg="warning w-100" text="dark">
+                  Production:{" "}
+                  <p className=" ">
+                    {movieDetail.production_companies !== undefined
+                      ? movieDetail.production_companies.map((prod) => (
+                        <>
+                          <hr />
+                          <p className="d-inline text-wrap" key={prod.id}>
+                            <a href={movieDetail.homepage}>{prod.name} </a>
+                          </p>
+                        </>
+                      ))
+                      : ""}
+                  </p>
+                </Badge>
+              </ListGroup.Item>
+            </ListGroup>
+          </Col>
         </Col>
-        <Col md={8} className="p-4 m-0 bg-dark text-white movie-img justify-content-center align-items-center">
-          <Row className="p-0  m-0 bg-dark text-white movie-img align-items-center">
-          <h1 className="text-start ">Overview</h1>
-          <p>{movieDetail.overview}</p>
-            <Col md={4} className=" p-3 justify-content-center details">
-              <ListGroup >
-                <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning  w-100" text="dark">
-                    Imdb Score:{" "}
-                    <p className=" d-inline text-wrap">
-                      {Math.floor(movieDetail.vote_average)}
-                    </p>
-                  </Badge>
-                </ListGroup.Item>
-                <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning  w-100 text-wrap " text="dark">
-                    Movie Language:{" "}
-                    <p className=" d-inline text-wrap ">
-                      {movieDetail.original_language !== undefined
-                        ? movieDetail.original_language.toUpperCase()
-                        : ""}
-                    </p>
-                  </Badge>
-                </ListGroup.Item>
-                <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning w-100" text="dark">
-                    Category:{" "}
-                    <p className="text-wrap">
-                      {movieDetail.genres !== undefined
-                        ? movieDetail.genres.map((cat, index) => (
-                            <>
-                              <p className="d-inline text-wrap" key={cat.id}>
-                                {cat.name}
-                                {" || "}
-                              </p>
-                            </>
-                          ))
-                        : ""}
-                    </p>
-                  </Badge>
-                </ListGroup.Item>
-                <ListGroup.Item className="bg-none text-light border-0 px-0">
-                  <Badge bg="warning w-100" text="dark">
-                    Production:{" "}
-                    <p className=" ">
-                      {movieDetail.production_companies !== undefined
-                        ? movieDetail.production_companies.map((prod) => (
-                            <>
-                              <hr />
-                              <p className="d-inline text-wrap" key={prod.id}>
-                                <a href={movieDetail.homepage}>{prod.name} </a>
-                              </p>
-                            </>
-                          ))
-                        : ""}
-                    </p>
-                  </Badge>
-                </ListGroup.Item>
-              </ListGroup>
-            </Col>
-            <Col md={8} className="p-3 d-flex justify-content-center details ">
+        <Col md={8} className="pt-5  m-0 bg-dark text-white movie-img align-items-center">
+          <Col md={12} className="pt-5 m-0 bg-dark text-white movie-img justify-content-center align-items-center">
+
+            <div className="overview pt-5 mt-5"> <h1 className="text-start ">Overview</h1>
+              <p>{movieDetail.overview}</p></div>
+
+            <Col md={12} className="pt-5 mt-5 d-flex justify-content-center details ">
               <iframe
                 width="560"
                 height="315"
@@ -108,10 +117,15 @@ function MovieDetail() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
+
             </Col>
-          </Row>
+
+          </Col>
         </Col>
+
+
       </Row>
+      <div className="fake"></div>
     </Container>
   );
 }

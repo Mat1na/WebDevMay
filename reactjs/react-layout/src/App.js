@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-
+import Footer from './components/Layout/Footer'
 import Home from "./Home";
 import MovieDetails from "./MovieDetails";
 import SearchResults from "./SearchResults";
+
 
 function App() {
   
@@ -76,6 +77,7 @@ function App() {
 
   return (
     <Layout searchResultHandler={searchResult} inputHandler={inputHandler}>
+      
       <Routes>
       <Route path='/' element={<Home inputValue={inputValue} result={result} nextPage={nextPage} prevPage={prevPage} page={page} />} />
         <Route path="/search" element={<SearchResults result={result} />} />
@@ -83,6 +85,9 @@ function App() {
         <Route path="/genre" element={<SearchResults result={result}/>} />
         
       </Routes>
+      
+   
+      <Footer />
     </Layout>
   );
 }

@@ -12,7 +12,7 @@ function Header({ searchResultHandler, inputHandler }) {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav ">
       <Container>
         <Navbar.Brand href="/">MovieBlender</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -63,7 +63,7 @@ function Header({ searchResultHandler, inputHandler }) {
             </NavDropdown>
           </Nav>
           <Nav className="d-flex flex-row">
-            <Form className="d-flex flex-row">
+            <Form className="d-flex flex-row pt-2">
               <Form.Control
                 onChange={inputHandler}
                 type="search"
@@ -74,7 +74,7 @@ function Header({ searchResultHandler, inputHandler }) {
               />
             </Form>
           </Nav>
-          <Nav className="d-flex flex-row">
+          <Nav className="d-flex flex-row pt-2">
             <Link to={"/#social"}>
               <FaTwitter
                 fill="white"
