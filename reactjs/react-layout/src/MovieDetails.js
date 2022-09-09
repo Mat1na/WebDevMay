@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Badge, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-function MovieDetail() {
+function MovieDetail({inputValue}) {
   const [movieDetail, setMovieDetail] = useState([]);
   const [movieTrailer, setMovieTrailer] = useState("");
+ 
   // https://api.themoviedb.org/3/movie/616037?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US
   // https://api.themoviedb.org/3/movie/616037/videos?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US
 
