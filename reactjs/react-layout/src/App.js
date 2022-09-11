@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import Footer from './components/Layout/Footer'
+
 import Home from "./Home";
 import MovieDetails from "./MovieDetails";
 import SearchResults from "./SearchResults";
@@ -9,7 +9,7 @@ import Adventure from "./Adventure";
 
 
 function App() {
-  const [selectedGenre, setSelectedGenres] = useState([])
+  const [selectedGenre, setSelectedGenre] = useState([])
 
   const [page, setPage] = useState(1);
 
@@ -87,16 +87,16 @@ function App() {
     <Layout inputHandler={inputHandler}>
 
       <Routes>
-        <Route path='/' element={<Home inputValue={inputValue} result={result} nextPage={nextPage} prevPage={prevPage} page={page}  selectedGenre={selectedGenre} setSelectedGenres={setSelectedGenres}/>} />
+        <Route path='/' element={<Home inputValue={inputValue} result={result} nextPage={nextPage} prevPage={prevPage} page={page}  selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre}/>} />
         {/* <Route path="/search" element={<SearchResults result={result} />} /> */}
-        <Route path="/:movie_id" element={<MovieDetails result={result} inputValue={inputValue} />} />
-        <Route path="/adventure" element={<Adventure inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} selectedGenre={selectedGenre} setSelectedGenres={setSelectedGenres} />} />
+        <Route path="/:movie_id" element={<MovieDetails result={result} inputValue={inputValue} inputHandler={inputHandler} />} />
+        <Route path="/adventure" element={<Adventure inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />} />
 
 
       </Routes>
 
 
-      <Footer />
+      
     </Layout>
   );
 }

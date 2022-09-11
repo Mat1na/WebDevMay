@@ -4,19 +4,19 @@ import MovieCard from './components/Homepage/MovieCard';
 import CarouselComponent from "./components/Homepage/CarouselComponent";
 
 function Adventure({inputValue,result,page,prevPage,nextPage,selectedGenre}) {
-const [allGenres, setAllGenres]=useState([])
+
 const [movies, setMovies] = useState([]);
 
 const fetchMovies = async () => {
   let res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=${selectedGenre}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=12`
   );
   let data = await res.json();
   setMovies(data.results);
  
 };
 
-
+{console.log(selectedGenre)}
 useEffect(() => {
     
   
@@ -64,7 +64,7 @@ useEffect(() => {
                 variant="  btn btn-outline-light m-1 px-5 "
                 onClick={prevPage}
               >
-                Prev
+                Prev{console.log(selectedGenre)}
               </Button>
               <Button variant="outline-light  m-1 px-5" onClick={() => {
                 nextPage()

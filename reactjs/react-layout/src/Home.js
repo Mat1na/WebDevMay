@@ -28,7 +28,7 @@ function Home({ inputValue, result, page, nextPage, prevPage }) {
         <CarouselComponent />
 
         <Container fluid={true} className=" bg-dark home  pt-5">
-       <div className="pt-0 pages"> <p className="searchresults m-2 text-white ">Page {page} of results</p>
+       <div className="pt-5 pages"> <p className=" m-2 pt-5 text-white ">Page {page} of results</p>
        </div>
           <CardGroup
             className="bg-dark justify-content-space-between movies pt-5 home2"

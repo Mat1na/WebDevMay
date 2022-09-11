@@ -9,7 +9,7 @@ function CarouselComponent() {
         <Carousel.Item >
           <img
             className="d-block w-100"
-            src="https://hdwallpaperim.com/wp-content/uploads/2017/08/23/472571-film_reel-movies-748x403.jpg"
+            src="https://observer.com/wp-content/uploads/sites/2/2021/05/summer-movies-2021-new-e1620919489437.jpg?quality=80"
             alt="First slide"
           />
           <Carousel.Caption >
@@ -20,27 +20,25 @@ function CarouselComponent() {
         <Carousel.Item>
           <img
             className="d-block w-100 "
-            src="https://4kwallpapers.com/images/wallpapers/mortal-kombat-2021-movies-poster-4096x1895-4902.jpg"
+            src="https://hips.hearstapps.com/bpc.h-cdn.co/assets/17/45/1509983908-best-movies-2017.jpg"
             alt="Second slide"
           />
 
           <Carousel.Caption>
-            {/* <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+          <h3>MovieBlender</h3>
+            <p>Find all the movies you want here</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="http://wallpaperset.com/w/full/b/d/a/15828.jpg"
+            src="https://empireweekly.com/wp-content/uploads/2022/02/fall-movies-index-1628968089.jpeg"
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            {/* <h3>Third slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p> */}
+          <h3>MovieBlender</h3>
+            <p>Find all the movies you want here</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

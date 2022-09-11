@@ -3,9 +3,9 @@ import { Container, Nav, Navbar, NavDropdown, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-function Header({ searchResult, inputHandler,selectedGenre, setSelectedGenres }) {
+function Header({ searchResult, inputHandler, selectedGenre, setSelectedGenre }) {
   const [allGenres, setAllGenres] = useState([])
- 
+
   const x = useNavigate();
   const RedirectToHome = (e) => {
     if (e.key === "Enter") {
@@ -19,7 +19,7 @@ function Header({ searchResult, inputHandler,selectedGenre, setSelectedGenres })
       setAllGenres(data.genres);
 
     }
-
+console.log(allGenres)
     fetchAllGenres()
   }, []);
 
@@ -31,21 +31,24 @@ function Header({ searchResult, inputHandler,selectedGenre, setSelectedGenres })
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
             <Link to={"/"} className="nav-link text-decoration-none">
-              Homepage
+              Homepage{console.log(allGenres)} 
             </Link>
 
-            <NavDropdown title="Categories" id="collasible-nav-dropdown" >
-              {allGenres.map((genre) => (
+            <NavDropdown title="Categories" id="collasible-nav-dropdown"  >
+
+              {allGenres.map((genre, value) => (
                 <Link
                   to={`/${genre.name}`}
-                  onClick={(e) => setSelectedGenres(e.target.value)}
+                  onClick={(e) => setSelectedGenre(e.target.value)}
                   className="dropdown-item text-decoration-none"
                   value={genre.id}>
-                    
-                  {genre.name}
-               </Link>))}
 
-            {/* <Link
+                  {genre.name}
+                </Link>
+
+              ))}
+
+              {/* <Link
                 to={"/comedy"}
                 className="dropdown-item text-decoration-none"
               >
@@ -75,42 +78,23 @@ function Header({ searchResult, inputHandler,selectedGenre, setSelectedGenres })
               >
                 Animation
               </Link> */}
-          </NavDropdown>
-        </Nav>
-        <Nav className="d-flex flex-row">
-          <Form className="d-flex flex-row pt-2">
-            <Form.Control
-              onChange={inputHandler}
-              type="search"
-              onKeyDown={RedirectToHome}
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-          </Form>
-        </Nav>
-        <Nav className="d-flex flex-row pt-2">
-          <Link to={"/#social"}>
-            <FaTwitter
-              fill="white"
-              className="display-6 bg-primary p-1 rounded-1 mx-1"
-            />
-          </Link>
-          <Link to={"/#social"}>
-            <FaLinkedin
-              fill="white"
-              className="display-6 bg-primary p-1 rounded-1 mx-1"
-            />
-          </Link>
-          <Link to={"/#social"}>
-            <FaInstagram
-              fill="white"
-              className="display-6 bg-instagram p-1 rounded-1 mx-1"
-            />
-          </Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
+            </NavDropdown>
+          </Nav>
+          <Nav className="d-flex flex-row">
+            <Form className="d-flex flex-row pt-2">
+              <Form.Control
+                onChange={inputHandler}
+                type="search"
+                onKeyDown={RedirectToHome}
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+            </Form>
+          </Nav>
+  
+        </Navbar.Collapse>
+      </Container>
     </Navbar >
   );
 }
