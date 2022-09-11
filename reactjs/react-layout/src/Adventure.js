@@ -9,7 +9,7 @@ const [movies, setMovies] = useState([]);
 
 const fetchMovies = async () => {
   let res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=12`
+    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=${selectedGenre}`
   );
   let data = await res.json();
   setMovies(data.results);
