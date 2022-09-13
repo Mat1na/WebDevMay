@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Button, ButtonGroup, CardGroup,Container } from 'react-bootstrap';
-import MovieCard from './components/Homepage/MovieCard';
-import CarouselComponent from "./components/Homepage/CarouselComponent";
+import MovieCard from '../components/Homepage/MovieCard';
+import CarouselComponent from "../components/Homepage/CarouselComponent";
 
-function Adventure({inputValue,result,page,prevPage,nextPage,selectedGenre}) {
+function History({inputValue,result,page,prevPage,nextPage,selectedGenre}) {
 
 const [movies, setMovies] = useState([]);
 
 const fetchMovies = async () => {
   let res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=${selectedGenre}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=07a61de5b731a869bc9cec8e25d2c8a8&language=en-US&page=${page}&with_genres=36`
   );
   let data = await res.json();
   setMovies(data.results);
@@ -22,7 +22,7 @@ useEffect(() => {
   
     fetchMovies()
    
-  }, [page,selectedGenre]);
+  }, [page]);
 
 
 
@@ -80,4 +80,4 @@ useEffect(() => {
   )
 }
 
-export default Adventure
+export default History

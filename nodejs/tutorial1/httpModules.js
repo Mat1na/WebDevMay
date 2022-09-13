@@ -23,5 +23,7 @@ http.createServer(function(req,res){
     // <script>console.log("hello")</script>`)
    
 }).listen(8080,()=>{
-    console.log("server is running")
+    console.log("server is running on 8080")
+}).on('connection',()=>{
+    console.log("new connection")
 })
