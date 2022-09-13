@@ -1,4 +1,4 @@
-const fetch = require('node-fetch') // import fetch module
+// const fetch = require('node-fetch') // import fetch module
 // export string data
 // module.exports = "Hello world"
 
@@ -35,3 +35,17 @@ const fetch = require('node-fetch') // import fetch module
 // }
 
 //calculator
+module.exports = {
+  sum: function (a, b) {
+    return a + b;
+  },
+  mult: function (a, b) {
+    return a * b;
+  },
+  div: function (a, b) {
+    return a / b;
+  },
+  sub: function (a, b) {
+    return a - b;
+  },
+};
