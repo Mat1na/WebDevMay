@@ -20,16 +20,18 @@ const fetch = require('node-fetch') // import fetch module
 // }
 
 // export multiple functions
-module.exports = {
-    getName:function(name){
-        return name
-    },
-    getAge:function(age){
-        return age
-    },
-    getTodos:async function(){
-        let res = await fetch('https://jsonplaceholder.typicode.com/todos')
-        let data = await res.json()
-        return data
-    }
-}
+// module.exports = {
+//     getName:function(name){
+//         return name
+//     },
+//     getAge:function(age){
+//         return age
+//     },
+//     getTodos:async function(){
+//         let res = await fetch('https://jsonplaceholder.typicode.com/todos')
+//         let data = await res.json()
+//         return data
+//     }
+// }
+
+//calculator
