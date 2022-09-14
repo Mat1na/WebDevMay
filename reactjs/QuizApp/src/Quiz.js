@@ -14,14 +14,14 @@ function Quiz({ difficulty, selectedCat }) {
   const [correct, setcorrect] = useState([]);
   const [user, setUser] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
-  
+
   const formRef = useRef();
-// decode function
+  // decode function
   function b64_to_utf8(str) {
     return decodeURIComponent(escape(window.atob(str)));
   }
 
-//Shuffle function
+  //Shuffle function
   function shuffle(array) {
     let currentIndex = array.length,
       randomIndex;
@@ -55,42 +55,42 @@ function Quiz({ difficulty, selectedCat }) {
       setAllAnswers([correctAnswer, ...incorrectAnswers]);
     }
     fetchAllData();
-    
+
   }, [nextQuestion]);
 
- 
+
 
 
 
 
   function nextBtn() {
-      setUser(user=>[...user,formRef.current.elements["user_answer"].value])
-    setcorrect(correct=>[...correct,b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
-    setAllQuestions(allQuestions=>[...allQuestions,b64_to_utf8(fetchedData[nextQuestion].question)])
+    setUser(user => [...user, formRef.current.elements["user_answer"].value])
+    setcorrect(correct => [...correct, b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
+    setAllQuestions(allQuestions => [...allQuestions, b64_to_utf8(fetchedData[nextQuestion].question)])
     ///console.log(fetchedData.length-1 !== nextQuestion)
     if (fetchedData.length - 1 !== nextQuestion) {
       setNextQuestion(nextQuestion + 1);
-     
+
     } else {
       setNextQuestion(nextQuestion);
-    
+
     }
     //  console.log(formRef.current.elements["user_answer"].value);
     if (formRef.current.elements["user_answer"].value !== "") {
       if (
         b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
-         formRef.current.elements["user_answer"].value
+        formRef.current.elements["user_answer"].value
       ) {
-          
+
         setScore(score + 1);
       }
-      
+
       setNextQuestion(nextQuestion + 1);
     } else {
       alert("You need to pick an option");
     }
-   
-    
+
+
   }
 
 
@@ -103,11 +103,11 @@ function Quiz({ difficulty, selectedCat }) {
             {fetchedData.length > 0 ? (
               <>
                 {fetchedData[nextQuestion] !== undefined &&
-                fetchedData.length > 0 ? (
+                  fetchedData.length > 0 ? (
                   <>
                     <h3>{b64_to_utf8(fetchedData[nextQuestion].question)}</h3>
                     <Form ref={formRef}>
-                      
+
                       <div className="mb-3">
                         {shuffle(allAswers).map((option) => (
                           <Form.Check
@@ -117,23 +117,19 @@ function Quiz({ difficulty, selectedCat }) {
                             value={b64_to_utf8(option)}
                             id="question"
                             className="form"
-                            // className={b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
-                            //   formRef.current.elements["user_answer"].value?"right":}
+                          // className={b64_to_utf8(fetchedData[nextQuestion].correct_answer) ===
+                          //   formRef.current.elements["user_answer"].value?"right":}
                           />
                         ))}
                       </div>
                     </Form>
                     <Col md={12}>
                       <Button
-<<<<<<< HEAD
                         type="submit"
                         className="w-100 mb-3 btnQuiz btn-light btn-outline-light"
-=======
-                        type="reset"
-                        className="w-100 mb-3 btnQuiz btn  btn-outline-light "
->>>>>>> a5edbcc2e01e6406f7d2f44128ed570c4e378847
+
                         onClick={nextBtn}
-                        value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
+                        value={b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >
                         Next
                         {/* {console.log(typeof(allQuestions))}
@@ -141,13 +137,13 @@ function Quiz({ difficulty, selectedCat }) {
                         {console.log(`Your score is ${score}`)} */}
                       </Button>
                     </Col>
-                    
+
                   </>
                 ) : (
-                  <Results score={score} user={user} correct={correct} allQuestions={allQuestions}/>
-                  
+                  <Results score={score} user={user} correct={correct} allQuestions={allQuestions} />
+
                 )}
-                
+
               </>
             ) : (
               "Loading..."
