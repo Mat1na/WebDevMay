@@ -55,6 +55,7 @@ function Quiz({ difficulty, selectedCat }) {
       setAllAnswers([correctAnswer, ...incorrectAnswers]);
     }
     fetchAllData();
+    
   }, [nextQuestion]);
 
   function nextBtn() {
@@ -85,7 +86,11 @@ function Quiz({ difficulty, selectedCat }) {
     } else {
       alert("You need to pick an option");
     }
+   
+    
   }
+
+
 
   return (
     <div className="bg m-5  d-flex justify-content-center align-items-center">
@@ -115,25 +120,26 @@ function Quiz({ difficulty, selectedCat }) {
                         ))}
                       </div>
                     </Form>
-                    
                     <Col md={12}>
                       <Button
                         type="submit"
-                        className="w-100 mb-3 btnQuiz btn  btn-outline-light "
+                        className="w-100 mb-3 btnQuiz btn-light btn-outline-light"
                         onClick={nextBtn}
                         value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >
                         Next
-                        {console.log(typeof(allQuestions))}
+                        {/* {console.log(typeof(allQuestions))}
                         
-                        {console.log(`Your score is ${score}`)}
+                        {console.log(`Your score is ${score}`)} */}
                       </Button>
                     </Col>
+                    
                   </>
                 ) : (
                   <Results score={score} user={user} correct={correct} allQuestions={allQuestions}/>
                   
                 )}
+                
               </>
             ) : (
               "Loading..."

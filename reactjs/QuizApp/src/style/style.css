@@ -62,19 +62,20 @@
    
    
 }
-.btn{
+.btnHome{
     background: rgb(253, 29, 29);
     background: linear-gradient(90deg, rgba(253, 29, 29, 0.4822303921568627) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
     
     border: none;
 }
 
-.right{
-    background: linear-gradient(90deg, rgba(55, 253, 29, 0.482) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
+.btnQuiz{
+   
+    background: linear-gradient(90deg, rgba(57, 23, 248, 0.482) 50%, rgba(246, 69, 252, 0.479) 100%);
+   
 }
-.wrong{
-    background: linear-gradient(90deg, rgba(253, 29, 29, 0.482) 50%, rgba(252, 176, 69, 0.47942927170868344) 100%);
-}
+
+
 
 
 /* 
@@ -87,11 +88,5 @@
 
 } */
 
-/* .form {
-    width: 100%;
-    background-color: white;
-    border-radius: 0.375rem;
-
-} */
 
 
