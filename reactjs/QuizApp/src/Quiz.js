@@ -21,7 +21,7 @@ function Quiz({ difficulty, selectedCat }) {
     return decodeURIComponent(escape(window.atob(str)));
   }
 
-  //Shuffle function
+//Shuffle function
   function shuffle(array) {
     let currentIndex = array.length,
       randomIndex;
@@ -58,10 +58,13 @@ function Quiz({ difficulty, selectedCat }) {
     
   }, [nextQuestion]);
 
-  function nextBtn() {
-   
+ 
 
-   setUser(user=>[...user,formRef.current.elements["user_answer"].value])
+
+
+
+  function nextBtn() {
+      setUser(user=>[...user,formRef.current.elements["user_answer"].value])
     setcorrect(correct=>[...correct,b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
     setAllQuestions(allQuestions=>[...allQuestions,b64_to_utf8(fetchedData[nextQuestion].question)])
     ///console.log(fetchedData.length-1 !== nextQuestion)
@@ -122,8 +125,13 @@ function Quiz({ difficulty, selectedCat }) {
                     </Form>
                     <Col md={12}>
                       <Button
+<<<<<<< HEAD
                         type="submit"
                         className="w-100 mb-3 btnQuiz btn-light btn-outline-light"
+=======
+                        type="reset"
+                        className="w-100 mb-3 btnQuiz btn  btn-outline-light "
+>>>>>>> a5edbcc2e01e6406f7d2f44128ed570c4e378847
                         onClick={nextBtn}
                         value={ b64_to_utf8(fetchedData[nextQuestion].correct_answer)}
                       >

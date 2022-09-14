@@ -105,7 +105,7 @@ function MovieDetail({inputValue}) {
         <Col md={8} className="pt-5  m-0 bg-dark text-white movie-img align-items-center">
           <Col md={12} className="pt-5 m-0 bg-dark text-white movie-img justify-content-center align-items-center">
 
-            <div className="overview pt-5 mt-5"> <h1 className="text-start ">Overview</h1>
+            <div className="overview pt-5 mt-5  text-center "> <h1 className=" justify-content-center align-items-center ">Overview</h1>
               <p>{movieDetail.overview}</p></div>
 
             <Col md={12} className="pt-5 mt-5 d-flex justify-content-center details ">

@@ -4,7 +4,10 @@ import { Card, Col, ListGroup, Row } from "react-bootstrap";
 
 
 function Results({ score, user, correct, allQuestions }) {
-  let index = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  
+
+
+  
   return (
 
 
@@ -41,7 +44,7 @@ function Results({ score, user, correct, allQuestions }) {
              </ListGroup>
           </Card> */}
 
-      <Row>
+      {/* <Row>
         <Card as={Col} md={4}>
           <h5 className='text-center'>Questions</h5>
           {allQuestions.map((question, index) => (<><Card.Header className='m-0 p-0 d-flex justify-content-center align-items-center text-center result'><strong>{index}/</strong>{question} </Card.Header></>))}
@@ -57,7 +60,7 @@ function Results({ score, user, correct, allQuestions }) {
           <strong>{index}/</strong> {user}
           </Card.Text></Card.Body>
           </>))}</Card>
-      </Row>
+      </Row> */}
 
 
 
