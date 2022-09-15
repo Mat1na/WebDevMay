@@ -1,58 +1,81 @@
-// import fs module
-const fs= require('fs');
+// import fs module 
+const fs = require('fs'); // fs is a core module
 
-//read file
-fs.readFile('./test.text',(err,data)=>{ //pass also character set 'utf8'
-    // console.log(data.toString()) //or use toString to decode the buffer
-    // console.log(typeof data)
-    // console.log(data.toString().split(",")[0])
-    // data.toString().split(",").forEach(name => {
-    //     console.log(name)
-        
-    // });
+// read file
+fs.readFile('./test.txt','utf8',(err,data)=>{
+    // console.log(typeof data) // convert buffer to string
+    // console.log(data.split(",")[0]) // convert text into array
+    // data.split(",").forEach(name=>console.log(name))
+    // let binaryData = ""
+    // for(let i=0; i<data.length;i++){
+    //     let newData = data[i].charCodeAt(0).toString(2)
+    //     binaryData+=newData
+    // }
+    // console.log(binaryData)
 })
 
-// //read directory
-// fs.readdir("./",(err,data)=>{
-//     console.log(data)
-//    let dirList= data.filter(filename=>filename.includes(".jpg"))
-//    console.log(dirList)
+// read a directory
+// fs.readdir('./',(err,data)=>{
+//     // console.log(data)
+//     let dirList = data.filter(filename=>filename.includes('.jpg'))
+//     console.log(dirList)
 // })
 
-
-// //read two files
-// fs.readdir("./",(err,data)=>{
-//     console.log(data)
-//    let textFiles= data.filter(file=>file.includes(".txt"))
-//    console.log(textFiles)
-//    fs.readFile(textFiles[0,"utut")
+// read two files 
+// fs.readdir('./',(err,data)=>{
+//     // console.log(data) // list of all files in dir
+//     let TxtFiles = data.filter(file=>file.includes('.txt')) // list of txt files
+//     //console.log(TxtFiles)
+//     // fs.readFile(TxtFiles[0],'utf8',(err,data)=>{
+//     //     console.log(data)
+//     // })
+//     TxtFiles.forEach(txt=>{
+//     //    console.log(txt) // txt > filename.txt
+//         fs.readFile(txt,'utf8',(err,data)=>{
+//             console.log(data,txt)
+//         })
+//     })
 // })
 
-// //write file
-// fs.writeFile("readme.txt", " hello node.js No 2", (err)=>{
-//     console.log("file is created")
+function ReadFiles(ext){
+    fs.readdir('./',(err,data)=>{
+        let TxtFiles = data.filter(file=>file.includes(ext)) // list of txt files
+        TxtFiles.forEach(txt=>{
+            fs.readFile(txt,'utf8',(err,data)=>{
+                console.log(data,txt)
+            })
+        })
+    })
+}
+
+// ReadFiles('.java')
+// ReadFiles('.doc')
+
+// write File
+// fs.writeFile('readme.txt','This is another test.',(err)=>{
+//     console.log('File is created')
 // })
 
-// fs.writeFile("./public/readme.txt", "readme file",(err=>{
-//     console.log("file created")
-// }))
+// fs.writeFile('./public/readme.txt','readme file',(err)=>{
+//     console.log('File is created')
+//     if(err) throw console.log(err)
+// })
 
+// append File
+// fs.appendFile('readme.txt','Extra string appended',(err)=>{
+//     console.log("File is appended")
+// })
 
-// //append file
-// fs.appendFile("readme.txt"," ..something to append", (err=>{
-//     console.log("file is appended")
-// }))
+// fs.appendFile('users.json','5',(err)=>{
+//     console.log('file is appended')
+// })
 
-// fs.appendFile("users.json","5", (err=>{
-//         console.log("file is appended")
-//     }))
-
-fs.readFile("users.json","utf8",(err,data)=>{
-    let users=JSON.parse(data)
+fs.readFile('users.json','utf8',(err,data)=>{
+    let users = JSON.parse(data) // from string to array/object
     console.log(users,"before")
     users.push(5)
     console.log(users,"after")
-    fs.writeFile("users.json",JSON.stringify(users), (err)=>{
-        console.log("file is updates")
+    fs.writeFile('users.json',JSON.stringify(users),(err)=>{
+        console.log('file is updated')
     })
 })
