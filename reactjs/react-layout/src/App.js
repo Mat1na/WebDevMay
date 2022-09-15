@@ -3,25 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./Home";
 import MovieDetails from "./MovieDetails";
-import Action from "./genres/Action"
-import Adventure from "./genres/Adventure"
-import Animation from "./genres/Animation";
-import Comedy from "./genres/Comedy";
-import Crime from "./genres/Crime";
-import Documentary from "./genres/Documentary";
-import Drama from "./genres/Drama";
-import Family from "./genres/Family";
-import Fantasy from "./genres/Fantasy";
-import History from "./genres/History";
-import Horror from "./genres/Horror";
-import Music from "./genres/Music";
-import Mystery from "./genres/Mystery";
-import Romance from "./genres/Romance";
-import Sifi from "./genres/Science%20Fiction";
-import Thriller from "./genres/Thriller";
-import TVMovie from "./genres/TV%20Movie";
-import War from "./genres/War";
-import Western from "./genres/Western";
+
 import GenreSearch from "./GenreSearch";
 
 
@@ -118,25 +100,7 @@ function App() {
         <Route path="/:movie_id" element={<MovieDetails result={result} inputValue={inputValue} inputHandler={inputHandler} />} />
         <Route path="/genre/:genre" element={<GenreSearch  result={result} inputValue={inputValue} inputHandler={inputHandler}/>}/>
         
-        {/* <Route path="/adventure" element={<Adventure inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/action" element={<Action inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/animation" element={<Animation inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/comedy" element={<Comedy inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/crime" element={<Crime inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/documentary" element={<Documentary inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/drama" element={<Drama inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/family" element={<Family inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/fantasy" element={<Fantasy inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/history" element={<History inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/horror" element={<Horror inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/music" element={<Music inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/mystery" element={<Mystery inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/romance" element={<Romance inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/Science%20Fiction" element={<Sifi inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/thriller" element={<Thriller inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/TV%20Movie" element={<TVMovie inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/war" element={<War inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} />
-        <Route path="/western" element={<Western inputValue={inputValue} result={result} inputHandler={inputHandler} page={page} nextPage={nextPage} prevPage={prevPage} />} /> */}
+        
         
       </Routes>
 
