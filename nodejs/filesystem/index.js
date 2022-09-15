@@ -70,12 +70,27 @@ function ReadFiles(ext){
 //     console.log('file is appended')
 // })
 
-fs.readFile('users.json','utf8',(err,data)=>{
-    let users = JSON.parse(data) // from string to array/object
-    console.log(users,"before")
-    users.push(5)
-    console.log(users,"after")
-    fs.writeFile('users.json',JSON.stringify(users),(err)=>{
-        console.log('file is updated')
-    })
+// fs.readFile('users.json','utf8',(err,data)=>{
+//     let users = JSON.parse(data) // from string to array/object
+//     console.log(users,"before")
+//     users.push(5)
+//     console.log(users,"after")
+//     fs.writeFile('users.json',JSON.stringify(users),(err)=>{
+//         console.log('file is updated')
+//     })
+// })
+
+function AppendDataIntoFile(filename,NewValue){
+fs.readFile(filename,'utf8',(err,data)=>{
+    if(data===undefined){
+        fs.writeFile(filename,'[]',(err)=>console.log('file is created')) //if file does not exit
+    }
+    // let arr=JSON.parse(data) //parse string into array
+    // arr.push(NewValue)//added new value in array
+    // //update file here
+    // fs.write(filename,JSON.stringify(arr), (err)=>{
+    //     console.log("file is appended")
+    // })
 })
+}
+AppendDataIntoFile('post.json','0')
