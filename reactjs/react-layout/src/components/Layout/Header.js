@@ -8,6 +8,7 @@ function Header({
   inputHandler,
   selectedGenre,
   setSelectedGenre,
+  
 }) {
   const [allGenres, setAllGenres] = useState([]);
 
@@ -49,7 +50,7 @@ function Header({
             <NavDropdown title="Categories" id="collasible-nav-dropdown">
               {allGenres.map((genre, value) => (
                 <Link
-                  to={`/${genre.name}`}
+                  to={`genre/${genre.id}`}
                   className="dropdown-item text-decoration-none"
                   value={genre.id}
                 >
