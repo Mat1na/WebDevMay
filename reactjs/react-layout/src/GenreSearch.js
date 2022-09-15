@@ -4,7 +4,7 @@ import MovieCard from './components/Homepage/MovieCard';
 import CarouselComponent from "./components/Homepage/CarouselComponent";
 import { useParams } from 'react-router-dom';
 
-function GenreSearch({inputValue,result,page,prevPage,nextPage,selectedGenre}) {
+function GenreSearch({inputValue,result,page,prevPage,nextPage,}) {
 const{genre}=useParams()
 const [movies, setMovies] = useState([]);
 
@@ -17,7 +17,7 @@ const fetchMovies = async () => {
  
 };
 
-{console.log(selectedGenre)}
+
 useEffect(() => {
     
   
@@ -66,13 +66,10 @@ useEffect(() => {
                 variant="  btn btn-outline-light m-1 px-5 "
                 onClick={prevPage}
               >
-                Prev{console.log(selectedGenre)}
+                Prev
               </Button>
-              <Button variant="outline-light  m-1 px-5" onClick={() => {
-                nextPage()
-
-              }}>
-                 {console.log(selectedGenre)}
+              <Button variant="outline-light  m-1 px-5" onClick={() => {nextPage()}}>
+               
                 Next
               </Button>
             </ButtonGroup>
