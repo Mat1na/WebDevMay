@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import { Container } from "react-bootstrap";
+import { BsTrash} from 'react-icons/bs';
 
-function Hompage() {
+function Hompage({todos, setTodos}) {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  
 
   const handleInput = (e) => {
     console.log("Your input is", e.target.value);
+  
     setTodo(e.target.value);
   };
 
@@ -23,12 +24,12 @@ function Hompage() {
    
     const newTodos = todos.filter((todo) => todo!== selectedTodo);
     setTodos(newTodos);
-    console.log("after delete in handler", todos, todo.key);
+   
   };
 
   return (
     <>
-    <Row className="p-5 m-5 ">
+    <Row className="p-5 m-5 justify-content-center align-items-center ">
       <Col md={12}><h1 className="text-center p-3 m-3">Add your Todo´s</h1></Col>
       <Col md={12}className="p-5 m-5 list text-align-center">
              
@@ -51,7 +52,7 @@ function Hompage() {
                     <li key={index}>{todo}</li>
                     </div>
                   <Button  onClick={() => doneBtn(todo)} className="deleteTodoBtn">
-                 Done{console.log("after delete", todos)}
+                <BsTrash/>
                 </Button>
                   </div>
                 <hr/>

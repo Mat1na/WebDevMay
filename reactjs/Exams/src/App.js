@@ -7,13 +7,14 @@ import About from "./About"
 import "./styles/style.css"
 
 function App() {
+    const [todos, setTodos] = useState([]);
   return (
     <BrowserRouter>
      <NavBar/>
    <div className="app justify-content-center align-items-center">
   
       <Routes>
-        <Route path="/" element={<HomePage />}/>
+        <Route path="/" element={<HomePage  todos={todos}  setTodos={setTodos}/>}/>
           <Route path="/about" element={<About />}/>
       </Routes>
    </div>

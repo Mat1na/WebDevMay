@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar,Container, Nav } from 'react-bootstrap'
+import { Link} from "react-router-dom";
 
 
 function NavBar() {
@@ -8,9 +9,9 @@ function NavBar() {
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/">ToDo App</Navbar.Brand>
-          <Nav className="responsive-navbar-nav">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="about">About</Nav.Link>
+          <Nav className="me-auto">
+            <Link to="/" className="nav-link text-decoration-none">Home</Link>
+            <Link to="/about" className="nav-link text-decoration-none">About</Link>
            
           </Nav>
         </Container>
