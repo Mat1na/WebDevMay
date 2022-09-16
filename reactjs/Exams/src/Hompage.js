@@ -12,8 +12,10 @@ function Hompage({todos, setTodos}) {
     setTodo(e.target.value);
   };
 
-  const handleAddBtn = () => {
+  const handleAddBtn = (e) => {
     console.log("You clicked ", todo);
+    e.preventDefault()
+    setTodo("")
     setTodos([...todos, todo]);
   };
 
@@ -39,6 +41,7 @@ function Hompage({todos, setTodos}) {
               placeholder="todo"
               aria-label="todo"
               aria-describedby="basic-addon1"
+              value={todo}
             />
             <Button onClick={handleAddBtn}>Add ToDo</Button>
             {console.log(todos)}
