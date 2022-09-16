@@ -24,8 +24,8 @@ function Hompage({todos, setTodos}) {
   };
   const doneBtn = (selectedTodo) => {
    
-    // const newTodos = todos.filter((todo) => todo!== selectedTodo);
-    const newTodos=todos.splice(todos.indexOf(todo), 1);
+    const newTodos = todos.filter((todo) => todo!== selectedTodo);
+    // const newTodos=todos.splice(todos.indexOf(todo), 1);
     setTodos(newTodos);
    
   };
