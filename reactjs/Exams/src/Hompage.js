@@ -19,9 +19,9 @@ function Hompage() {
   const handleDeleteBtn = () => {
     setTodos([])
   };
-  const doneBtn = (key) => {
-    console.log(key);
-    const newTodos = todos.filter((todo) => todo.key !== key);
+  const doneBtn = (selectedTodo) => {
+   
+    const newTodos = todos.filter((todo) => todo!== selectedTodo);
     setTodos(newTodos);
     console.log("after delete in handler", todos, todo.key);
   };
@@ -44,13 +44,13 @@ function Hompage() {
           </InputGroup>
           <hr />
           <ul>
-            {todos.map((todo, index) => (
+            {todos.map((todo,index) => (
               <>
                 <div className="d-flex flex-row">
                   <div className="todo-container">
                     <li key={index}>{todo}</li>
                     </div>
-                  <Button  onClick={() => doneBtn(todo.key) } className="deleteTodoBtn">
+                  <Button  onClick={() => doneBtn(todo)} className="deleteTodoBtn">
                  Done{console.log("after delete", todos)}
                 </Button>
                   </div>
