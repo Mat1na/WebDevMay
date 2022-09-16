@@ -16,7 +16,10 @@ function Hompage() {
     setTodos([...todos, todo]);
   };
 
-  const handleDeleteBtn = (key) => {
+  const handleDeleteBtn = () => {
+    setTodos([])
+  };
+  const doneBtn = (key) => {
     console.log(key);
     const newTodos = todos.filter((todo) => todo.key !== key);
     setTodos(newTodos);
@@ -28,10 +31,7 @@ function Hompage() {
     <Row className="p-5 m-5 ">
       <Col md={12}><h1 className="text-center p-3 m-3">Add your Todo´s</h1></Col>
       <Col md={12}className="p-5 m-5 list text-align-center">
-
- 
-      
-        
+             
           <InputGroup className="mb-3">
             <Form.Control
               onChange={handleInput}
@@ -47,17 +47,18 @@ function Hompage() {
             {todos.map((todo, index) => (
               <>
                 <div className="d-flex flex-row">
-                  <div className="todo-container"><li key={index}>{todo}</li></div>
-                  <Button onClick={() => handleDeleteBtn(todo.key)} className="">
+                  <div className="todo-container">
+                    <li key={index}>{todo}</li>
+                    </div>
+                  <Button  onClick={() => doneBtn(todo.key) } className="deleteTodoBtn">
                  Done{console.log("after delete", todos)}
                 </Button>
-                 
-                </div>
+                  </div>
                 <hr/>
               </>
               
             ))}
-             <Button onClick={() => handleDeleteBtn(todo.key)} className="delete-all btn btn-fd">
+             <Button onClick={ handleDeleteBtn} className="delete-all btn btn-danger">
                  Clear List{console.log("after delete", todos)}
                 </Button>
           </ul>
