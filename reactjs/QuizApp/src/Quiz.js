@@ -16,23 +16,23 @@ function Quiz({ difficulty, selectedCat }) {
   const [allQuestions, setAllQuestions] = useState([]);
 
   const formRef = useRef();
-  // decode function
+// decode function
   function b64_to_utf8(str) {
     return decodeURIComponent(escape(window.atob(str)));
   }
 
-  //Shuffle function
+//Shuffle function
   function shuffle(array) {
     let currentIndex = array.length,
       randomIndex;
 
-    // While there remain elements to shuffle.
+// While there remain elements to shuffle.
     while (currentIndex != 0) {
       // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      // And swap it with the current element.
+// And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex],
         array[currentIndex],
@@ -43,19 +43,26 @@ function Quiz({ difficulty, selectedCat }) {
   }
 
   useEffect(() => {
-    async function fetchAllData() {
-      let res = await fetch(
-        `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
-      );
 
-      let data = await res.json();
-      setFetchedData(data.results);
-      let correctAnswer = data.results[nextQuestion].correct_answer;
-      let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
-      setAllAnswers([correctAnswer, ...incorrectAnswers]);
-    }
-    fetchAllData();
-
+    
+      async function fetchAllData() {
+      
+     
+        let res = await fetch(
+          `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
+        );
+  
+        let data = await res.json();
+      
+        setFetchedData(data.results);
+        let correctAnswer = data.results[nextQuestion].correct_answer;
+        let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
+        setAllAnswers([correctAnswer, ...incorrectAnswers]);
+        
+      }
+      fetchAllData();
+    
+       
   }, [nextQuestion]);
 
 

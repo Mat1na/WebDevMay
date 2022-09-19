@@ -17,16 +17,6 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
     fetchAllCategories();
   }, []);
 
-
-// function startBtn() {  
-//   console.log(typeof selectedCat,typeof difficulty,"optionsssss")
-
-//   if((typeof selectedCat) !=='string' || (typeof difficulty) !=='string' ){
-//       alert('You need to pick options')
-//   }
-// }
-
-
   return (
     <div className="d-flex justify-content-center align-items-center m-5">
       <Row className="w-50 d-flex justify-content-center m-5">
@@ -42,7 +32,7 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
                 Choose an option
               </option>
               {console.log(allCategories)}
-
+              {console.log(selectedCat)}
               {allCategories.map((cat) => (
                 <option key={cat.id} value={cat.id} >
                   {cat.name}
@@ -55,11 +45,7 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
             <Form.Label>Choose Difficulty</Form.Label>
             <Form.Select
               defaultValue={"default"} 
-              onChange={(e) => setDifficulty(e.target.value)}
-            >
-              {/* {fetchedData.map((level)=>
-                    <option>{level.difficulty}</option>
-                    )} */}
+              onChange={(e) => setDifficulty(e.target.value)}>
               <option value={"default"} disabled>
                 Choose an option
               </option>
