@@ -30,23 +30,23 @@ fs.rm('company.txt',(err)=>{
 })
 
 // unlink method
-// fs.unlink('tutorial-1.txt',(err)=>{
-//     console.log('file is deleted')
-// })
+fs.unlink('tutorial-1.txt',(err)=>{
+    console.log('file is deleted')
+})
 
 // delete a folder
-// fs.rmdir('./test',(err)=>{
-//     console.log('folder is deleted')
-// })
+fs.rmdir('./test',(err)=>{
+    console.log('folder is deleted')
+})
 
-// fs.rmdir('./',{
-//     recursive:true,
-//     force:true
-// },(err)=>{
-//     console.log('folder is deleted')
-// })
+fs.rmdir('./',{
+    recursive:true,
+    force:true
+},(err)=>{
+    console.log('folder is deleted')
+})
 
 // exists method
-// fs.exists('./movies.txt',(result)=>{
-//     console.log(result?'file exists':'file doesnt exist')
-// })
+fs.exists('./movies.txt',(result)=>{
+    console.log(result?'file exists':'file doesnt exist')
+})
