@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 main().catch((err) => console.log(err));
 //https://mongoosejs.com/docs/index.html
 
+//mongodb+srv://admin:<password>@cluster0.z7q9oo4.mongodb.net/?retryWrites=true&w=majority
+
 async function main() {
   await mongoose.connect("mongodb://localhost:27017/myMongoDB", (err) => {
     if (err) {
