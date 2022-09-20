@@ -6,14 +6,17 @@ import Results from "./results";
 
 // https://opentdb.com/api_category.php
 
-function Quiz({ difficulty, selectedCat,fetchedData,nextQuestion, setNextQuestion, allAnswers}) {
-  // const [fetchedData, setFetchedData] = useState([]);
-  // const [allAnswers, setAllAnswers] = useState([]);
-  // const [nextQuestion, setNextQuestion] = useState(0);
+function Quiz({ difficulty, selectedCat}) {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [allAnswers, setAllAnswers] = useState([]);
+  const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [correct, setcorrect] = useState([]);
+  // const [correct, setcorrect] = useState([]);
   const [user, setUser] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
+
 
   const formRef = useRef();
 // decode function
@@ -42,39 +45,50 @@ function Quiz({ difficulty, selectedCat,fetchedData,nextQuestion, setNextQuestio
     return array;
   }
 
-  // useEffect(() => {
+
+  
+
+
+  useEffect(() => {
 
     
-  //     async function fetchAllData() {
+      async function fetchAllData() {
       
      
-  //       let res = await fetch(
-  //         `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
-  //       );
+        let res = await fetch(
+          `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
+        );
   
-  //       let data = await res.json();
-      
-  //       setFetchedData(data.results);
-  //       let correctAnswer = data.results[nextQuestion].correct_answer;
-  //       let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
-  //       setAllAnswers([correctAnswer, ...incorrectAnswers]);
+        let data = await res.json();
         
-  //     }
-  //     fetchAllData();
-    
+        
+        setFetchedData(data.results);
+        let Correct =  fetchedData[nextQuestion].correct_answer
        
-  // }, [nextQuestion]);
+        let Incorrect= fetchedData[nextQuestion].incorrect_answers
+        // let correctAnswer = fetchedData[nextQuestion].correct_answer;
+        // let incorrectAnswers = fetchedData[nextQuestion].incorrect_answers;
+       
+        setCorrectAnswers(Correct)
+        setIncorrectAnswers(Incorrect)
+        
+        setAllAnswers([correctAnswers, ...incorrectAnswers]);  
+      }
+      fetchAllData();
+      
+  }, [nextQuestion]);
 
+ 
     
-                    
-     
-  
   function nextBtn() {
-   
+    
+    
+    // setAllAnswers([correctAnswers, ...incorrectAnswers]);
     setUser(user => [...user, formRef.current.elements["user_answer"].value])
-    setcorrect(correct => [...correct, b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
+  
+    
     setAllQuestions(allQuestions => [...allQuestions, b64_to_utf8(fetchedData[nextQuestion].question)])
-    ///console.log(fetchedData.length-1 !== nextQuestion)
+    console.log(fetchedData.length-1 !== nextQuestion)
     if (fetchedData.length - 1 !== nextQuestion) {
       setNextQuestion(nextQuestion + 1);
 
@@ -108,6 +122,8 @@ function Quiz({ difficulty, selectedCat,fetchedData,nextQuestion, setNextQuestio
         <Card style={{ backgroundColor: "white", width: "auto" }}>
           <Card.Body>
             {console.log(fetchedData)}
+            {console.log(score)}
+          
             {fetchedData.length > 0 ? (
               <>
                 {fetchedData[nextQuestion] !== undefined &&
@@ -148,7 +164,7 @@ function Quiz({ difficulty, selectedCat,fetchedData,nextQuestion, setNextQuestio
 
                   </>
                 ) : (
-                  <Results score={score} user={user} correct={correct} allQuestions={allQuestions} />
+                  <Results score={score} user={user}  allQuestions={allQuestions} />
 
                 )}
 

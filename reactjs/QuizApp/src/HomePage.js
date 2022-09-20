@@ -2,20 +2,24 @@ import React, { useEffect, useState, useRef } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty ,fetchedData,fetchAllData}) {
+function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
   const [allCategories, setAllCategories] = useState([]);
   const formRef = useRef();
-
+  
+ 
   useEffect(() => {
     async function fetchAllCategories() {
       let res = await fetch("https://opentdb.com/api_category.php");
       let data = await res.json();
       setAllCategories(data.trivia_categories);
       // let cat=fetchedData.map((cat)=>cat.category)
+              
     }
-
+    
     fetchAllCategories();
   }, []);
+
+ 
 
   return (
     <div className="d-flex justify-content-center align-items-center m-5">
@@ -62,7 +66,7 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty ,fetche
         (typeof selectedCat) !=='string' || (typeof difficulty) !=='string'?
         <p className='text-center p-4 '>Choose your options first !!!</p>
         :
-        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-light btn-outline-light" onClick={fetchAllData}>Start Quiz</Link>
+        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-light btn-outline-light" >Start Quiz</Link>
        }
       </Row>
     </div>

@@ -9,9 +9,9 @@ import "./style/style.css";
 function App() {
   const [selectedCat, setSelectedCat] = useState([]);
   const [difficulty, setDifficulty] = useState([]);
-  const [fetchedData, setFetchedData] = useState([]);
-  const [nextQuestion, setNextQuestion] = useState(0);
-  const [allAnswers, setAllAnswers] = useState([]);
+ 
+
+ 
 
   async function fetchAllData() {
     let res = await fetch(
@@ -20,12 +20,16 @@ function App() {
 
     let data = await res.json();
 
-    setFetchedData(data.results);
-    let correctAnswer = fetchedData[0].correct_answer;
-    let incorrectAnswers = fetchedData[0].incorrect_answers;
-    setAllAnswers([correctAnswer, ...incorrectAnswers]);
+    
+  
   }
-  fetchAllData();
+ 
+  // function Answers ()
+  // {
+   
+  
+  
+  //   }
 
   return (
     <BrowserRouter>
@@ -41,8 +45,8 @@ function App() {
                 setSelectedCat={setSelectedCat}
                 selectedCat={selectedCat}
                 difficulty={difficulty}
-                fetchedData={fetchedData}
-                fetchAllData={fetchAllData}
+                               fetchAllData={fetchAllData}
+              
               />
             }
           />
@@ -52,10 +56,7 @@ function App() {
               <Quiz
                 difficulty={difficulty}
                 selectedCat={selectedCat}
-                fetchedData={fetchedData}
-                nextQuestion={nextQuestion}
-                setNextQuestion={setNextQuestion}
-                allAnswers={allAnswers}
+           
               />
             }
           />
