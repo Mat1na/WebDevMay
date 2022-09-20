@@ -6,10 +6,10 @@ import Results from "./results";
 
 // https://opentdb.com/api_category.php
 
-function Quiz({ difficulty, selectedCat }) {
-  const [fetchedData, setFetchedData] = useState([]);
-  const [allAswers, setAllAnswers] = useState([]);
-  const [nextQuestion, setNextQuestion] = useState(0);
+function Quiz({ difficulty, selectedCat,fetchedData,nextQuestion, setNextQuestion, allAnswers}) {
+  // const [fetchedData, setFetchedData] = useState([]);
+  // const [allAnswers, setAllAnswers] = useState([]);
+  // const [nextQuestion, setNextQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [correct, setcorrect] = useState([]);
   const [user, setUser] = useState([]);
@@ -42,35 +42,35 @@ function Quiz({ difficulty, selectedCat }) {
     return array;
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
     
-      async function fetchAllData() {
+  //     async function fetchAllData() {
       
      
-        let res = await fetch(
-          `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
-        );
+  //       let res = await fetch(
+  //         `https://opentdb.com/api.php?amount=10&category=${selectedCat}&difficulty=${difficulty}&encode=base64`
+  //       );
   
-        let data = await res.json();
+  //       let data = await res.json();
       
-        setFetchedData(data.results);
-        let correctAnswer = data.results[nextQuestion].correct_answer;
-        let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
-        setAllAnswers([correctAnswer, ...incorrectAnswers]);
+  //       setFetchedData(data.results);
+  //       let correctAnswer = data.results[nextQuestion].correct_answer;
+  //       let incorrectAnswers = data.results[nextQuestion].incorrect_answers;
+  //       setAllAnswers([correctAnswer, ...incorrectAnswers]);
         
-      }
-      fetchAllData();
+  //     }
+  //     fetchAllData();
     
        
-  }, [nextQuestion]);
+  // }, [nextQuestion]);
 
-
-
-
-
-
+    
+                    
+     
+  
   function nextBtn() {
+   
     setUser(user => [...user, formRef.current.elements["user_answer"].value])
     setcorrect(correct => [...correct, b64_to_utf8(fetchedData[nextQuestion].correct_answer)])
     setAllQuestions(allQuestions => [...allQuestions, b64_to_utf8(fetchedData[nextQuestion].question)])
@@ -107,6 +107,7 @@ function Quiz({ difficulty, selectedCat }) {
       <Row className=" form m-5 d-flex justify-content-center  align-items-center ">
         <Card style={{ backgroundColor: "white", width: "auto" }}>
           <Card.Body>
+            {console.log(fetchedData)}
             {fetchedData.length > 0 ? (
               <>
                 {fetchedData[nextQuestion] !== undefined &&
@@ -116,7 +117,7 @@ function Quiz({ difficulty, selectedCat }) {
                     <Form ref={formRef}>
 
                       <div className="mb-3">
-                        {shuffle(allAswers).map((option) => (
+                        {shuffle(allAnswers).map((option) => (
                           <Form.Check
                             label={b64_to_utf8(option)}
                             name="user_answer"

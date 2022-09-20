@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
+function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty ,fetchedData,fetchAllData}) {
   const [allCategories, setAllCategories] = useState([]);
   const formRef = useRef();
 
@@ -48,6 +48,7 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
               onChange={(e) => setDifficulty(e.target.value)}>
               <option value={"default"} disabled>
                 Choose an option
+                {console.log(difficulty)}
               </option>
               <option value="easy" >Easy</option>
               <option value="medium" >Medium</option>
@@ -61,7 +62,7 @@ function HomePage({ setDifficulty, setSelectedCat,selectedCat,difficulty }) {
         (typeof selectedCat) !=='string' || (typeof difficulty) !=='string'?
         <p className='text-center p-4 '>Choose your options first !!!</p>
         :
-        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-light btn-outline-light">Start Quiz</Link>
+        <Link md={12} to="/Quiz" className="p-2 m-3 btnHome btn btn-light btn-outline-light" onClick={fetchAllData}>Start Quiz</Link>
        }
       </Row>
     </div>
