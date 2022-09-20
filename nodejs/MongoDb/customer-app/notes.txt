@@ -1,0 +1,5 @@
+step1 : npm init -y
+step2 : npm install mongoose --save
+step3 : create a database in mongodb
+step4 : make db connection in nodejs {mongodb://localhost:27017/yourDB_Name}
+link: https://mongoosejs.com/docs/
