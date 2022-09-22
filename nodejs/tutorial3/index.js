@@ -24,22 +24,24 @@ const fs=require ('fs')
 //     })
 // })
 
-delete file 
-fs.rm('company.txt',(err)=>{
-    console.log('file is deleted')
-})
+// delete file 
+// fs.rm('company.txt',(err)=>{
+//     console.log('file is deleted')
+// })
 
-// unlink method
-fs.unlink('tutorial-1.txt',(err)=>{
-    console.log('file is deleted')
-})
+// // unlink method also to delete file
+// fs.unlink('tutorial-1.txt',(err)=>{
+//     console.log('file is deleted')
+// })
 
-// delete a folder
-fs.rmdir('./test',(err)=>{
-    console.log('folder is deleted')
-})
+// // delete a folder
+// fs.rmdir('./test',(err)=>{
+//     console.log('folder is deleted')
+// })
 
-fs.rmdir('./',{
+// delete a folder with subfolder
+
+fs.rmdir('./test1',{
     recursive:true,
     force:true
 },(err)=>{
