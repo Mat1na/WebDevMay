@@ -19,10 +19,15 @@ async function main() {
 
 // create your schema here!
 const budgetSchema = new mongoose.Schema({
-title:String,
-description:String,
-value:Number
-});
+  username: String,
+  expenses:{
+      type:Array,
+  },
+  income:{
+      type:Array,
+  },
+  balance:Number
+})
 
 // 2. compile schema to model
 const Budget = mongoose.model("budget", budgetSchema);
