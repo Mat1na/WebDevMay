@@ -93,7 +93,7 @@ function Menu() {
 
 
   prompt.get(["option"], (err, result) => {
-    if (err){return onerror(err)}
+    if (err){return onErr(err)}
     switch (result.option) {
       case "1":
         // console.log('Add Customer')
@@ -118,4 +118,25 @@ function Menu() {
   });
 }
 
-Menu();
+(() => {
+  console.log('\x1b[33m%s\x1b[0m', 'Login with your username')
+  prompt.get(['username'], function (err, result) {
+     
+      Budget.find({ username: result.username }, function (err, docs) {
+      
+          if (docs.length == 0) {
+              console.log('user not found, creating new user and logging in...')
+              BudgetModel.create({ username: result.username, expenses: [], income: [], balance: 0 }, function (err, small) {
+                  if (err) return console.error(err);
+                  setTimeout(() => {
+                      Menu(result.username)
+                  }, 2000)
+              })
+
+          } else {
+              Menu(result.username)
+          }
+      })
+  });
+  // Menu()
+})()
