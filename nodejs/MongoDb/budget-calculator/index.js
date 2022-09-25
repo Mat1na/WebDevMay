@@ -34,54 +34,44 @@ const Budget = mongoose.model("budget", budgetSchema);
 
 prompt.start();
 
-function AddBudget() {
-  prompt.get(["title", "description","value"], (err, budget) => {
-    console.log(budget);
-
-    const budgetObj = new Budget(budget);
-    budgetObj.save()
-    .then((data) => console.log(data,"Budget is saved!"));
-  });
+function  AddIncome() {
+ prompt.get(["income","category"], (err,result)=>{
+  if (err){return console.error(err)}
+ Budget.findOneAndUpdate({username:username},{$push:{amount:result.income, category:result.category}}
+  .then(()=>{
+    console.log("income added")
+  })
+  .finally(()=>{
+    setTimeout(()=>Menu(username),3000)
+  }))
+ })
 }
 
-function UpdateBudget() {
-  prompt.get(["title", "description","value"], (err, budget) => {
-    console.log(budget);
-    Customer.updateOne({ incom: incom }, { $set: budget })
-      .then((response) => console.log(response))
-      .finally(() => {
-        console.log("To return menu press 0");
-        prompt.get(["return"], (err, answer) => {
-          if (answer.return === "0") {
-            console.clear();
-            Menu();
-          }
-        });
-      });
-    console.log(incom);
-    //    console.log(clean(customer))
-  });
-}
-
-function GetAllBudgets() {
-  Budget.find({})
-    .then((data) => {
-      data.forEach((budget) => {
-        console.table({
-        
-                    
-        });
-      });
+function  AddExpences() {
+  prompt.get(["expense","category"], (err,result)=>{
+    if (err){return console.error(err)}
+   Budget.findOneAndUpdate({username:username},{$push:{amount:result.expense, category:result.category}}
+    .then(()=>{
+      console.log("expense added")
     })
-    .finally(() => {
-      console.log("To return menu press 0");
-      prompt.get(["return"], (err, answer) => {
-        if (answer.return === "0") {
-          console.clear();
-          Menu();
-        }
-      });
-    });
+    .finally(()=>{
+      setTimeout(()=>Menu(username),3000)
+    }))
+   })
+
+}
+
+function ShowBalance() {
+  Budget.findOne({username:username})
+  .then(response=>{
+    let income = response.income.reduce((acc,curr)=>parseInt(acc)+parseInt(curr.amount),0) //accumulator ,currentValue
+    let expenses = response.expenses.reduce((acc,curr)=>parseInt(acc)+parseInt(curr.amount),0)
+    console.log('income:',Math.floor(income), income)
+    console.log('expenses:',Math.floor(expenses))
+    console.log('balance:',Math.floor(income-expenses))
+    
+  })
+  
 }
 
 function Menu() {
@@ -94,28 +84,35 @@ function Menu() {
 ─▄▄▄▀──▀▄───▄▄▄▀──▀▄
 ─▀───────▀▀─▀───────▀▀`
   );
-  console.log(`1. Add Budget\n2. Update Budget\n3. Exit`);
-  prompt.get(["option"], (err, opt) => {
-    switch (opt.option) {
+  console.log('\x1b[33m%s\x1b[0m', `${username} logged in, welcome to your budget app`)
+  console.log('\x1b[1m', `Please choose one of the following options:`)
+  console.log('\x1b[31m', `1. Add income`)
+  console.log('\x1b[31m', `2. Add expenses`)
+  console.log('\x1b[31m', `3. Show balance`)
+  console.log('\x1b[31m', `4. Exit`)
+
+
+  prompt.get(["option"], (err, result) => {
+    if (err){return onerror(err)}
+    switch (result.option) {
       case "1":
         // console.log('Add Customer')
-        AddBudget();
+        AddIncome();
         break;
-      case "2":
-        UpdateBudget();
 
+      case "2":
+        AddExpences();
         break;
 
       case "3":
-        GetAllBudgets();
-
+        ShowBalance();
         break;
 
       case "4":
-        console.log("Exit");
-        process.exit();
+        console.log('\x1b[33m%s\x1b[0m', `Thank you for using our app!`)
+        // process.exit();
       default:
-        console.log("Invalid Option");
+        console.log('\x1b[31m', `Please choose a valid option!`)
         Menu();
     }
   });
