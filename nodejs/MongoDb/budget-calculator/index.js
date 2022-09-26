@@ -142,7 +142,7 @@ function Menu(username) {
         console.log("user not found, creating new user and logging in...");
         Budget.create(
           { username: result.username, expenses: [], income: [], balance: 0 },
-          function (err, small) {
+          function (err) {
             if (err) return console.error(err);
             setTimeout(() => {
               Menu(result.username);
