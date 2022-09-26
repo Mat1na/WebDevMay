@@ -15,6 +15,13 @@ app.use(
   })
 );
 
+//check if token exist
+function isTokenExist(req,res,next){
+    console.log(req.headers.authorization.split(' ')[1]) //for bearer token in insomnia Auth
+    // console.log(req.headers['x-access-token']) //x-access-token in header give the token in value
+    next()
+}
+
 // middleware
 function isUserLogged(req,res,next){
     const {username} = req.query
@@ -28,7 +35,7 @@ function isUserLogged(req,res,next){
 }
 
 //get request
-app.get("/", (req, res) => {
+app.get("/",isTokenExist, (req, res) => {
   res.json({
     id: 1,
     title: "lorem ipsum",
