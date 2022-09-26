@@ -15,29 +15,16 @@ app.use(
   })
 );
 
-//midleware
-function isUserLogged(req, res, next) {
-  const { username } = req.query;
-
-  if (username === "admin") {
-    res.json({
-      username: username,
-
-      msg: "success",
-
-      //http://localhost:8080/?username=admin
-    });
-  } else {
-    res.json({
-      msg: "fail",
-
-      //http://localhost:8080/?username=asd
-    });
-  }
-
-  //next allow to continue
-
-  next();
+// middleware
+function isUserLogged(req,res,next){
+    const {username} = req.query
+    if(username!=='admin'){
+        res.status(401).send('Unauthorized')
+    }else{
+        next()
+    }
+    
+    
 }
 
 //get request
