@@ -85,12 +85,12 @@ function ShowBalance() {
     console.log("balance:", Math.floor(income - expenses));
   });
 }
-
+// ascii art
 function Menu(username) {
   console.log(
     "\x1b[33m%s\x1b[0m",
-    `
-────██──────▀▀▀██ Budget app v.1.0
+    `:
+────██──────▀▀▀██ Budget app v.1.0 
 ──▄▀█▄▄▄─────▄▀█▄▄▄
 ▄▀──█▄▄──────█─█▄▄
 ─▄▄▄▀──▀▄───▄▄▄▀──▀▄
