@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-
+require('dotenv').config()
+const {home,todos,savetodo}= require('./controler')
 //db connection
 // mongodb://localhost:27017/myDatabase
 mongoose.connect('mongodb://localhost:27017/todos',(err)=>{
@@ -23,9 +24,7 @@ const Todo=mongoose.model('Todos', todoSchema)
 app.use(express.json())
 
 //get request
-app.get("/", (req, res) => {
-    res.send(" restfulAPIv1.0");
-  });
+app.get("/", home);
 
 
 
@@ -85,32 +84,10 @@ app.get("/", (req, res) => {
 //         })}
 //   });
 
+
   //Find by several keywords
+  app.get('/todos',todos)
 
-  app.get('/todos', (req, res) => {
-    console.log(req.query.username)
-    if (req.query.title !== undefined && req.query.user !== undefined) {
-        Todo.find({ title: { $regex: req.query.title }, user: req.query.user })
-            .then(results => {
-                res.json({
-                    message: 'title and user',
-                    todos: results
-                })
-            })
-    } else if (req.query.title !== undefined) {
-        Todo.find({ title: { $regex: req.query.title } })
-            .then(results => {
-                res.json({
-                    message: 'title',
-                    todos: results
-                })
-            })
-
-    } else {
-        Todo.find({})
-            .then(todos => res.json({ message: 'ok', todos: todos }))
-    }
-})
 
   //post save a todo
   app.post('/todo',(req,res)=>{
@@ -125,6 +102,8 @@ app.get("/", (req, res) => {
         })
   
   })
+
+
 
   //http://localhost:8080/todo/6332b40440c7e3dd88d1a7a4
   //6332b10e220c443990d091ff
@@ -141,6 +120,10 @@ app.get("/", (req, res) => {
     })
   })
 
+
+
+
+//delete
   app.delete('/todo/:id', (req,res)=>{
     const {id}=req.params //get id
     Todo.findByIdAndDelete(id)
@@ -152,6 +135,8 @@ app.get("/", (req, res) => {
     })
   })
 
+
+
   //for all requests not found
   app.all('*',(req,res)=>{
     res.json({
@@ -161,11 +146,5 @@ app.get("/", (req, res) => {
   })
 
 
-
-
-
-
-
-
-  //set listen port
-app.listen(8080,()=>{  console.log('Server started on port 8080');})
+ //set listen port
+  app.listen(process.env.PORT)
