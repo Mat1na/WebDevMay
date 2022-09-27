@@ -1,24 +1,35 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Todo = require("./model")
 const app = express();
 require('dotenv').config()
 const {home,todos,savetodo}= require('./controler')
+const cors=require('cors')
+app.use(express.json())
+app.use(cors(
+//     { //cors comfigurations domain name dns
+//     origin:'http://dns.com'
+// }
+))
+
+
+
 //db connection
 // mongodb://localhost:27017/myDatabase
 mongoose.connect('mongodb://localhost:27017/todos',(err)=>{
     console.log('connected to db')
 })
 
-//create post schema
-const todoSchema=mongoose.Schema({
-    user:String,
-    id:Number,
-    title:String,
-    completed:Boolean
-})
+// //create post schema
+// const todoSchema=mongoose.Schema({
+//     user:String,
+//     id:Number,
+//     title:String,
+//     completed:Boolean
+// })
 
-//compile to model
-const Todo=mongoose.model('Todos', todoSchema)
+// //compile to model
+// const Todo=mongoose.model('Todos', todoSchema)
 
 //use  middleware
 app.use(express.json())
@@ -59,7 +70,7 @@ app.get("/", home);
 //     else{res.send("use?title=keyword")}
 //   });
 
-//*****Find by keyword second way*****
+//*****Find by keyword second way
 // app.get("/todos", (req, res) => {
 //     if(req.query.title!==undefined){
 
@@ -89,7 +100,18 @@ app.get("/", home);
 
 
   //post save a todo
-  app.post('/todo',savetodo)
+  app.post('/todo',(req,res)=>{
+    const {user,id,title,completed}=req.body
+    const todo= new Todo({user,id,title,completed})
+    todo.save()
+        .then(answer=>{
+            res.json({
+                message:'saved',
+                data:answer  
+            })
+        })
+  
+  })
 
 
 
