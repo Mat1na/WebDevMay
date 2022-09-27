@@ -89,18 +89,7 @@ app.get("/", home);
 
 
   //post save a todo
-  app.post('/todo',(req,res)=>{
-    const {user,id,title,completed}=req.body
-    const todo= new Todo({user,id,title,completed})
-    todo.save()
-        .then(answer=>{
-            res.json({
-                message:'saved',
-                data:answer  
-            })
-        })
-  
-  })
+  app.post('/todo',savetodo)
 
 
 

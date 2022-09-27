@@ -26,5 +26,18 @@ todos:function  (req, res)  {
         Todo.find({})
             .then(todos => res.json({ message: 'ok', todos: todos }))
     }
-}
+},
+savetodo: function(req,res){
+    const {user,id,title,completed}=req.body
+    const todo= new Todo({user,id,title,completed})
+    todo.save()
+        .then(answer=>{
+            res.json({
+                message:'saved',
+                data:answer  
+            })
+        })
+  
+  }
+
 }
