@@ -3,7 +3,7 @@ import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { BsTrash} from 'react-icons/bs';
 
 function Hompage({todos, setTodos}) {
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState({});
 
   const fetchTodos = async () => {
     let res = await fetch(
@@ -12,7 +12,7 @@ function Hompage({todos, setTodos}) {
     let data = await res.json();
     if(res.ok){
 
-        setTodos(data);
+        setTodos(data.todos);
     }
     
   };
