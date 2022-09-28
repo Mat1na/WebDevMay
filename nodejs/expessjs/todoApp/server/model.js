@@ -9,6 +9,6 @@ const todoSchema=mongoose.Schema({
 })
 
 //compile to model
-const Todo=mongoose.model('Todos', todoSchema)
+const Todo=mongoose.model('Todosapp', todoSchema)
 
 module.exports = Todo

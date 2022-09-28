@@ -16,9 +16,7 @@ app.use(cors(
 
 //db connection
 // mongodb://localhost:27017/myDatabase
-mongoose.connect('mongodb://localhost:27017/todos',(err)=>{
-    console.log('connected to db')
-})
+mongoose.connect(process.env.MONGO_URI, (err) => console.log("connected"))
 
 // //create post schema
 // const todoSchema=mongoose.Schema({

@@ -1,7 +1,9 @@
 const Todo = require("./model")
+
 module.exports={
+
 home:function(req, res) {
-    res.send("Welcome restfulAPIv1.0");
+    res.send("Welcome todoapp restfulAPIv2.0");
   },
 
 todos:function  (req, res)  {
