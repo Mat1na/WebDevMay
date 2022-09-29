@@ -33,7 +33,6 @@ function Hompage({ todos, setTodos }) {
   const handleAddBtn = (e) => {
     e.preventDefault();
     const todo = { title, completed, user, id, _id };
-    console.log(todo);
     fetch("http://localhost:8080/todo", {
       method: "POST",
       headers: {
