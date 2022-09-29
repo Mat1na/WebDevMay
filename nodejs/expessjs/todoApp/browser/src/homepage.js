@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { BsTrash } from 'react-icons/bs';
+import { useTodoContext } from './context/TodoContext'
 
 
 function Hompage({ todos, setTodos }) {
-  const [todo, setTodo] = useState({});
+  const [todo, setTodo] = useState("");
+  const [user, setUser]=useState("mike")
+  const [id, setId]=useState(1)
+  const [_id, set_Id]=useState("")
   const [title, setTitle] = useState("")
   const [completed, setCompleted] = useState(false)
 
@@ -37,24 +41,28 @@ function Hompage({ todos, setTodos }) {
   const handleAddBtn = (e) => {
     
     e.preventDefault()
-   
+    setTodo("")
 
-    const todo = { title, completed }
+    const todo = { title, completed ,user, id,_id}
     const res = async () => {
-      await fetch('http://localhost:8080/todos', {
+      await fetch('http://localhost:8080/todo', {
         method: 'POST',
         body: JSON.stringify(todo),
         headers: {
           'content-type': 'aplication/json'
         }
       })
-      const data = await res.json()
+      .catch(error => {
+        window.alert(error);
+        return;
+      });
+      // const data = await res.json()
       // setTodos([...todos, todo]);
-      // console.log("You added ", todo);
+      
       
     }
     setTodos([...todos, todo]);
-    
+    console.log("You added ", todo);
   }
 
   const handleDeleteBtn = () => {
