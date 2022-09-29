@@ -4,7 +4,7 @@ import { BsTrash } from 'react-icons/bs';
 
 
 function Hompage({ todos, setTodos }) {
-  const [todo, setTodo] = useState(" ");
+  const [todo, setTodo] = useState({});
   const [title, setTitle] = useState("")
   const [completed, setCompleted] = useState(false)
 
@@ -30,13 +30,14 @@ function Hompage({ todos, setTodos }) {
 
   const handleInput = (e) => {
     setTodo(e.target.value);
+    setTitle(e.target.value)
 
   };
 
   const handleAddBtn = (e) => {
-    console.log("You added ", todo);
+    
     e.preventDefault()
-
+   
 
     const todo = { title, completed }
     const res = async () => {
@@ -48,8 +49,12 @@ function Hompage({ todos, setTodos }) {
         }
       })
       const data = await res.json()
-      setTodos([...todos, todo]);
+      // setTodos([...todos, todo]);
+      // console.log("You added ", todo);
+      
     }
+    setTodos([...todos, todo]);
+    
   }
 
   const handleDeleteBtn = () => {

@@ -11,6 +11,8 @@ const server=express()
 // use middlewares
 server.use(cors())
 server.use(express.json())
+server.use('/uploads',express.static('./uploads'))
+//http://localhost:4000/uploads/vaillant-logo-272x72-1888261.png  (filename)
 
 server.get('/', (request, response) => {
     response.json({
@@ -23,9 +25,21 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => cb(null, file.originalname)
 })
 
-const uploader = multer({ storage })
+const uploader = multer({ 
+    storage,
+    fileFilter:(req, file, callback)=>{
+        console.log(file.mimetype)
+        let images='/jpeg|jpeg|png|gif'
+        let isValidImg= file.mimetype.match(images)
+        if(file.mimetype==='application/pdf'||isValidImg){
+            callback(null,true)
+        }else{
+            callback(new Error('not allowed'))
+        }
+    }
+ })
 
-server.post('/',uploader.single('avatar'),(request, response) => {
+server.post('/',uploader.single('document'),(request, response) => {
     console.log(request.file.path) // display file location out
     response.json({
         msg: 'ok'
