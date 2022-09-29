@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 
 const uploader = multer({ storage })
 
-server.post('/',uploader.single('document'),(request, response) => {
+server.post('/',uploader.single('avatar'),(request, response) => {
     console.log(request.file.path) // display file location out
     response.json({
         msg: 'ok'
