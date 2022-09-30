@@ -25,15 +25,19 @@ function Hompage({ todos, setTodos }) {
     fetchTodos();
   }, []);
 
+  //Handle input
   const handleInput = (e) => {
     setTodo(e.target.value);
     setTitle(e.target.value);
   };
 
+// Add button
   const handleAddBtn = (e) => {
     e.preventDefault();
+    
     const todo = { title, completed, user, id, _id };
-    fetch("http://localhost:8080/todo", {
+   
+   fetch("http://localhost:8080/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,22 +46,57 @@ function Hompage({ todos, setTodos }) {
     }).catch((error) => {
       window.alert(error);
       return;
-    });
+    }) 
+    
+    setId(id+1)
     setTodos([...todos, todo]);
     console.log("You added ", todo);
     inputRef.current.value = "";
   };
 
-  const handleDeleteBtn = () => {
+  // Delete all button
+  const handleDeleteBtn = (e) => {
+    e.preventDefault();
+    
+  
+todos.map(todo=>fetch("http://localhost:8080/todo/" + todo._id,{
+      method: "DELETE",
+      headers: {
+          'Content-type': 'application/json'
+      }
+  }).catch((error) => {
+    window.alert(error);
+    return;
+  }) 
+  )
     setTodos([]);
+  
     console.log("after delete all", todos);
+    setCompleted(true);
   };
+
+
+  // Delete one button
   const doneBtn = (selectedTodo) => {
     console.log("deleted:", selectedTodo);
+    console.log(selectedTodo._id)
+        const todo = { title, completed, user, id, _id };
+   
+    fetch(`http://localhost:8080/todo/` + selectedTodo._id,{
+      method: "DELETE",
+      headers: {
+          'Content-type': 'application/json'
+      }
+  }).catch((error) => {
+    window.alert(error);
+    return;
+  }) 
+  
     const newTodos = todos.filter((todo) => todo._id !== selectedTodo._id);
     setTodos(newTodos);
     setCompleted(true);
   };
+  
 
   return (
     <>
@@ -65,7 +104,10 @@ function Hompage({ todos, setTodos }) {
         <Col md={12}>
           <h1 className="text-center p-3 m-3">Add your Todos</h1>
         </Col>
-        <Col md={12} className="p-5 m-5 list text-align-center">
+        
+        <Col md={12} className="p-5 m-5 list text-align-center ">
+        <Row className="justify-content-center ">
+          <Col xs={8}>
           <InputGroup className="mb-3">
             <Form.Control
               onChange={handleInput}
@@ -74,10 +116,19 @@ function Hompage({ todos, setTodos }) {
               aria-describedby="basic-addon1"
               ref={inputRef}
             />
-            <Button onClick={handleAddBtn}>Add ToDo</Button>
-            {console.log(todos)}
+          
           </InputGroup>
+          </Col >
+          <Col xs={4}>
+         <Button onClick={handleAddBtn} className="m-2">Add ToDo</Button>
+        
+         
+            {console.log(todos)
+            }
+            </Col>
+         
           <hr />
+          </Row>
           <ul>
             {todos &&
               todos.map((todo) => (

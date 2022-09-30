@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Todo = require("./model")
 const app = express();
 require('dotenv').config()
-const { home, todos, savetodo } = require('./controler')
+const { home, todos, dltone } = require('./controler')
 const cors = require('cors')
 app.use(express.json())
 app.use(cors())
@@ -40,7 +40,7 @@ app.post('/todo', (req, res) => {
 
 })
 
-app.put('/todo/:id', (req, res) => {
+app.put('/todo/:_id', (req, res) => {
   const { id } = req.params //get id
   Todo.findByIdAndUpdate(id, req.body)
     .then(result => {
@@ -55,16 +55,7 @@ app.put('/todo/:id', (req, res) => {
 
 
 //delete
-app.delete('/todo/:id', (req, res) => {
-  const { id } = req.params //get id
-  Todo.findByIdAndDelete(id)
-    .then(result => {
-      res.json({
-        message: 'deleted',
-        data: result
-      })
-    })
-})
+app.delete('/todo/:_id',dltone)
 
 
 
