@@ -1,158 +1,157 @@
-//import modules
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-require("dotenv").config();
+// import modules
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs') // bcryptjs module - npm i bcryptjs --save
+require('dotenv').config()
 
-mongoose.connect("mongodb://localhost:27017/users", (err) => {
-  console.log("connected to db");
-});
+// import mongoose 
+const mongoose = require('mongoose')
 
-//use middlewares
-app.use(express.json());
-app.use(cors());
+console.log(process.env.DATABASE_URL)
 
-app.get("/", (req, res) => res.send("welkom to protected restful api"));
+// db connection 
+mongoose.connect(process.env.DATABASE_URL, () => console.log('db connected'))
 
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-
-  User.find({ username: username }).then((user) => {
-    console.log(user.length);
-    if (user.length > 0) {
-      if (user[0].password === password) {
-        console.log("correct");
-        jwt.sign(
-          { username: username },
-          process.env.SECRET_KEY,
-          (err, token) => {
-            res.json({
-              msd: ` user ${username} is logged in`,
-              token: token,
-            });
-          }
-        );
-      } else {
-        res.json({
-          msg: "username or password is incorect",
-        });
-      }
-    } else {
-      res.json({
-        msg: "username or password is incorect",
-      });
-    }
-  });
-});
-
-//create post schema
+// user schema
 const userSchema = mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
-  },
-  password: String,
-});
-//compile to model
-const User = mongoose.model("Users", userSchema);
+    username: {
+        type: String,
+        unique:true
 
-app.post("/registration", (req, res) => {
-  console.log(req.body);
-  const { username, password } = req.body;
-  const user = new User({ username, password });
-  user.save()
-    .then((user) => {
-      res.json({
-        message: "user",
-        data: user,
-      });
+    },
+    password: {
+        type: String
+    }
+})
+
+// compile schema to model
+const User = mongoose.model('Users', userSchema)
+
+
+// use middlewares
+app.use(express.json())
+app.use(cors())
+
+
+app.get('/', (req, res) => res.send('Welcome to protected restful api'))
+
+// registration endpoint 
+app.post('/register', (req, res) => {
+    console.log(req.body)
+    const password = bcrypt.hashSync(req.body.password,10) // password is encrypted here
+    // make obj from User model
+    const new_user = new User({
+        username:req.body.username,
+        password:password
+    })
+    new_user.save()
+        .then(user => {
+            res.json({
+                msg: 'User created',
+                data: user
+            })
+        })
+        .catch(err => {
+            if (err) {
+                res.status(403).send('try with another username')
+            }
+        })
+    // User.create({
+    //     username:req.body.username,
+    //     password:req.body.password
+    // })
+})
+
+app.post('/login', (req, res) => {
+    const { username,password } = req.body
+    // jwt.sign({ username }, process.env.JWT_KEY, {
+    //     algorithm: 'HS256',
+    //     expiresIn: '2000s'
+    // }, (err, token) => {
+    //     res.json({
+    //         payload: req.body,
+    //         token: token
+    //     })
+    // })
+    // step1 find username
+    User.find({username:username})
+    .then(user=>{
+        console.log(user.length)
+        if(user.length>0){
+            // user is exist
+            let isPassCorect=bcrypt.compareSync(password, user[0].password)
+            if(isPassCorect){
+                jwt.sign({username:username},process.env.JWT_KEY,(err,token)=>{
+                    res.json({
+                        msg:'User logged in',
+                        token:token
+                    })
+                })
+            }else{
+                res.json({msg:'username or password incorrect'})
+            }
+        }else{
+            res.json({
+                msg:'username or password incorrect'
+            })
+        }
     })
 
-    .catch((error) => {
-      if (error) {
-        res.status(403).send("try another username");
-      }
-    });
-});
+})
 
-// //find user
-// //*****Find by keyword
-// app.get("/users", (req, res) => {
-//     if(req.query.username!==undefined){
-
-//         User.find({username:{$regex:req.query.username}})
-//         .then(users=>{
-//             console.log(users)
-//             res.json({
-//                 message:'found user',
-//                 data:users
-//             })
-//         })
-
-//     }else {
-//         User.find({})
-//             .then(users => res.json({ message: 'ok', users: users }))
-//     }
-
-//   });
-
-// //isTokenvalid middlware function
-// const isTokenvalid = (req, res, next) => {
-//   console.log(req.headers["authorization"]);
-//   const token = req.headers["authorization"];
-//   jwt.verify(token, "secretkey", (err, decoded) => {
-//     if (!err) {
-//       req.user = decoded;
-//       next();
-//     } else {
-//       res.status(403).send("forbidden");
-//     }
-//   });
-// };
-
-//retrive token as bearer
-// const isTokenExist= (req,res,next)=>{
-//     console.log(req.headers['authorization'].split(' ')[1])
-//     const token=req.headers['authorization'].split(' ')[1]
-//     jwt.verify(token, 'secretkey',(err,decoded)=>{
-//         console.log(decoded)
-//         if(decoded!==undefined){
-//             req;user=decoded
+// istokenvalid middleware function
+// const isTokenValid = (req, res, next) => {
+//     console.log(req.headers['authorization'])
+//     const token = req.headers['authorization']
+//     jwt.verify(token, 'verysecretkey', (err, decoded) => {
+//         if (!err) {
+//             req.user = decoded
 //             next()
 //         }else{
-//             res.status(403).send('forbidden')
+//             res.status(403).send('Forbidden')
 //         }
 //     })
 // }
 
-//
+// // retrieve token as bearer
+// const isTokenExist = (req,res,next)=>{
+//     console.log(req.headers['authorization'].split(' ')[1])
+//     const token = req.headers['authorization'].split(' ')[1]
+//     jwt.verify(token,'verysecretkey',(err,decoded)=>{
+//         if(decoded!==undefined){
+//             // http 200 success response
+//             req.user= decoded
+//             next()
+//         }else{
+//             res.status(403).send('Forbidden')
+//         }
+//     })
+// }
 
-//token from url query
+// token from url query
 const isTokenExist = (req, res, next) => {
-  console.log(req.query);
-  const token = req.query.apiKey;
-  jwt.verify(token, "secretkey", (er, decoded) => {
-    if (decoded !== undefined) {
-      req.user = decoded;
-      next();
-    } else {
-      //forbidden
-      res.status(403).send("forbidden");
-    }
-  });
-};
+    console.log(req.query)
+    const token = req.query.apiKey
+    jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
+        if (decoded !== undefined) {
+            req.user = decoded
+            next()
+        } else {
+            // forbidden
+            res.status(403).send('Forbidden')
+        }
+    })
+}
 
-app.get("/profile", isTokenExist, (req, res) => {
-  res.json({
-    id: 1,
-    username: "admin",
-    followers: 100,
-  });
-});
 
-//set listener
-app.listen(3000, () =>
-  console.log("server is running at http://localhost:3000")
-);
+
+app.get('/profile', isTokenExist, (req, res) => {
+  console.log(req.user)
+    res.json(req.user)
+})
+
+// set listener port number
+app.listen(3000, () => console.log('Server is running at http://localhost:3000'))
+

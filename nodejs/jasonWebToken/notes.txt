@@ -3,21 +3,3 @@ npm install bcryptjs express jsonwebtoken cors mongoose --save
 bcrypt > hashing plain text passwords 
 jsonwebtoken> generate unique token for every user session
 
-
-// test and learn bcryptjs
-const bcrypt=require("bcryptjs")
-const user_passwords='abc123'
-
-// hashing plaintext passwords
-bcrypt.hash(user_passwords,10)
-.then(result=>{
-    console.log(`before ${user_passwords}\nafter ${result}`)
-})
-
-// const pasSentbyfront="123123" >false
-const pasSentbyfront="abc123" //>true
-//$2a$10$.zrrEqSh4.cEbyRpgdsym.6LKInLYZwJIjCVeeTO/fmfvZZPO9vga
-bcrypt.compare(pasSentbyfront, "$2a$10$.zrrEqSh4.cEbyRpgdsym.6LKInLYZwJIjCVeeTO/fmfvZZPO9vga")
-.then(result=>{
-    console.log(result)
-})
